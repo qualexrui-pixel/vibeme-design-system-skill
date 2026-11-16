@@ -97,9 +97,6 @@
 
 <!-- GEN:END -->
 
-
-
-
 ## 交互与状态
 
 Avatar 在 Figma 里**没有 `State` 轴**（`defs` 只有 `Size`、`Type`、`initial#56061:34`），所以它没有 hover / pressed / focus 变体，也没有 disabled 或 loading 态。代码因此**不提供任何交互态 prop**，`:hover`、`:active`、`:focus-visible` 一律不写在 `.vm-avatar` 上——它是一块纯展示的圆形底。

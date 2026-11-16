@@ -84,8 +84,6 @@
 
 <!-- GEN:END -->
 
-
-
 ## 交互与状态
 
 `Statistic` 的 3 个变体只有 `Type`（default / up / down）一条轴，**没有 `State` 轴**：

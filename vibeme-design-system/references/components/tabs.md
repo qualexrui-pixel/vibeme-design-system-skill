@@ -73,8 +73,6 @@
 
 <!-- GEN:END -->
 
-
-
 ## 交互与状态
 
 上面生成表里的「代码 prop = `state`」**只是索引里的机械映射，实际实现里没有 `state` 这个 prop**：四档 `State` 按 `foundations.md` §1.5 拆成两类，`default` / `hover` 用 CSS 伪类，`selected` / `disabled` 才是 prop。

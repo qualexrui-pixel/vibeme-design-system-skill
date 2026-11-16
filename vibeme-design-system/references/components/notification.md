@@ -101,8 +101,6 @@
 
 <!-- GEN:END -->
 
-
-
 ## 交互与状态
 
 **Figma 的 `Notification` 没有 `State` 轴**（8 个变体只有 `Type` × `Layout`），所以代码里也**没有** hover / pressed / disabled / loading 之类的 prop，`notification.variants.json` 里每个变体的 `fills`/`strokes` 只有一条 paint、`opacity` 为 1，没有任何状态叠加层。

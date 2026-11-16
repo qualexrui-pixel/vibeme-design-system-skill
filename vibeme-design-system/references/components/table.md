@@ -138,8 +138,6 @@
 
 <!-- GEN:END -->
 
-
-
 ## 交互与状态
 
 `state` 是唯一的应用态 prop，映射 Figma 的 `State`（`default` / `empty` / `loading`）。Table 自身没有

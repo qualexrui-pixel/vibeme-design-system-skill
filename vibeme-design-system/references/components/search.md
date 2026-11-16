@@ -96,9 +96,6 @@
 
 <!-- GEN:END -->
 
-
-
-
 ## 交互与状态
 
 `State` 的四个值分两类：`default` / `hover` / `focus` 是交互态（CSS 伪类，不做 prop），

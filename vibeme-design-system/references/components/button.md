@@ -128,10 +128,6 @@
 
 <!-- GEN:END -->
 
-
-
-
-
 ## 交互与状态
 
 Figma 的 `State` 轴分两类处理：`default` / `hover` / `pressed` 是**交互态，不做 prop**，由 CSS 伪类触发；

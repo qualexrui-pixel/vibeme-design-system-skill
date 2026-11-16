@@ -7,8 +7,8 @@
 .vscode/
 *.swp
 
-# Node
-node_modules/
+# Node（写成不带斜杠的 node_modules，才能同时忽略目录与软链）
+node_modules
 *.log
 
 # Python

@@ -105,8 +105,6 @@
 
 <!-- GEN:END -->
 
-
-
 ## 交互与状态
 
 Figma 的 `Pagination` **没有 `State` 轴**（只有 `Size` × `Type` 两个轴），所以没有 `state` prop；

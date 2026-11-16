@@ -67,8 +67,6 @@
 
 <!-- GEN:END -->
 
-
-
 ## 交互与状态
 
 Skeleton **没有任何交互态**，也不该有。Figma 的属性轴只有 `Type` × `Size`（8 = 4 × 2），没有 hover / focus / disabled / loading 变体，

@@ -68,8 +68,6 @@
 
 <!-- GEN:END -->
 
-
-
 ## 交互与状态
 
 这是一个**只读状态指示器**，不是控件：Figma 的组件集里只有 `State` 一个变体轴，没有 hover / pressed / focus 变体，

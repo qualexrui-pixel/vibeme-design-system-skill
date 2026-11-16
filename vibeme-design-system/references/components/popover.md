@@ -88,8 +88,6 @@
 
 <!-- GEN:END -->
 
-
-
 ## 交互与状态
 
 **Popover 没有 `State` 轴。** Figma 里 4 个变体全部只由 `Placement` 组成，导出的四个变体顶层既没有

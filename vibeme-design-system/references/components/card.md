@@ -80,8 +80,6 @@
 
 <!-- GEN:END -->
 
-
-
 ## 交互与状态
 
 Card 的 `State` 只有 `default` / `hover` 两个值，`hover` 是**交互态**，所以代码里由 CSS `:hover` 触发，**不做成 prop**。事实（见「各变体的事实」）：hover 时底色从 `--vm-bg-card`（`Background/bg-card` #202020）换成 `--vm-surface-hover`（`Background/Surface-hover` #262626），同时描边从 `--vm-border-default`（12% 白）换成 `--vm-white-4`（`White/White-4`，30% 白）。**这是 Card 自己的第三种组合**：既不是 Button 一族的「底色 + `--vm-white-7` 叠加层」，也不是 Input 一族「底色不动、只换描边」，两条都不要往这里套。

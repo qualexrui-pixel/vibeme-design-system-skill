@@ -57,8 +57,6 @@
 
 <!-- GEN:END -->
 
-
-
 ## 交互与状态
 
 Progress 在 Figma 里**没有交互状态**：4 个变体只按 `Value` 分档，没有 `State` 轴，没有 hover / pressed / focus / disabled 变体，

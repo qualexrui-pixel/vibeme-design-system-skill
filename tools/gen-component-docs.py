@@ -346,7 +346,9 @@ def write_doc(comp, toks):
             tail = default_prose(comp, slug)
     else:
         tail = default_prose(comp, slug)
-    path.write_text(facts + tail, encoding="utf-8")
+    # 归一首尾空行：facts 以 "GEN_END\n" 结尾，tail 去掉前导空行后用恰好一个空行拼接。
+    # 这样重复运行不会每次多加一个空行（幂等）。
+    path.write_text(facts + "\n" + tail.lstrip("\n"), encoding="utf-8")
     return path
 
 

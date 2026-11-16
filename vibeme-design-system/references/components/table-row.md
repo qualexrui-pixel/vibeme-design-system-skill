@@ -100,8 +100,6 @@
 
 <!-- GEN:END -->
 
-
-
 ## 交互与状态
 
 `type` 决定行的身份：`header`（Figma 默认变体）底色是 `--vm-bg-panel`（Figma 变量 `Background/bg-panel`，`#1A1A1A`）；

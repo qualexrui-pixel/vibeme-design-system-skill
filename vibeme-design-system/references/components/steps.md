@@ -119,8 +119,6 @@
 
 <!-- GEN:END -->
 
-
-
 ## 交互与状态
 
 Steps 在 Figma 里**没有 `State` 轴**：4 个变体只有 `Type`（horizontal / vertical）× `Current`（1 / 2），

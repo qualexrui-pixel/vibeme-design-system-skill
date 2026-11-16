@@ -84,10 +84,6 @@
 
 <!-- GEN:END -->
 
-
-
-
-
 ## 交互与状态
 
 Figma 的 `State` 轴只有 `default` / `disabled` 两档，**没有** `hover` / `focus` / `pressed` 变体，

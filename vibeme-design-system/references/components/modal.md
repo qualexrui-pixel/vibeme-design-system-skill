@@ -120,9 +120,6 @@
 
 <!-- GEN:END -->
 
-
-
-
 ## 交互与状态
 
 Modal 在 Figma 里**只有 `Size` × `Type` 两条轴，没有 `State` 轴**——所以这里既没有 `state` prop，也没有 hover/focus 变体可以照抄。

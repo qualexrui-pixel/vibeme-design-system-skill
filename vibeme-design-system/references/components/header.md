@@ -88,8 +88,6 @@
 
 <!-- GEN:END -->
 
-
-
 ## 交互与状态
 
 **Header 自己没有交互态，也没有应用态。** Figma 里唯一的属性轴是 `Type`(simple / with-nav / with-search)，

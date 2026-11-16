@@ -18,6 +18,10 @@
   avatar `sm/md/lg` = `Caption/Caption`/`Heading/S`/`Heading/M`、modal 与 drawer 各档文字样式一致；
   switch 与 loading 的这些档位本身**没有 TEXT 节点**（不适用）。受影响的 7 份组件文档事实段已重算。
 - 修正 `data/components-index.json` 里失效的工具名引用（原写 `tools/export-figma.mjs`）。
+- 修正 `tools/gen-component-docs.py` 的**幂等性 bug**：每次重跑会在 `<!-- GEN:END -->` 之后多加一个空行。
+  现在 facts 与人工讲解用恰好一个空行拼接，连跑两次产物完全一致（已实测）。
+- 修正 `.gitignore`：`node_modules/` 只匹配目录、不匹配软链，导致验证用的 `node_modules` 软链被误提交。
+  改为 `node_modules`（同时忽略目录与软链），并从版本控制中移除该软链。
 
 ### 验证
 

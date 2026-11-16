@@ -73,9 +73,6 @@
 
 <!-- GEN:END -->
 
-
-
-
 ## 交互与状态
 
 Loading 在 Figma 里**没有状态轴**：3 个变体只有 `Size`，没有 hover / pressed / focus / error / disabled 变体，
