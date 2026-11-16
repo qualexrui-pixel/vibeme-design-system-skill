@@ -1,0 +1,22 @@
+name: validate
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 生成物是否与 Figma 导出真源一致
+        run: python3 tools/gen-tokens.py --check
+
+      - name: 索引 / 文档 / 代码 / 预览图 / 导出 五处一致性校验
+        run: python3 tools/validate.py

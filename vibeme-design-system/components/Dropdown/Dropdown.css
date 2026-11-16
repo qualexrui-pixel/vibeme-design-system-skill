@@ -1,0 +1,126 @@
+/* ============================================================================
+ * Dropdown —— 事实来源：Figma 组件集 `Dropdown`（node 56064:6813，页面 56054:5521）
+ * 2 个变体 = State(closed / open)，根节点是 VERTICAL gap 8 的堆叠
+ *
+ * 触发器 Frame（180×40，HORIZONTAL gap 8 pad 0/16/0/16，圆角 radius-button 12px）
+ *   fills   Background/bg-card        #202020            --vm-bg-card
+ *   描边    closed: Background/border-default 12% 1px    --vm-border-default / --vm-border-width-thin
+ *           open:   Background/border-selected 50% 2px   --vm-border-selected / --vm-focus-ring-width
+ *   内边距  space/space-4 16px（左右）                    --vm-space-4
+ *   间距    space/space-2 8px（文字↔chevron）             --vm-space-2
+ *   文字    Heading/S（Poppins SemiBold 14/20）Text/Text-Primary --vm-text-primary
+ *   图标    Filled icon / chevron-down_filled 16×16，Text/Text-Secondary --vm-text-secondary
+ *
+ * 面板 Frame（180×130，VERTICAL gap 2 pad 8/8/8/8，圆角 radius-md 8px，clip）
+ *   fills   Background/bg-panel       #1A1A1A            --vm-bg-panel
+ *   描边    Background/border-default 12% 1px             --vm-border-default
+ *   阴影    Elevation/3（0 8 24，黑 32%）                  --vm-elevation-3
+ *   内边距  space/space-2 8px；行间距 space/space-0-5 2px  --vm-space-2 / --vm-space-0-5
+ *   内容    MenuItem 实例（default / hover / default）
+ * ========================================================================== */
+
+.vm-dropdown {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  width: 180px; /* Figma 参考宽（触发器与面板都是 FIXED 180）；需要自适应时由调用方覆盖 */
+  max-width: 100%;
+  font-family: var(--vm-font-family);
+}
+
+.vm-dropdown__trigger {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--vm-space-2);
+  width: 100%;
+  height: 40px;
+  padding: 0 var(--vm-space-4);
+  border: var(--vm-border-width-thin) solid var(--vm-border-default);
+  border-radius: var(--vm-radius-button);
+  background-color: var(--vm-bg-card);
+  color: var(--vm-text-primary);
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color var(--vm-duration-fast) ease-out,
+    border-color var(--vm-duration-fast) ease-out,
+    color var(--vm-duration-fast) ease-out;
+}
+
+/* Figma 的 Dropdown 只有 closed / open 两个变体，没有 hover 变体。
+   这里按同族「描边换色」控件（Input / Search / Select）的手法补一条 hover：
+   描边 12% 白 → White/White-4（30% 白），底色与文字不动，**不叠** --vm-white-7。
+   `:where(:not(:disabled))` 把特异度压在 (0,2,0)，下面的 open / focus-visible 才压得过它。 */
+.vm-dropdown__trigger:hover:where(:not(:disabled)) {
+  border-color: var(--vm-white-4);
+}
+
+/* State=open 的实体事实：触发器描边换成 Background/border-selected（50% 白）且线宽 2px
+   （Figma 把这个 2px 绑在 focus/ring-width 上）。文字与底色都不变。 */
+.vm-dropdown--open .vm-dropdown__trigger,
+.vm-dropdown__trigger:focus-visible {
+  border-color: var(--vm-border-selected);
+  border-width: var(--vm-border-width-thick);
+  box-shadow: 0 0 0 var(--vm-focus-ring-width) var(--vm-border-selected);
+  outline: none;
+}
+
+.vm-dropdown__trigger:disabled {
+  opacity: var(--vm-opacity-disabled);
+  cursor: not-allowed;
+}
+
+.vm-dropdown__label {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* chevron 是 16×16 的 Filled icon 实例，颜色 Text/Text-Secondary（Figma 的 open 变体没有旋转它） */
+.vm-dropdown__chevron {
+  display: inline-flex;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  color: var(--vm-text-secondary);
+}
+
+/* 面板：Figma 里是紧跟在触发器下方、间距 space/space-2（8px）的 VERTICAL 兄弟节点。
+   代码里改成绝对定位 —— 视觉位置与 Figma 一致，但展开时不会把页面内容顶下去。 */
+.vm-dropdown__panel {
+  position: absolute;
+  top: calc(100% + var(--vm-space-2));
+  left: 0;
+  z-index: 1;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--vm-space-0-5);
+  width: 100%;
+  margin: 0;
+  padding: var(--vm-space-2);
+  list-style: none;
+  border: var(--vm-border-width-thin) solid var(--vm-border-default);
+  border-radius: var(--vm-radius-md);
+  background-color: var(--vm-bg-panel);
+  box-shadow: var(--vm-elevation-3);
+  overflow: hidden; /* Figma 面板 clip:true，让首尾行的底色跟随 8px 圆角 */
+}
+
+/* Figma 的面板宽 180、内边距 8，却塞了固定 208 宽的 MenuItem 实例 —— 靠面板的 clip 把右边
+   裁掉 44px（选中态的对勾会被一起裁掉）。这里不复制这个裁切：让 MenuItem 按 max-width:100%
+   收进 164px 的内容宽，对勾保持可见。 */
+.vm-dropdown__panel .vm-menu-item {
+  max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-dropdown__trigger {
+    transition: none;
+  }
+}

@@ -1,0 +1,100 @@
+/* ============================================================================
+ * Switch —— 事实来源：Figma 组件集 `Switch`（node 56059:6488，页面 56054:5521）
+ * 8 个变体 = Size(sm/md) × Checked(false/true) × State(default/disabled)
+ *
+ * 轨道（变体自身就是一个容器 Frame）
+ *   尺寸    md 44×24 / sm 36×20，FIXED（水平档位固定宽度，不 HUG）
+ *   内边距  space/space-1 = 4px（四边相同）            --vm-space-1
+ *   圆角    Radious/radius-full 999px                  --vm-radius-full
+ *   未选中  Neutral/Neutral-550  #383838               --vm-neutral-550
+ *   选中    Brand/Brand          #FFCC90               --vm-brand
+ *   无描边
+ * 拇指（子 Frame，1:1，FIXED）
+ *   尺寸    md 16×16 / sm 12×12（= 轨道高 − 2 × 4px 内边距）
+ *   圆角    Radious/radius-full 999px                  --vm-radius-full
+ *   未选中  White/White-0        #FFFFFF               --vm-white-0
+ *   选中    Neutral/Neutral-950  #0E0E0E               --vm-neutral-950
+ *   位置    未选中 hAlign=MIN（贴左内边距）、选中 hAlign=MAX（贴右内边距）
+ * 禁用    opacity/disabled = 38%，只降不透明度，轨道与拇指都不换色
+ *
+ * State 轴只有 default / disabled —— Figma 没有 hover / focus / pressed 变体，
+ * 因此这里不发明 hover / pressed 高亮，只补键盘 focus 光环（可访问性必需）。
+ * ========================================================================== */
+
+.vm-switch {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start; /* 未选中：拇指贴左（Figma hAlign=MIN） */
+  position: relative;
+  box-sizing: border-box;
+  flex: none;
+  inline-size: 44px; /* Figma md 轨道 44×24 */
+  block-size: 24px;
+  padding: var(--vm-space-1); /* space/space-1 = 4px，四边一致 */
+  border-radius: var(--vm-radius-full);
+  background-color: var(--vm-neutral-550); /* 未选中 Neutral/Neutral-550 */
+  cursor: pointer;
+  transition: background-color var(--vm-duration-fast) ease-out;
+}
+
+.vm-switch--sm {
+  inline-size: 36px; /* Figma sm 轨道 36×20 */
+  block-size: 20px;
+}
+
+/* 原生 input 保有语义与键盘行为（Space 切换 / 表单提交），视觉交给轨道与拇指 */
+.vm-switch__input {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 拇指：高度撑满轨道的 content box（= 轨道高 − 2×4px，md 16 / sm 12），再用 1:1 得到直径 */
+.vm-switch__thumb {
+  flex: none;
+  block-size: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--vm-radius-full);
+  background-color: var(--vm-white-0); /* 未选中 White/White-0 */
+  transform: translateX(0);
+  transition:
+    transform var(--vm-duration-fast) ease-out,
+    background-color var(--vm-duration-fast) ease-out;
+}
+
+/* Checked=true：轨道换 Brand/Brand，拇指换 Neutral/Neutral-950 并滑到右内边距。
+   位移 = 拇指宽（100%）+ 一个内边距（space/space-1）——两档尺寸下正好等于
+   「轨道 content 宽 − 拇指宽」，与 Figma 的 hAlign=MIN → MAX 等价 */
+.vm-switch:has(.vm-switch__input:checked) {
+  background-color: var(--vm-brand);
+}
+
+.vm-switch__input:checked + .vm-switch__thumb {
+  background-color: var(--vm-neutral-950);
+  transform: translateX(calc(100% + var(--vm-space-1)));
+}
+
+/* 键盘焦点：Figma 没有 focus 变体，这里用 focus ring 表达，不改轨道尺寸 */
+.vm-switch:has(.vm-switch__input:focus-visible) {
+  box-shadow: 0 0 0 var(--vm-focus-ring-width) var(--vm-border-selected);
+}
+
+/* State=disabled：只降不透明度（Figma 绑 opacity/disabled = 38%），不另造灰色。
+   只做在根节点一次，避免轨道与拇指叠加成 38%×38% */
+.vm-switch:has(.vm-switch__input:disabled) {
+  opacity: var(--vm-opacity-disabled);
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-switch,
+  .vm-switch__thumb {
+    transition: none;
+  }
+}

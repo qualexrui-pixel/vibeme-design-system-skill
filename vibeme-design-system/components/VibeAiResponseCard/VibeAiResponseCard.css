@@ -1,0 +1,143 @@
+/* ============================================================================
+ * VibeAiResponseCard —— 事实来源：Figma 组件集 `VibeMe AI / Response Card`
+ * （node 56070:14800，页面 56054:5521），3 个变体 = State(Thinking/Complete/Error)
+ *   填充   color/bg/panel #121420（三档一致）        --vm-ai-color-bg-panel
+ *   描边   color/border/default #383C52（1px）      --vm-ai-color-border-default
+ *          color/status/error  #FF5766（仅 Error）  --vm-ai-color-status-error
+ *   圆角   radius/16 16px                            --vm-ai-radius-16
+ *   间距   内边距 spacing/20，纵向 gap spacing/12，Header/Identity gap spacing/8，Actions gap spacing/16
+ *   头部   AI Avatar 29×33：color/bg/brand #8547FF   --vm-ai-color-bg-brand ＋ radius/8
+ *          Title 14 SemiBold / 21 → .vm-type-heading-s（标尺 14/600/20）
+ *          State 11 Medium / 17 → .vm-type-caption-caption（标尺 12/500/18）
+ *          State 颜色：Thinking #8C91A8 / Complete #40D694 / Error #FF5766
+ *   正文   Response 13 Regular / 20 → .vm-type-heading-body-s-regular（标尺 14/400/20）
+ *          颜色：Thinking·Complete color/text/primary #FFFFFF，Error color/text/secondary #8C91A8
+ *   动作   仅 Complete：Copy（color/text/secondary）/ Regenerate（color/accent/pink）12 Medium / 18
+ *   尺寸   460×154（Thinking/Error）、460×190（Complete），wSizing/hSizing 都是 FIXED
+ * 无 hover / pressed / focus 变体：卡片不可点，不给外框加伪类。
+ * ========================================================================== */
+
+.vm-ai-response-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--vm-ai-spacing-12);
+  width: 460px; /* Figma 固定宽 460（wSizing=FIXED）；需要自适应时由调用方覆盖 width */
+  padding: var(--vm-ai-spacing-20);
+  border: var(--vm-border-width-thin) solid var(--vm-ai-color-border-default);
+  border-radius: var(--vm-ai-radius-16);
+  background-color: var(--vm-ai-color-bg-panel);
+  color: var(--vm-ai-color-text-primary);
+  font-family: var(--vm-font-family);
+}
+
+/* State=Error 是唯一换描边的档（底色不变） */
+.vm-ai-response-card--error {
+  border-color: var(--vm-ai-color-status-error);
+}
+
+/* Header：SPACE_BETWEEN，左侧 Identity（头像 + 标题），右侧 State 文本 */
+.vm-ai-response-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--vm-ai-spacing-8);
+}
+
+.vm-ai-response-card__identity {
+  display: flex;
+  align-items: center;
+  gap: var(--vm-ai-spacing-8);
+  min-width: 0;
+}
+
+/* AI Avatar：Figma 29×33，内边距 6/8 —— 纵向 6px 由间距标尺推出（8 − 4/2 = 6），不写 6px 字面量 */
+.vm-ai-response-card__avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  padding: calc(var(--vm-ai-spacing-8) - var(--vm-ai-spacing-4) / 2) var(--vm-ai-spacing-8);
+  border-radius: var(--vm-ai-radius-8);
+  background-color: var(--vm-ai-color-bg-brand);
+  color: var(--vm-ai-color-text-primary);
+  font-size: var(--vm-type-heading-body-s-semibold-size);
+}
+
+/* 字形盒 14×21（Figma 的 AI Sparkle 是 13×21 的 TEXT 节点），加 6/8 内边距正好是 29×33 的头像 */
+.vm-ai-response-card__avatar svg {
+  display: block;
+  width: 1em;
+  height: 1.5em;
+}
+
+/* Title：14 SemiBold / 21 → 最近的字号标尺档 .vm-type-heading-s（14 / 600 / 20） */
+.vm-ai-response-card__title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* State 文本：Thinking 次要色 / Complete 成功色 / Error 错误色（11 Medium / 17 → 12 / 500 / 18） */
+.vm-ai-response-card__state {
+  flex: none;
+  color: var(--vm-ai-color-text-secondary);
+}
+
+.vm-ai-response-card--complete .vm-ai-response-card__state {
+  color: var(--vm-ai-color-status-success);
+}
+
+.vm-ai-response-card--error .vm-ai-response-card__state {
+  color: var(--vm-ai-color-status-error);
+}
+
+/* 正文：Thinking / Complete 用主文字色，Error 降为次要色（Figma 事实） */
+.vm-ai-response-card__response {
+  margin: 0;
+  color: var(--vm-ai-color-text-primary);
+}
+
+.vm-ai-response-card--error .vm-ai-response-card__response {
+  color: var(--vm-ai-color-text-secondary);
+}
+
+/* Actions：仅 State=Complete 存在 */
+.vm-ai-response-card__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--vm-ai-spacing-16);
+}
+
+.vm-ai-response-card__action {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--vm-ai-color-text-secondary);
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Figma: Actions / Regenerate —— color/accent/pink */
+.vm-ai-response-card__action--accent {
+  color: var(--vm-ai-color-accent-pink);
+}
+
+.vm-ai-response-card__action:focus-visible {
+  border-radius: var(--vm-ai-radius-8);
+  box-shadow: 0 0 0 var(--vm-focus-ring-width) var(--vm-ai-color-accent-pink);
+  outline: none;
+}
+
+.vm-ai-response-card__action:disabled {
+  opacity: var(--vm-opacity-disabled);
+  cursor: not-allowed;
+}
+
+/* 目前没有位移/缩放动效，保留声明以便将来只改 token；卡片外框不随 hover 变化 */
+@media (prefers-reduced-motion: reduce) {
+  .vm-ai-response-card__action {
+    transition: none;
+  }
+}

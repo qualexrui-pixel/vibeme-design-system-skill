@@ -1,0 +1,101 @@
+/* ============================================================================
+ * Tabs —— 事实来源：Figma 组件集 `Tabs`（node 56064:6651，页面 56054:5521）
+ * 8 个变体 = Type(line / pill) × State(default / hover / selected / disabled)
+ *
+ * Type=line（66×44，四边 padding 12 = space/space-3，无底色、无圆角）
+ *   default  文字 Text/Text-Secondary  --vm-text-secondary
+ *   hover    文字 Text/Text-Primary    --vm-text-primary（只换前景，无叠加层）
+ *   selected 文字 Brand/Brand          --vm-brand ＋ 底部 2px 品牌色指示条（radius-full）
+ *   disabled 变体根节点 opacity = opacity/disabled 0.38
+ * Type=pill（60×36，上 8 / 右 16 / 下 8 / 左 16，圆角 radius-full）
+ *   default  文字 Text/Text-Secondary
+ *   hover    底色 Background/Surface-hover --vm-surface-hover ＋ 文字 Text/Text-Primary
+ *   selected 底色 Background/Surface-selected --vm-surface-selected ＋ 文字 Brand/Brand
+ *   disabled 同 line
+ * ========================================================================== */
+
+.vm-tabs {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border: 0;
+  background-color: transparent; /* default 两型都无底色 */
+  color: var(--vm-text-secondary);
+  font-family: var(--vm-font-family);
+  cursor: pointer;
+  appearance: none;
+  transition:
+    background-color var(--vm-duration-fast) ease-out,
+    color var(--vm-duration-fast) ease-out,
+    box-shadow var(--vm-duration-fast) ease-out;
+}
+
+/* ---- Type=line：padding 12 + 文字行高 20 = Figma 的 44px 高 ---- */
+.vm-tabs--line {
+  min-height: 44px;
+  padding: var(--vm-space-3);
+  border-radius: 0;
+}
+
+/* ---- Type=pill：8 / 16 内边距 + 文字行高 20 = Figma 的 36px 高 ---- */
+.vm-tabs--pill {
+  min-height: 36px;
+  padding: var(--vm-space-2) var(--vm-space-4);
+  border-radius: var(--vm-radius-full);
+}
+
+/* State=hover —— 前景换 token（line 只换文字色；pill 另加 Surface-hover 底色）。
+   写在 selected 之前：Figma 没有「hover + selected」变体，选中态优先级更高。 */
+.vm-tabs--line:hover:not(:disabled) {
+  color: var(--vm-text-primary);
+}
+
+.vm-tabs--pill:hover:not(:disabled) {
+  background-color: var(--vm-surface-hover);
+  color: var(--vm-text-primary);
+}
+
+/* State=selected —— 文字变品牌色；line 追加底部指示条，pill 换 Surface-selected 底色 */
+.vm-tabs--line.vm-tabs--selected {
+  color: var(--vm-brand);
+}
+
+.vm-tabs--line.vm-tabs--selected::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: var(--vm-border-width-thick); /* Figma 的指示条就是 2px（border/width/thick） */
+  border-radius: var(--vm-radius-full);
+  background-color: var(--vm-brand);
+}
+
+.vm-tabs--pill.vm-tabs--selected {
+  background-color: var(--vm-surface-selected);
+  color: var(--vm-brand);
+}
+
+/* State=disabled —— 只降不透明度，不另造灰色、不换文字色 */
+.vm-tabs:disabled {
+  opacity: var(--vm-opacity-disabled);
+  cursor: not-allowed;
+}
+
+/* Figma 没有 focus 变体，这里按无障碍底线补一个可见焦点环（2px ring） */
+.vm-tabs:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 var(--vm-focus-ring-width) var(--vm-border-selected);
+}
+
+.vm-tabs__label {
+  display: block;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-tabs {
+    transition: none;
+  }
+}

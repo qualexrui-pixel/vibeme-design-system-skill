@@ -1,0 +1,76 @@
+/* ============================================================================
+ * Tooltip —— 事实来源：Figma 组件集 `Tooltip`（node 56063:6778，页面 56054:5521）
+ * 8 个变体 = Placement(top/bottom/left/right) × Tone(dark/brand)
+ *   ★ 没有 State 轴：导出里顶层无 fills / strokes / opacity，所以本文件不写
+ *     任何 :hover / :active / :focus-visible / [disabled] 规则。
+ *
+ *   气泡底 / 箭头  Tone=dark  Neutral/Neutral-600  #303030  --vm-neutral-600
+ *                 Tone=brand Brand/Brand          #FFCC90  --vm-brand
+ *   文字色        Tone=dark  Text/Text-Primary    92% 白   --vm-text-primary
+ *                 Tone=brand Neutral/Neutral-950  #0E0E0E  --vm-neutral-950
+ *   圆角          Radious/radius-sm 6px                     --vm-radius-sm
+ *   内边距        上/下 space/space-2 8px、左/右 space/space-3 12px
+ *                                                          --vm-space-2 / --vm-space-3
+ *   文字样式      Caption/Caption（Poppins 12 Medium / 18）  .vm-type-caption-caption
+ *   箭头          Vector 8×5（top/bottom）、5×8（left/right），无描边
+ *   阴影          无（导出里 effects 为空；Elevation/* 属于 Popover / Modal）
+ *
+ *   几何（Figma 实测）
+ *     top / bottom     72×39 = 气泡 34 高 + 箭头 5 高，root VERTICAL gap 0
+ *     left / right     77×34 = 箭头 5 宽 + 气泡 72 宽，root HORIZONTAL gap 0
+ * ========================================================================== */
+
+.vm-tooltip {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  font-family: var(--vm-font-family);
+}
+
+/* Placement=top / bottom：纵向，气泡 34px 高 + 箭头 5px 高 */
+.vm-tooltip--top,
+.vm-tooltip--bottom {
+  flex-direction: column;
+}
+
+/* Placement=left / right：横向，箭头 5px 宽 + 气泡 72px 宽 */
+.vm-tooltip--left,
+.vm-tooltip--right {
+  flex-direction: row;
+}
+
+/* 气泡：HORIZONTAL、gap 0、pad 8/12/8/12、radius 6、clip */
+.vm-tooltip__bubble {
+  display: inline-block;
+  max-width: 100%;
+  padding: var(--vm-space-2) var(--vm-space-3);
+  overflow: hidden;
+  border-radius: var(--vm-radius-sm);
+  white-space: nowrap;
+}
+
+/* Tone=dark：气泡 Neutral/Neutral-600，文字 Text/Text-Primary */
+.vm-tooltip--dark .vm-tooltip__bubble {
+  background-color: var(--vm-neutral-600);
+  color: var(--vm-text-primary);
+}
+
+/* Tone=brand：气泡 Brand/Brand，文字 Neutral/Neutral-950（深字压浅底） */
+.vm-tooltip--brand .vm-tooltip__bubble {
+  background-color: var(--vm-brand);
+  color: var(--vm-neutral-950);
+}
+
+/* 箭头：实心三角，尺寸由 TSX 的 width/height 给出，颜色跟随 tone */
+.vm-tooltip__arrow {
+  display: block;
+  flex: none;
+}
+
+.vm-tooltip--dark .vm-tooltip__arrow {
+  color: var(--vm-neutral-600);
+}
+
+.vm-tooltip--brand .vm-tooltip__arrow {
+  color: var(--vm-brand);
+}

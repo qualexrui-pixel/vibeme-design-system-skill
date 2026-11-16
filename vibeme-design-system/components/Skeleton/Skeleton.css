@@ -1,0 +1,77 @@
+/* ============================================================================
+ * Skeleton —— 事实来源：Figma 组件集 `Skeleton`（node 56061:6513，页面 56054:5521）
+ * 8 个变体 = Type(line / circle / rect / card) × Size(sm / md)
+ *   填充   一律 White/White-7（8% 白），与形状无关           --vm-white-7
+ *   圆角   line / circle → Radious/radius-full 999px        --vm-radius-full
+ *          rect          → Radious/radius-md  8px           --vm-radius-md
+ *          card          → Semantic Radius/radius-card 12px --vm-radius-card
+ *   尺寸（Figma 固定值，无内边距、无描边）：
+ *          line   sm 120×8    md 200×12
+ *          circle sm  24×24   md  40×40
+ *          rect   sm 120×80   md 200×120
+ *          card   sm 200×140  md 280×180
+ *   结构   8 个变体都是**单个填充块**（tree 里没有任何子节点，instances 为空）：
+ *          card / rect 不是「拼好的骨架卡片」，只是更大的圆角矩形。
+ * ========================================================================== */
+
+.vm-skeleton {
+  display: block;
+  flex: none;
+  background-color: var(--vm-white-7);
+}
+
+/* ---- Type=line：文本行占位，整颗胶囊圆角 ---- */
+.vm-skeleton--line.vm-skeleton--sm {
+  width: 120px;
+  height: 8px;
+  border-radius: var(--vm-radius-full);
+}
+
+.vm-skeleton--line.vm-skeleton--md {
+  width: 200px;
+  height: 12px;
+  border-radius: var(--vm-radius-full);
+}
+
+/* ---- Type=circle：头像占位，正圆 ---- */
+.vm-skeleton--circle.vm-skeleton--sm {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--vm-radius-full);
+}
+
+.vm-skeleton--circle.vm-skeleton--md {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--vm-radius-full);
+}
+
+/* ---- Type=rect：图片 / 缩略图占位，8px 圆角 ---- */
+.vm-skeleton--rect.vm-skeleton--sm {
+  width: 120px;
+  height: 80px;
+  border-radius: var(--vm-radius-md);
+}
+
+.vm-skeleton--rect.vm-skeleton--md {
+  width: 200px;
+  height: 120px;
+  border-radius: var(--vm-radius-md);
+}
+
+/* ---- Type=card：整卡占位，12px 圆角 ---- */
+.vm-skeleton--card.vm-skeleton--sm {
+  width: 200px;
+  height: 140px;
+  border-radius: var(--vm-radius-card);
+}
+
+.vm-skeleton--card.vm-skeleton--md {
+  width: 280px;
+  height: 180px;
+  border-radius: var(--vm-radius-card);
+}
+
+/* 说明：Figma 里没有 shimmer / pulse 变体，所以这里不写字面量之外的动效；
+   需要扫光时请在业务层加，并遵守 prefers-reduced-motion。
+   需要非固定宽度（例如撑满一行的文本行）时由调用方用 style / className 覆盖 width。 */

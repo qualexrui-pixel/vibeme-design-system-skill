@@ -1,0 +1,110 @@
+/* ============================================================================
+ * MenuItem —— 事实来源：Figma 组件集 `MenuItem`（node 56064:6789，页面 56054:5521）
+ * 4 个变体 = State(default / hover / selected / disabled)
+ *   尺寸   208×36（宽 FIXED 208，高 HUG：padding 8 + 文字行高 20）
+ *   内边距 space/space-2 8px（四边同值）                     --vm-space-2
+ *   间距   space/space-2 8px（图标↔文字↔对勾）               --vm-space-2
+ *   圆角   Radious/radius-sm 6px（四角，radiusVar 四角同值）  --vm-radius-sm
+ *   default  无填充、无描边（透出面板底色）
+ *   hover    Background/Surface-hover    #262626             --vm-surface-hover
+ *   selected Background/Surface-selected #2A2A2A             --vm-surface-selected
+ *   disabled opacity/disabled 0.38（底色不变）                --vm-opacity-disabled
+ *   文字   Text/Text-Primary 92% 白（Heading/Body/S/Regular 14/20）--vm-text-primary
+ *          selected 时换成 Brand/Brand #FFCC90                --vm-brand
+ *   图标   Line icon / folder-line 16×16（16×16 实例槽位，跟随文字 currentColor）
+ *          Filled icon / circle-check-filled 14×14（仅 selected）
+ * ========================================================================== */
+
+.vm-menu-item {
+  display: block;
+  width: 208px; /* Figma 参考宽（FIXED 208）；需要自适应时由调用方覆盖 width */
+  max-width: 100%; /* 放进更窄的容器（如 Dropdown 面板）时自动收缩，不溢出 */
+  list-style: none;
+}
+
+.vm-menu-item__action {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: var(--vm-space-2);
+  width: 100%;
+  min-height: 36px;
+  padding: var(--vm-space-2);
+  border: 0;
+  border-radius: var(--vm-radius-sm);
+  background-color: transparent; /* State=default：无填充（Figma 变体里没有 fills） */
+  color: var(--vm-text-primary);
+  font-family: var(--vm-font-family);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color var(--vm-duration-fast) ease-out,
+    color var(--vm-duration-fast) ease-out;
+}
+
+/* State=hover 的实体事实：底色 = Background/Surface-hover（#262626）。
+   注意 MenuItem 属于「填充换 token」一族 —— Figma 的 hover 变体只把底色从透明换成
+   Surface-hover，**没有** Button 那种 White/White-7 叠加层；文字色保持 Text/Text-Primary。
+   `:where(:not(:disabled))` 让这条规则的特异度停在 (0,2,0)：后面的 --selected 才能压过它，
+   禁用行也不会响应 hover。不要改回 `:not(:disabled)`（那会变成 (0,3,0) 反压选中态）。 */
+.vm-menu-item__action:hover:where(:not(:disabled)) {
+  background-color: var(--vm-surface-hover);
+}
+
+/* Figma 没有 pressed 变体：按下时往下走一档已有的表面色 Background/Surface-pressed（#303030），
+   不新造颜色。同样写在 selected 之前，选中的行按下时不闪成别的底色。 */
+.vm-menu-item__action:active:where(:not(:disabled)) {
+  background-color: var(--vm-surface-pressed);
+}
+
+/* State=selected 的实体事实：底色 = Background/Surface-selected（#2A2A2A）＋ 文字与图标 Brand/Brand。
+   写在 :hover / :active 之后 —— 同一特异度下后者胜，选中的行悬停/按下时保持选中观感。 */
+.vm-menu-item--selected .vm-menu-item__action {
+  background-color: var(--vm-surface-selected);
+  color: var(--vm-brand);
+}
+
+/* Figma 没有 focus 变体：按无障碍底线补 token 化 ring，inset 避免被相邻行裁切 */
+.vm-menu-item__action:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 var(--vm-focus-ring-width) var(--vm-border-selected);
+}
+
+/* State=disabled：只降不透明度（Figma 绑 opacity/disabled = 38%），不换底色/描边/文字色 */
+.vm-menu-item__action:disabled {
+  opacity: var(--vm-opacity-disabled);
+  cursor: not-allowed;
+}
+
+/* 图标槽位：Figma 的 Line icon 实例是 16×16（内部矢量 12.74×12.33） */
+.vm-menu-item__icon {
+  display: inline-flex;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  color: inherit; /* 跟随文字：selected 时一并变 --vm-brand */
+}
+
+.vm-menu-item__label {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: inherit;
+}
+
+/* 选中对勾：Figma 的 Filled icon 实例 14×14（内部矢量 12.25×12.25），颜色 = 品牌色 */
+.vm-menu-item__check {
+  display: inline-flex;
+  flex: none;
+  width: 14px;
+  height: 14px;
+  color: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-menu-item__action {
+    transition: none;
+  }
+}

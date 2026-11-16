@@ -1,0 +1,86 @@
+/* ============================================================================
+ * TableCell —— 事实来源：Figma 组件集 `TableCell`（node 56065:6816，页面 56054:5521）
+ * 4 个变体 = Type(text / number / status / action)
+ *   尺寸   200×44（FIXED 宽 × HUG 高，HORIZONTAL，counterAxisAlignItems=CENTER）
+ *   内边距 上 12 / 右 16 / 下 12 / 左 16（绑 space/space-3、space/space-4）
+ *          → --vm-space-3 / --vm-space-4（语义层没有 table cell 专用内边距 token，
+ *            这里直接用 Figma 实际绑定的 primitive，理由写在文档里）
+ *   填充   无（四个变体 fills 均为空）→ 让 TableRow 的 hover / selected 底色透出
+ *   描边   无（strokes 为空数组；strokeWeight: 1 是残留设置，不产生可见线）
+ *   圆角   无
+ *   文字   Heading/Body/S/Regular（Poppins 14 / 行高 20，四个变体一致，textAlign=LEFT）
+ *          text / number → Text/Text-Primary   --vm-text-primary
+ *          status        → 状态色/Success      --vm-status-success
+ *          action        → Text/Text-Action    --vm-text-action
+ * ★ 本组件没有 hover / pressed / disabled 变体，故 CSS 里不写这些伪类；
+ *   禁用请交给内层 Button 的原生 disabled（opacity: var(--vm-opacity-disabled)）。
+ * ========================================================================== */
+
+.vm-table-cell {
+  box-sizing: border-box;
+  padding: var(--vm-space-3) var(--vm-space-4);
+  font-family: var(--vm-font-family);
+  text-align: left; /* Figma：四个变体的 textAlignHorizontal 都是 LEFT（数字列也不右对齐） */
+  vertical-align: middle; /* 对应 Figma 的 counterAxisAlignItems=CENTER */
+}
+
+.vm-table-cell__content {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* Figma 文字层高 20px，即单行 */
+}
+
+/* Type=text：Text/Text-Primary（rgba(255,255,255,0.92)） */
+.vm-table-cell--text .vm-table-cell__content {
+  color: var(--vm-text-primary);
+}
+
+/* Type=number：文字色与 text 相同（导出里同为 Text/Text-Primary），
+   仅补等宽数字让数字列逐位对齐 —— 这是代码侧补充，Figma 无对应变量 */
+.vm-table-cell--number .vm-table-cell__content {
+  color: var(--vm-text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Type=status：状态色/Success（#34C759）。其它状态色由调用方覆盖，不要在这里另造 */
+.vm-table-cell--status .vm-table-cell__content {
+  color: var(--vm-status-success);
+}
+
+/* Type=action：Text/Text-Action（品牌砂色 #FFCC90） */
+.vm-table-cell--action .vm-table-cell__content {
+  color: var(--vm-text-action);
+}
+
+/* action 单元格里的文字按钮 / 链接：清掉浏览器默认外观，颜色沿用 --vm-text-action。
+   注意 Figma 的 TableCell 没有任何 State 变体，所以这里**不造 hover 态**——
+   想要完整的 hover / pressed 反馈，请放 Button 组件（它的叠加手法见 button.md）。 */
+.vm-table-cell--action .vm-table-cell__content :is(button, a) {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  transition: color var(--vm-duration-fast) ease-out;
+}
+
+/* 焦点环与禁用不透明度是 foundations 的通用要求（非 Figma 变体）：2px ring + 38% 不透明度 */
+.vm-table-cell--action .vm-table-cell__content :is(button, a):focus-visible {
+  border-radius: var(--vm-radius-xs);
+  box-shadow: 0 0 0 var(--vm-focus-ring-width) var(--vm-border-selected);
+  outline: none;
+}
+
+.vm-table-cell--action .vm-table-cell__content :is(button, a):disabled {
+  opacity: var(--vm-opacity-disabled);
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-table-cell--action .vm-table-cell__content :is(button, a) {
+    transition: none;
+  }
+}

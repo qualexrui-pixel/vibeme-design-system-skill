@@ -1,0 +1,8 @@
+interface:
+  display_name: "VibeMe Design System"
+  short_description: "按 VibeMe 组件库设计 Figma 页面并实现前端 UI"
+  brand_color: "#FFCC90"
+  default_prompt: "使用 $vibeme-design-system 按 VibeMe 组件库实现或评审这个界面。"
+
+policy:
+  allow_implicit_invocation: true

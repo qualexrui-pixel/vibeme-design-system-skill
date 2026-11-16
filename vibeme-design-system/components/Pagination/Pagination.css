@@ -1,0 +1,131 @@
+/* ============================================================================
+ * Pagination —— 事实来源：Figma 组件集 `Pagination`（node 56064:6707，页面 56054:5521）
+ * 4 个变体 = Size(sm / md) × Type(full / simple)，单元格尺寸 28 / 32，gap 4 = space/space-1
+ *
+ *   Type=full    箭头 28×28 ＋ 页码 28×28 …（Figma 画了 3 个页码，只是视觉样本）
+ *   Type=simple  箭头 28×28 ＋ 纯文字「1 / 3」 ＋ 箭头 28×28
+ *
+ * 单元格（Frame）圆角      Radious/radius-md 8px            --vm-radius-md
+ *   箭头单元格描边         Background/border-default 12%    --vm-border-default
+ *                         border/width/thin 1px             --vm-border-width-thin
+ *   文字/图标默认色        Text/Text-Secondary 64% 白       --vm-text-secondary
+ *   文字样式               Caption/Caption 12 Medium /18    --vm-type-caption-caption
+ *   当前页底色             Brand/Brand #FFCC90              --vm-brand
+ *   当前页文字             Neutral/Neutral-950 #0E0E0E      --vm-neutral-950
+ *
+ * 交互（Figma 无 State 轴，按单元格自身结构分两种手法，不要互相套用）：
+ *   箭头单元格 = 描边换色：hover 换 --vm-white-4（30% 白），底色不动
+ *   页码单元格 = 底色叠加：hover 加 --vm-surface-hover ＋ 文字 --vm-text-primary
+ * ========================================================================== */
+
+.vm-pagination {
+  font-family: var(--vm-font-family);
+  color: var(--vm-text-secondary);
+}
+
+.vm-pagination__list {
+  display: flex;
+  align-items: center;
+  gap: var(--vm-space-1); /* Figma auto layout gap = space/space-1（4px） */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vm-pagination__item {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* 单元格：FIXED 的正方形，三档只差边长 */
+.vm-pagination__cell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0;
+  border: 0;
+  border-radius: var(--vm-radius-md); /* Radious/radius-md = 8px */
+  background-color: transparent;
+  color: var(--vm-text-secondary);
+  font-family: inherit;
+  cursor: pointer;
+  appearance: none;
+  transition:
+    background-color var(--vm-duration-fast) ease-out,
+    border-color var(--vm-duration-fast) ease-out,
+    color var(--vm-duration-fast) ease-out;
+}
+
+.vm-pagination--sm .vm-pagination__cell {
+  width: 28px;
+  height: 28px;
+}
+
+.vm-pagination--md .vm-pagination__cell {
+  width: 32px;
+  height: 32px;
+}
+
+/* ---- 箭头单元格：有 1px 描边，属于「描边换色」一族（Input / Search 同族） ---- */
+.vm-pagination__arrow {
+  border: var(--vm-border-width-thin) solid var(--vm-border-default);
+}
+
+.vm-pagination__arrow:hover:not(:disabled) {
+  border-color: var(--vm-white-4); /* White/White-4 = 30% 白；底色与图标色不变 */
+}
+
+/* ---- 页码单元格：无底色无描边，属于「底色叠加」一族（Tabs Type=pill 同族） ---- */
+.vm-pagination__page:hover:not(:disabled) {
+  background-color: var(--vm-surface-hover); /* Background/Surface-hover #262626 */
+  color: var(--vm-text-primary);
+}
+
+/* 当前页：品牌色实底 + Neutral-950 文字。写在 hover 之后，选中态优先级更高且不做 hover 变化。 */
+.vm-pagination__page--current,
+.vm-pagination__page--current:hover:not(:disabled) {
+  background-color: var(--vm-brand);
+  color: var(--vm-neutral-950);
+}
+
+/* ---- Type=simple 中间的「1 / 3」：Figma 里是纯 TEXT 节点，不可点、不参与 hover ---- */
+.vm-pagination__simple {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 var(--vm-space-1);
+  color: var(--vm-text-secondary);
+  white-space: nowrap;
+}
+
+/* ---- 焦点：Figma 无 focus 变体，按无障碍底线补 ring（两种单元格共用） ---- */
+.vm-pagination__cell:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 var(--vm-focus-ring-width) var(--vm-border-selected);
+}
+
+/* ---- 禁用：只降不透明度，不换灰色、不换描边色 ---- */
+.vm-pagination__cell:disabled {
+  opacity: var(--vm-opacity-disabled);
+  cursor: not-allowed;
+}
+
+.vm-pagination[data-disabled='true'] {
+  opacity: var(--vm-opacity-disabled);
+}
+
+/* 图标用 currentColor 跟随单元格文字色；右侧箭头是同一矢量的镜像 */
+.vm-pagination__icon {
+  display: block;
+  fill: currentColor;
+}
+
+.vm-pagination__icon--right {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-pagination__cell {
+    transition: none;
+  }
+}

@@ -1,0 +1,72 @@
+/* ============================================================================
+ * Popover —— 事实来源：Figma 组件集 `Popover`（node 56063:6819，页面 56054:5521）
+ * 4 个变体 = Placement(bottom-start / bottom-end / top-start / top-end)
+ *   ★ 没有 State 轴：导出里 4 个变体顶层都没有 fills / strokes / opacity，
+ *     面板在四个变体里逐项一致。所以本文件不写 :hover / :active / [disabled] 规则。
+ *
+ *   面板底     Background/bg-panel      #1A1A1A        --vm-bg-panel
+ *   面板描边   Background/border-default 12% 白 1px     --vm-border-default
+ *                                                      --vm-border-width-thin
+ *   面板圆角   Semantic Radius/radius-card 12px        --vm-radius-card
+ *   面板内边距 Semantic Space/padding-popover 16px     --vm-padding-popover
+ *   行间距     space/space-0-5 2px                     --vm-space-0-5
+ *   阴影       Elevation/3  0 8px 24px rgba(0,0,0,.32) --vm-elevation-3
+ *   箭头       8×5 实心三角，底色同面板（无描边）        --vm-bg-panel
+ *   箭头缩进   space/space-6 24px（-start 靠左 / -end 靠右）--vm-space-6
+ *   文字       Text/Text-Primary 92% 白（面板不管文案，行自己带样式）
+ *
+ *   面板几何：宽 FIXED 240px、高 HUG；四个变体 root 都是 VERTICAL gap 0，
+ *   差别只有子节点顺序（bottom-* 箭头行在前，top-* 面板在前）与箭头行的
+ *   水平对齐（hAlign MIN / MAX）。
+ *   ★ Figma 变体包围盒报的 100×139 是箭头行 100 宽与面板 240 宽的并集，不是真实尺寸。
+ * ========================================================================== */
+
+.vm-popover {
+  display: inline-flex;
+  flex-direction: column;
+  width: fit-content;
+  font-family: var(--vm-font-family);
+}
+
+/* 箭头行：占满面板宽度（240px），左右各留 --vm-space-6（24px）缩进。
+   Placement=-start 靠左、-end 靠右 —— 对应 Figma 的 hAlign MIN / MAX。 */
+.vm-popover__arrow-row {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 var(--vm-space-6);
+}
+
+.vm-popover--bottom-start .vm-popover__arrow-row,
+.vm-popover--top-start .vm-popover__arrow-row {
+  justify-content: flex-start;
+}
+
+.vm-popover--bottom-end .vm-popover__arrow-row,
+.vm-popover--top-end .vm-popover__arrow-row {
+  justify-content: flex-end;
+}
+
+/* 箭头：实心三角，颜色 = 面板底色（取自 Figma Vector 的 Background/bg-panel） */
+.vm-popover__arrow {
+  display: block;
+  flex: none;
+  color: var(--vm-bg-panel);
+}
+
+/* 面板：宽 FIXED 240、高 HUG、VERTICAL gap 2、pad 16、radius-card 12、Elevation/3 */
+.vm-popover__panel {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--vm-space-0-5);
+  width: 240px; /* Figma 面板宽 FIXED 240；可用内容宽 = 240 − 16×2 = 208 */
+  padding: var(--vm-padding-popover);
+  border: var(--vm-border-width-thin) solid var(--vm-border-default);
+  border-radius: var(--vm-radius-card);
+  background-color: var(--vm-bg-panel);
+  box-shadow: var(--vm-elevation-3);
+  color: var(--vm-text-primary);
+  overflow: hidden; /* Figma 面板 clip: true */
+}

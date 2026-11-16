@@ -1,0 +1,75 @@
+/* ============================================================================
+ * TableRow —— 事实来源：Figma 组件集 `TableRow`（node 56065:6886，页面 56054:5521）
+ * 6 个变体 = Type(header / body) × State(default / hover / selected)
+ *   header 720×43  底色 Background/bg-panel #1A1A1A            --vm-bg-panel
+ *                  文字 Caption/Caption 12/500/18 + Text/Text-Secondary
+ *                       --vm-type-caption-caption-* / --vm-text-secondary
+ *   body   720×49  default 无填充（透明）
+ *                  hover    Background/Surface-hover   #262626  --vm-surface-hover
+ *                  selected Background/Surface-selected #2A2A2A --vm-surface-selected
+ *   分隔线 只有下边：探针 strokeBottomWeight=1（上/右/左 0，strokeAlign=INSIDE）
+ *                  border/width/thin 1px + Background/border-default --vm-border-default
+ *   单元格 60/240/160/140/120（示例列宽，交给调用方的 colgroup，这里不写死）
+ *          内边距 12/16（space-3 / space-4）由 TableCell 提供
+ *   内嵌   类型列 3 处 Tag 实例（Tone=neutral, Size=sm, Style=soft）
+ * ★ header 的三个 State 变体填充栈完全一致（都是 --vm-bg-panel）→ 表头不参与 hover / selected。
+ * ★ body 的 hover / selected 是 Figma 直接绑定的实色 token，不是 --vm-white-7 / --vm-white-6 叠加。
+ * ========================================================================== */
+
+.vm-table-row {
+  border-bottom: var(--vm-border-width-thin) solid var(--vm-border-default);
+  transition: background-color var(--vm-duration-fast) ease-out;
+}
+
+/* Type=header：底色 Background/bg-panel */
+.vm-table-row.vm-table-row--header {
+  background-color: var(--vm-bg-panel);
+}
+
+/* 表头文字规格（Figma 的 Caption/Caption + Text/Text-Secondary）。
+   三 class 选择器，保证不被 TableCell 的 import 顺序影响 */
+.vm-table-row.vm-table-row--header .vm-table-cell__content,
+.vm-table-row.vm-table-row--header > th {
+  color: var(--vm-text-secondary);
+  font-size: var(--vm-type-caption-caption-size);
+  font-weight: var(--vm-type-caption-caption-weight);
+  line-height: var(--vm-type-caption-caption-line-height);
+  letter-spacing: var(--vm-type-caption-caption-letter-spacing);
+}
+
+/* 直接用原生 <th> 时也要和 Figma 的单元格一致（清掉浏览器默认的粗体/居中/内边距） */
+.vm-table-row.vm-table-row--header > th {
+  padding: var(--vm-space-3) var(--vm-space-4);
+  font-family: var(--vm-font-family);
+  text-align: left;
+}
+
+/* Type=body, State=default：无填充，让面板/卡片的 --vm-bg-card 透出来 */
+.vm-table-row.vm-table-row--body {
+  background-color: transparent;
+}
+
+/* State=hover：Background/Surface-hover（Figma 实色绑定，不叠白色图层） */
+.vm-table-row.vm-table-row--body:hover:not(.vm-table-row--selected) {
+  background-color: var(--vm-surface-hover);
+}
+
+/* State=selected：摆在默认规则之后、且多一个 class，选中行悬停时底色保持稳定 */
+.vm-table-row.vm-table-row--body.vm-table-row--selected {
+  background-color: var(--vm-surface-selected);
+}
+
+/* 次要列（Figma 的「序号」列：Caption/Caption + Text/Text-Tertiary）。
+   由调用方挂在 TableCell 的 className 上 */
+.vm-table-row .vm-table-row__meta .vm-table-cell__content {
+  color: var(--vm-text-tertiary);
+  font-size: var(--vm-type-caption-caption-size);
+  font-weight: var(--vm-type-caption-caption-weight);
+  line-height: var(--vm-type-caption-caption-line-height);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-table-row {
+    transition: none;
+  }
+}

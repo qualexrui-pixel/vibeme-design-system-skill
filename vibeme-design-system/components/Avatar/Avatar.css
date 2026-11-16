@@ -1,0 +1,96 @@
+/* ============================================================================
+ * Avatar —— 事实来源：Figma 组件集 `Avatar`（node 56061:6443，页面 56054:5521）
+ * 10 个变体 = Size(xs/sm/md/lg/xl) × Type(icon/initial)，没有 State 轴（无 hover/focus/disabled 变体）
+ *   底色   Neutral/Neutral-700        #262626                 --vm-neutral-700
+ *   描边   Background/border-default  12% 白 1px              --vm-border-default / --vm-border-width-thin
+ *   圆角   Semantic Radius/radius-avatar 999px                --vm-radius-avatar
+ *   首字母 Neutral/Neutral-100        #E0E0E0                 --vm-neutral-100
+ *   图标   Line icon / user-line（原始矢量），填充无变量绑定的纯白 → 语义化为 --vm-text-primary
+ *   尺寸   外框 24/32/40/48/64，图标恒为外框的 50%（12/16/20/24/32）
+ *   字号   xs/sm Caption/Caption(12/18) · md Heading/S(14/20) · lg Heading/M(16/24) · xl Heading/L(18/26)
+ * ========================================================================== */
+
+.vm-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: var(--vm-border-width-thin) solid var(--vm-border-default);
+  border-radius: var(--vm-radius-avatar);
+  background-color: var(--vm-neutral-700);
+  color: var(--vm-neutral-100);
+  font-family: var(--vm-font-family);
+  user-select: none;
+}
+
+/* 尺寸档位：Figma 三档圆角都是 radius-avatar，只有外框变化（FIXED 正方形） */
+.vm-avatar--xs {
+  width: 24px;
+  height: 24px;
+}
+
+.vm-avatar--sm {
+  width: 32px;
+  height: 32px;
+}
+
+.vm-avatar--md {
+  width: 40px;
+  height: 40px;
+}
+
+.vm-avatar--lg {
+  width: 48px;
+  height: 48px;
+}
+
+.vm-avatar--xl {
+  width: 64px;
+  height: 64px;
+}
+
+/* 占位图标：Figma 里图标实例恒为外框的 50%，矢量按自身留白居中 */
+.vm-avatar__icon {
+  display: block;
+  width: 50%;
+  height: 50%;
+  color: var(--vm-text-primary);
+}
+
+/* 首字母：字号按 Figma 文字样式档位取变量，不手写 font-size */
+.vm-avatar__initial {
+  display: block;
+  white-space: nowrap;
+}
+
+.vm-avatar--xs .vm-avatar__initial {
+  font-size: var(--vm-type-caption-caption-size);
+  font-weight: var(--vm-type-caption-caption-weight);
+  line-height: var(--vm-type-caption-caption-line-height);
+}
+
+.vm-avatar--sm .vm-avatar__initial {
+  font-size: var(--vm-type-caption-caption-size);
+  font-weight: var(--vm-type-caption-caption-weight);
+  line-height: var(--vm-type-caption-caption-line-height);
+}
+
+.vm-avatar--md .vm-avatar__initial {
+  font-size: var(--vm-type-heading-s-size);
+  font-weight: var(--vm-type-heading-s-weight);
+  line-height: var(--vm-type-heading-s-line-height);
+}
+
+.vm-avatar--lg .vm-avatar__initial {
+  font-size: var(--vm-type-heading-m-size);
+  font-weight: var(--vm-type-heading-m-weight);
+  line-height: var(--vm-type-heading-m-line-height);
+}
+
+.vm-avatar--xl .vm-avatar__initial {
+  font-size: var(--vm-type-heading-l-size);
+  font-weight: var(--vm-type-heading-l-weight);
+  line-height: var(--vm-type-heading-l-line-height);
+}

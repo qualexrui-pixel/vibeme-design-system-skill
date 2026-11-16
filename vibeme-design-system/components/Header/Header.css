@@ -1,0 +1,66 @@
+/* ============================================================================
+ * Header —— 事实来源：Figma 组件集 `Header`（node 56066:6374，页面 56054:5521）
+ * 3 个变体 = Type(simple | with-nav | with-search)，容器事实三者完全一致：
+ *   尺寸   FIXED 1200×64（高 64 是 Figma 明确写死的固定值）
+ *   排列   HORIZONTAL，gap 24            --vm-space-6（space/space-6）
+ *   内边距 0/32/0/32                     --vm-space-8（space/space-8）
+ *   填充   Background/bg-app   #0E0E0E   --vm-bg-app
+ *   描边   仅底部 1px，Background/border-default（12% 白）
+ *          --vm-border-width-thin / --vm-border-default
+ *   品牌   TEXT `VibeMe`，Heading/M（16 SemiBold /24），Text/Text-Primary
+ *          --vm-text-primary
+ * 变体差异只在中间区：with-search 的 `Search` 是 FILL（492.5），后面还有一个 FILL 空档（458.5）。
+ * ========================================================================== */
+
+.vm-header {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  gap: var(--vm-space-6);
+  height: 64px;
+  padding: 0 var(--vm-space-8);
+  background-color: var(--vm-bg-app);
+  /* Figma 的 strokeWeight 是 mixed：四边里只有底部有 1px 描边 */
+  border-bottom: var(--vm-border-width-thin) solid var(--vm-border-default);
+  font-family: var(--vm-font-family);
+}
+
+/* 品牌区：Text/Text-Primary，不参与伸缩，长文案也不换行（顶栏是定高单行） */
+.vm-header__brand {
+  flex: none;
+  color: var(--vm-text-primary);
+  white-space: nowrap;
+}
+
+/* 中间区（with-nav 的导航链接 / with-search 的 Search）；间距与根节点同为 space-6 */
+.vm-header__center {
+  display: flex;
+  align-items: center;
+  gap: var(--vm-space-6);
+  min-width: 0;
+}
+
+/* Figma `Type=with-search`：Search 是 FILL，与后面的 FILL 空档平分剩余宽度 */
+.vm-header--with-search .vm-header__center {
+  flex: 1 1 0;
+}
+
+/* 让中间区的直接子项真正撑开（Search 自身有参考宽时也要被拉满，flex-basis 会盖过 width） */
+.vm-header--with-search .vm-header__center > * {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* Figma 里那个 1px 高的 FILL 空档：把 actions 顶到最右，并且自己也能伸展 */
+.vm-header__spacer {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* 右侧操作区：Figma 里两个 Button 之间同样是 gap 24（与根节点一致） */
+.vm-header__actions {
+  display: flex;
+  align-items: center;
+  flex: none;
+  gap: var(--vm-space-6);
+}

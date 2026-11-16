@@ -1,0 +1,872 @@
+{
+  "$schema": "vibeme.figma-styles/v1",
+  "fileKey": "ZO4WH3sbVCj7lZIFMpiwV9",
+  "exportedAt": "2026-11-16",
+  "paintStyles": [
+    {
+      "id": "S:70e3e30e49a1c86ad173ed37f637231f6ac49283,",
+      "name": "Backgrounds/Primary",
+      "description": "",
+      "remote": false,
+      "paints": [
+        {
+          "type": "SOLID",
+          "visible": true,
+          "opacity": 1,
+          "hex": "#0E0E0E",
+          "alpha": 1
+        }
+      ]
+    },
+    {
+      "id": "S:38bb7a3a28b194d07769a5c2f174883f374bed81,",
+      "name": "Backgrounds/Secondary",
+      "description": "",
+      "remote": false,
+      "paints": [
+        {
+          "type": "SOLID",
+          "visible": true,
+          "opacity": 1,
+          "hex": "#1A1A1A",
+          "alpha": 1
+        }
+      ]
+    },
+    {
+      "id": "S:605c08a1b701d5c6e5619583fd765cf514b5a57c,",
+      "name": "Backgrounds/Tertiary",
+      "description": "",
+      "remote": false,
+      "paints": [
+        {
+          "type": "SOLID",
+          "visible": true,
+          "opacity": 1,
+          "hex": "#202020",
+          "alpha": 1
+        }
+      ]
+    },
+    {
+      "id": "S:81d6a2365d3a4b88b41183446c826874f7d1825e,",
+      "name": "Fills/Primary",
+      "description": "",
+      "remote": false,
+      "paints": [
+        {
+          "type": "SOLID",
+          "visible": true,
+          "opacity": 1,
+          "hex": "#FFFFFF",
+          "alpha": 1
+        }
+      ]
+    },
+    {
+      "id": "S:60c3deff1b80070b7c403be95cd6232ece65c305,",
+      "name": "Fills/Secondary",
+      "description": "",
+      "remote": false,
+      "paints": [
+        {
+          "type": "SOLID",
+          "visible": true,
+          "opacity": 0.12,
+          "hex": "#FFFFFF",
+          "alpha": 1
+        }
+      ]
+    },
+    {
+      "id": "S:a55d9ff4182613828dbfad552a9632557a5c254f,",
+      "name": "Fills/Tertiary",
+      "description": "",
+      "remote": false,
+      "paints": [
+        {
+          "type": "SOLID",
+          "visible": true,
+          "opacity": 0.04,
+          "hex": "#FFFFFF",
+          "alpha": 1
+        }
+      ]
+    },
+    {
+      "id": "S:a2209652e7ca9cc6bb318684d7bb004a2b126b7d,",
+      "name": "Fills/Quaternary",
+      "description": "",
+      "remote": false,
+      "paints": [
+        {
+          "type": "SOLID",
+          "visible": true,
+          "opacity": 0.02,
+          "hex": "#FFFFFF",
+          "alpha": 1
+        }
+      ]
+    },
+    {
+      "id": "S:ee831dfff19b72f2befee89a95128e26e678325b,",
+      "name": "Labels/Primary",
+      "description": "",
+      "remote": false,
+      "paints": [
+        {
+          "type": "SOLID",
+          "visible": true,
+          "opacity": 0.64,
+          "hex": "#FFFFFF",
+          "alpha": 1
+        }
+      ]
+    },
+    {
+      "id": "S:091afbd51703d962422a138e55927ad1fde74f43,",
+      "name": "Labels/Secondary",
+      "description": "",
+      "remote": false,
+      "paints": [
+        {
+          "type": "SOLID",
+          "visible": true,
+          "opacity": 0.5,
+          "hex": "#FFFFFF",
+          "alpha": 1
+        }
+      ]
+    },
+    {
+      "id": "S:00e6cf1fa51347cbc5f4579b3612eb42a57704b0,",
+      "name": "Labels/Tertiary",
+      "description": "",
+      "remote": false,
+      "paints": [
+        {
+          "type": "SOLID",
+          "visible": true,
+          "opacity": 0.3,
+          "hex": "#FFFFFF",
+          "alpha": 1
+        }
+      ]
+    },
+    {
+      "id": "S:cf1e91c7730f771c58095c9202e82d69dfeb1b46,",
+      "name": "Labels/Quaternary",
+      "description": "",
+      "remote": false,
+      "paints": [
+        {
+          "type": "SOLID",
+          "visible": true,
+          "opacity": 0.24,
+          "hex": "#FFFFFF",
+          "alpha": 1
+        }
+      ]
+    },
+    {
+      "id": "S:6db7d7498a224a96cda1409a46eba6ffbb1a60ab,",
+      "name": "Separators/Opaque",
+      "description": "",
+      "remote": false,
+      "paints": [
+        {
+          "type": "SOLID",
+          "visible": true,
+          "opacity": 1,
+          "hex": "#1A1A1A",
+          "alpha": 1
+        }
+      ]
+    },
+    {
+      "id": "S:12c6db1baf2dc0e2daf76f53f7fe6ed5392ab0f4,",
+      "name": "Separators/Non-opaque",
+      "description": "",
+      "remote": false,
+      "paints": [
+        {
+          "type": "SOLID",
+          "visible": true,
+          "opacity": 0.08,
+          "hex": "#FFFFFF",
+          "alpha": 1
+        }
+      ]
+    },
+    {
+      "id": "S:7079d44ce9b67eed9849fd8fa3530241e0376314,",
+      "name": "Gradient",
+      "description": "",
+      "remote": false,
+      "paints": [
+        {
+          "type": "GRADIENT_LINEAR",
+          "visible": true,
+          "opacity": 1,
+          "gradientStops": [
+            {
+              "position": 0,
+              "hex": "#0E0E0E",
+              "alpha": 0
+            },
+            {
+              "position": 0.35,
+              "hex": "#0E0E0E",
+              "alpha": 0.12
+            },
+            {
+              "position": 0.6,
+              "hex": "#0E0E0E",
+              "alpha": 0.5
+            },
+            {
+              "position": 0.76,
+              "hex": "#0E0E0E",
+              "alpha": 0.78
+            },
+            {
+              "position": 0.9,
+              "hex": "#0E0E0E",
+              "alpha": 0.95
+            },
+            {
+              "position": 1,
+              "hex": "#0E0E0E",
+              "alpha": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S:14e5ed52e45d45a4fa11aef0328eb7168f52720a,",
+      "name": "ui/color/primary",
+      "description": "",
+      "remote": false,
+      "paints": [
+        {
+          "type": "SOLID",
+          "visible": true,
+          "opacity": 1,
+          "hex": "#6750A3",
+          "alpha": 1
+        }
+      ]
+    }
+  ],
+  "textStyles": [
+    {
+      "id": "S:61938dff5261e258a10ff908233dcfee1b598bfb,",
+      "name": "Display/4XL",
+      "description": "",
+      "remote": false,
+      "fontSize": 64,
+      "fontName": {
+        "family": "Poppins",
+        "style": "Bold"
+      },
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 72
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL",
+      "textDecoration": "NONE",
+      "paragraphSpacing": 0,
+      "paragraphIndent": 0
+    },
+    {
+      "id": "S:54906bdaf912591aefd155ac04a5c6bb355ce017,",
+      "name": "Heading/XXL",
+      "description": "",
+      "remote": false,
+      "fontSize": 24,
+      "fontName": {
+        "family": "Poppins",
+        "style": "Bold"
+      },
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 36
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL",
+      "textDecoration": "NONE",
+      "paragraphSpacing": 0,
+      "paragraphIndent": 0
+    },
+    {
+      "id": "S:b9feeb85f3997e2453a3a37a6772871a6a180e33,",
+      "name": "Heading/XL",
+      "description": "",
+      "remote": false,
+      "fontSize": 20,
+      "fontName": {
+        "family": "Poppins",
+        "style": "Bold"
+      },
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 30
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL",
+      "textDecoration": "NONE",
+      "paragraphSpacing": 0,
+      "paragraphIndent": 0
+    },
+    {
+      "id": "S:a232ec1e2d717fb0b05594d96f52c3026083ee4a,",
+      "name": "Heading/L",
+      "description": "",
+      "remote": false,
+      "fontSize": 18,
+      "fontName": {
+        "family": "Poppins",
+        "style": "Bold"
+      },
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 26
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL",
+      "textDecoration": "NONE",
+      "paragraphSpacing": 0,
+      "paragraphIndent": 0
+    },
+    {
+      "id": "S:6c622c24c67ae1178fda7bc632b974ef12c5f560,",
+      "name": "Heading/M",
+      "description": "",
+      "remote": false,
+      "fontSize": 16,
+      "fontName": {
+        "family": "Poppins",
+        "style": "SemiBold"
+      },
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 24
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL",
+      "textDecoration": "NONE",
+      "paragraphSpacing": 0,
+      "paragraphIndent": 0
+    },
+    {
+      "id": "S:0dcb2140fdae68d7549974ef4ff362b27253cb2b,",
+      "name": "Heading/S",
+      "description": "",
+      "remote": false,
+      "fontSize": 14,
+      "fontName": {
+        "family": "Poppins",
+        "style": "SemiBold"
+      },
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 20
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL",
+      "textDecoration": "NONE",
+      "paragraphSpacing": 0,
+      "paragraphIndent": 0
+    },
+    {
+      "id": "S:534f9e477850d2058aed34fc228cea96e18b2b9e,",
+      "name": "Caption/Caption",
+      "description": "",
+      "remote": false,
+      "fontSize": 12,
+      "fontName": {
+        "family": "Poppins",
+        "style": "Medium"
+      },
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 18
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL",
+      "textDecoration": "NONE",
+      "paragraphSpacing": 0,
+      "paragraphIndent": 0
+    },
+    {
+      "id": "S:22c5319fe60b2459cbcfda6b221d03864de40b71,",
+      "name": "Caption/Label",
+      "description": "",
+      "remote": false,
+      "fontSize": 10,
+      "fontName": {
+        "family": "Poppins",
+        "style": "Medium"
+      },
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 14
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL",
+      "textDecoration": "NONE",
+      "paragraphSpacing": 0,
+      "paragraphIndent": 0
+    },
+    {
+      "id": "S:81dfd166494aa14e5d21f9af7f265750216ea0b7,",
+      "name": "Heading/Body/L/Regular",
+      "description": "",
+      "remote": false,
+      "fontSize": 18,
+      "fontName": {
+        "family": "Poppins",
+        "style": "Regular"
+      },
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 28
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL",
+      "textDecoration": "NONE",
+      "paragraphSpacing": 0,
+      "paragraphIndent": 0
+    },
+    {
+      "id": "S:f2276474de8bf30dda76cabc08fb3eb0a0eecebf,",
+      "name": "Heading/Body/L/Medium",
+      "description": "",
+      "remote": false,
+      "fontSize": 18,
+      "fontName": {
+        "family": "Poppins",
+        "style": "Regular"
+      },
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 28
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL",
+      "textDecoration": "NONE",
+      "paragraphSpacing": 0,
+      "paragraphIndent": 0
+    },
+    {
+      "id": "S:c1da90237397e84814f1a4b5e794ef93677d5a48,",
+      "name": "Heading/Body/L/SemiBold",
+      "description": "",
+      "remote": false,
+      "fontSize": 18,
+      "fontName": {
+        "family": "Poppins",
+        "style": "SemiBold"
+      },
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 28
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL",
+      "textDecoration": "NONE",
+      "paragraphSpacing": 0,
+      "paragraphIndent": 0
+    },
+    {
+      "id": "S:87b8f46377d340870d3fd6fee96de3a04aa86755,",
+      "name": "Heading/Body/M/Regular",
+      "description": "",
+      "remote": false,
+      "fontSize": 16,
+      "fontName": {
+        "family": "Poppins",
+        "style": "Regular"
+      },
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 24
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL",
+      "textDecoration": "NONE",
+      "paragraphSpacing": 0,
+      "paragraphIndent": 0
+    },
+    {
+      "id": "S:bb353434369c698e28c2f7307b9012de8ea730fc,",
+      "name": "Heading/Body/M/Medium",
+      "description": "",
+      "remote": false,
+      "fontSize": 16,
+      "fontName": {
+        "family": "Poppins",
+        "style": "Regular"
+      },
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 24
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL",
+      "textDecoration": "NONE",
+      "paragraphSpacing": 0,
+      "paragraphIndent": 0
+    },
+    {
+      "id": "S:1b98a0ef90789652df52709ecba70ab48e947ff5,",
+      "name": "Heading/Body/M/SemiBold",
+      "description": "",
+      "remote": false,
+      "fontSize": 16,
+      "fontName": {
+        "family": "Poppins",
+        "style": "SemiBold"
+      },
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 24
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL",
+      "textDecoration": "NONE",
+      "paragraphSpacing": 0,
+      "paragraphIndent": 0
+    },
+    {
+      "id": "S:55ec8b40853f9921e09bf1d09ffebeb4adbbf86d,",
+      "name": "Heading/Body/S/Regular",
+      "description": "",
+      "remote": false,
+      "fontSize": 14,
+      "fontName": {
+        "family": "Poppins",
+        "style": "Regular"
+      },
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 20
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL",
+      "textDecoration": "NONE",
+      "paragraphSpacing": 0,
+      "paragraphIndent": 0
+    },
+    {
+      "id": "S:35bf96d985f7a8b7eaa946ea268c709b7cb1d29b,",
+      "name": "Heading/Body/S/Medium",
+      "description": "",
+      "remote": false,
+      "fontSize": 14,
+      "fontName": {
+        "family": "Poppins",
+        "style": "Medium"
+      },
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 20
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL",
+      "textDecoration": "NONE",
+      "paragraphSpacing": 0,
+      "paragraphIndent": 0
+    },
+    {
+      "id": "S:f8cb184db9a272197b0a96eeefd7a94e9f3da318,",
+      "name": "Heading/Body/S/SemiBold",
+      "description": "",
+      "remote": false,
+      "fontSize": 14,
+      "fontName": {
+        "family": "Poppins",
+        "style": "Regular"
+      },
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 20
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL",
+      "textDecoration": "NONE",
+      "paragraphSpacing": 0,
+      "paragraphIndent": 0
+    },
+    {
+      "id": "S:1827080153931ecac0e5eeaaa10e1a60a2c3dfb4,",
+      "name": "Heading/XS",
+      "description": "",
+      "remote": false,
+      "fontSize": 12,
+      "fontName": {
+        "family": "Poppins",
+        "style": "SemiBold"
+      },
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 18
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL",
+      "textDecoration": "NONE",
+      "paragraphSpacing": 0,
+      "paragraphIndent": 0
+    },
+    {
+      "id": "S:3e3075654b3afd1fc6a897ee15bc4b3b06d65552,",
+      "name": "Display/3XL",
+      "description": "",
+      "remote": false,
+      "fontSize": 48,
+      "fontName": {
+        "family": "Poppins",
+        "style": "Regular"
+      },
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 56
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      },
+      "textCase": "ORIGINAL",
+      "textDecoration": "NONE",
+      "paragraphSpacing": 0,
+      "paragraphIndent": 0
+    }
+  ],
+  "effectStyles": [
+    {
+      "id": "S:c14f9d29027b3dfa1b232665ff2653303a45be02,",
+      "name": "Elevation/1",
+      "description": "总组件库海拔阴影（文件原本无效果样式，此套为新建）",
+      "remote": false,
+      "effects": [
+        {
+          "type": "DROP_SHADOW",
+          "visible": true,
+          "blendMode": "NORMAL",
+          "radius": 4,
+          "offset": {
+            "x": 0,
+            "y": 2
+          },
+          "spread": 0,
+          "hex": "#000000",
+          "alpha": 0.24
+        }
+      ]
+    },
+    {
+      "id": "S:a2dde1af82a08a7d3e537b6980be91ddd92a5b52,",
+      "name": "Elevation/2",
+      "description": "总组件库海拔阴影（文件原本无效果样式，此套为新建）",
+      "remote": false,
+      "effects": [
+        {
+          "type": "DROP_SHADOW",
+          "visible": true,
+          "blendMode": "NORMAL",
+          "radius": 12,
+          "offset": {
+            "x": 0,
+            "y": 4
+          },
+          "spread": 0,
+          "hex": "#000000",
+          "alpha": 0.28
+        }
+      ]
+    },
+    {
+      "id": "S:3356a35b0e7932054517b46eeab13f20088a8433,",
+      "name": "Elevation/3",
+      "description": "总组件库海拔阴影（文件原本无效果样式，此套为新建）",
+      "remote": false,
+      "effects": [
+        {
+          "type": "DROP_SHADOW",
+          "visible": true,
+          "blendMode": "NORMAL",
+          "radius": 24,
+          "offset": {
+            "x": 0,
+            "y": 8
+          },
+          "spread": 0,
+          "hex": "#000000",
+          "alpha": 0.32
+        }
+      ]
+    },
+    {
+      "id": "S:fc23a9ce0dbd169645d055a62f7591f7eac7dbb5,",
+      "name": "Elevation/4",
+      "description": "总组件库海拔阴影（文件原本无效果样式，此套为新建）",
+      "remote": false,
+      "effects": [
+        {
+          "type": "DROP_SHADOW",
+          "visible": true,
+          "blendMode": "NORMAL",
+          "radius": 40,
+          "offset": {
+            "x": 0,
+            "y": 16
+          },
+          "spread": 0,
+          "hex": "#000000",
+          "alpha": 0.4
+        }
+      ]
+    }
+  ],
+  "gridStyles": [
+    {
+      "id": "S:b42847d1a6008e544bf049a2e8d13b64c00b2a7d,",
+      "name": "4-通用性栅格16-12",
+      "description": "",
+      "remote": false,
+      "layoutGrids": [
+        {
+          "pattern": "COLUMNS",
+          "visible": true,
+          "gutterSize": 12,
+          "offset": 16,
+          "count": 4,
+          "alignment": "STRETCH",
+          "hex": "#FF0000",
+          "alpha": 0.08
+        },
+        {
+          "pattern": "ROWS",
+          "visible": true,
+          "sectionSize": 44,
+          "gutterSize": 0,
+          "offset": 44,
+          "count": 1,
+          "alignment": "MIN",
+          "hex": "#FF0000",
+          "alpha": 0.08
+        }
+      ]
+    },
+    {
+      "id": "S:1d96dace22a7f3c5eb7a8e56bc29f267657d8b22,",
+      "name": "4-宽松型栅格16-16",
+      "description": "",
+      "remote": false,
+      "layoutGrids": [
+        {
+          "pattern": "COLUMNS",
+          "visible": true,
+          "gutterSize": 16,
+          "offset": 16,
+          "count": 4,
+          "alignment": "STRETCH",
+          "hex": "#FF0000",
+          "alpha": 0.1
+        }
+      ]
+    },
+    {
+      "id": "S:b74a88dadc18c2ae5b0a479cff404e23413828b0,",
+      "name": "12-通用型栅格32-16",
+      "description": "",
+      "remote": false,
+      "layoutGrids": [
+        {
+          "pattern": "COLUMNS",
+          "visible": true,
+          "gutterSize": 16,
+          "offset": 32,
+          "count": 12,
+          "alignment": "STRETCH",
+          "hex": "#FF0000",
+          "alpha": 0.1
+        }
+      ]
+    },
+    {
+      "id": "S:6b52e9ee2a254e6c2357bacf927b4d40d14e075d,",
+      "name": "12-通用型栅格32-20",
+      "description": "",
+      "remote": false,
+      "layoutGrids": [
+        {
+          "pattern": "COLUMNS",
+          "visible": true,
+          "gutterSize": 20,
+          "offset": 32,
+          "count": 12,
+          "alignment": "STRETCH",
+          "hex": "#FF0000",
+          "alpha": 0.08
+        }
+      ]
+    }
+  ]
+}

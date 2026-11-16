@@ -1,0 +1,63 @@
+/* ============================================================================
+ * Divider —— 事实来源：Figma 组件集 `Divider`（node 56061:6471，页面 56054:5521）
+ * 4 个变体 = Orientation(horizontal/vertical) × Style(solid/dashed)
+ *   颜色    Background/border-default 12% 白             --vm-border-default
+ *   线宽    border/width/thin 1px（dashed 的 strokeWeight）--vm-border-width-thin
+ *   尺寸    horizontal 320×1（代码 width:100%）· vertical 1×64（代码 align-self:stretch）
+ *   实现    solid = 填充（fills 绑 border-default）；dashed = 描边 + dashPattern [4,4]
+ *   无 State 轴：没有 hover / focus / disabled，本文件里不出现任何伪类
+ *   无圆角、无内边距（4 个变体都是 0）
+ * ========================================================================== */
+
+.vm-divider {
+  flex: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* Orientation=horizontal：参考 320×1，代码横向铺满父容器 */
+.vm-divider--horizontal {
+  display: block;
+  width: 100%;
+  height: var(--vm-border-width-thin);
+}
+
+/* Orientation=vertical：参考 1×64，flex 行里撑满；非 flex 场景用参考高度兜底 */
+.vm-divider--vertical {
+  width: var(--vm-border-width-thin);
+  min-height: 64px;
+  align-self: stretch;
+}
+
+/* Style=solid：Figma 里就是一块 1px 的填充 */
+.vm-divider--solid {
+  background-color: var(--vm-border-default);
+}
+
+/* Style=dashed：Figma 是 1px 描边 + dashPattern [4,4]，用 4px 实 / 4px 空的渐变复刻。
+   transparent 是「空隙」而不是颜色取值（不引入新的色值），实线段颜色仍走 border-default。 */
+.vm-divider--dashed {
+  background-color: transparent;
+}
+
+.vm-divider--horizontal.vm-divider--dashed {
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--vm-border-default) 0,
+    var(--vm-border-default) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+}
+
+.vm-divider--vertical.vm-divider--dashed {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--vm-border-default) 0,
+    var(--vm-border-default) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+}

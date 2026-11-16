@@ -1,0 +1,106 @@
+/* ============================================================================
+ * VibeMe AI / Trigger Button —— 事实来源：Figma 组件集 `VibeMe AI / Trigger Button`
+ * （node 56070:14742，页面 56054:5521）
+ * 6 个变体 = Size(Medium/Large) × State(Default/Hover/Disabled)
+ *   ★ 本组件属于 `VibeMe AI` 主题（VibeMe AI / Semantic + VibeMe AI / Dimensions），
+ *     所有取值都走 `--vm-ai-*`，不要混用主库的 `--vm-bg-*` / `--vm-text-*` 数值。
+ *   填充   State=Default   color/bg/brand        #8547FF  --vm-ai-color-bg-brand
+ *          State=Hover     color/bg/brand-hover  #A373FF  --vm-ai-color-bg-brand-hover
+ *          State=Disabled  color/bg/raised       #191B2A  --vm-ai-color-bg-raised
+ *   文字   Default/Hover   color/text/primary    #FFFFFF  --vm-ai-color-text-primary
+ *          Disabled        color/text/secondary  #8C91A8  --vm-ai-color-text-secondary
+ *   圆角   radius/full 999（真·胶囊按钮；这是 AI 主题自带的圆角，不是主库的 radius-button 12px）
+ *   尺寸   Medium 154×40 · Large 178×48（FIXED 高，宽 HUG）
+ *          Medium：gap spacing/8（8），横向内边距 spacing/16（16），图标 14
+ *          Large ：gap spacing/8（8），横向内边距 spacing/20（20），图标 16
+ *   文字样式  Medium Label = 14 SemiBold → Heading/S 的三件套变量
+ *             Large  Label = 16 SemiBold → Heading/M 的三件套变量
+ *   State=Disabled 在 Figma 里**没有**绑 opacity 变量（变体 opVar 为 null、opacity=1），
+ *   而是实打实换成 color/bg/raised + color/text/secondary —— 与主库「只降 38% 不换色」不同，
+ *   这里以 Figma 为准，不要额外再叠 opacity。
+ * ========================================================================== */
+
+.vm-vibe-ai-trigger-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--vm-ai-spacing-8);
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  border-radius: var(--vm-ai-radius-full);
+  background-color: var(--vm-ai-color-bg-brand);
+  color: var(--vm-ai-color-text-primary);
+  font-family: var(--vm-font-family);
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  transition:
+    background-color var(--vm-duration-fast) ease-out,
+    color var(--vm-duration-fast) ease-out;
+}
+
+/* Size=Medium：Figma 高 40（FIXED），横向内边距 spacing/16，纵向由 align-items 居中 */
+.vm-vibe-ai-trigger-button--medium {
+  height: 40px;
+  padding: 0 var(--vm-ai-spacing-16);
+}
+
+/* Size=Large：Figma 高 48（FIXED），横向内边距 spacing/20 */
+.vm-vibe-ai-trigger-button--large {
+  height: 48px;
+  padding: 0 var(--vm-ai-spacing-20);
+}
+
+.vm-vibe-ai-trigger-button__icon {
+  flex: none;
+  display: block;
+}
+
+.vm-vibe-ai-trigger-button__label {
+  display: block;
+}
+
+/* Medium 的 Label 事实：14 / SemiBold（600）→ 最近的主库文字样式 Heading/S（14/20） */
+.vm-vibe-ai-trigger-button--medium .vm-vibe-ai-trigger-button__label {
+  font-size: var(--vm-type-heading-s-size);
+  font-weight: var(--vm-type-heading-s-weight);
+  line-height: var(--vm-type-heading-s-line-height);
+}
+
+/* Large 的 Label 事实：16 / SemiBold（600）→ Heading/M（16/24），与 Figma 完全一致 */
+.vm-vibe-ai-trigger-button--large .vm-vibe-ai-trigger-button__label {
+  font-size: var(--vm-type-heading-m-size);
+  font-weight: var(--vm-type-heading-m-weight);
+  line-height: var(--vm-type-heading-m-line-height);
+}
+
+/* State=Hover 的实体事实：填充整体换成 color/bg/brand-hover（#A373FF）。
+   ★ 这是 AI 主题的第三种 hover 手法 —— 既不是主库 Button 的「底色 + White/White-7 叠加」，
+     也不是 Input/Search 的「描边换色」，而是直接替换填充变量本身（变体 fills 只有一层 paint）。 */
+.vm-vibe-ai-trigger-button:hover:not(:disabled) {
+  background-color: var(--vm-ai-color-bg-brand-hover);
+}
+
+/* State=Disabled 的实体事实：底色 color/bg/raised + 文字 color/text/secondary，
+   Figma 未绑 opacity/disabled，因此这里**不加** opacity（加了会比设计更淡一层）。 */
+.vm-vibe-ai-trigger-button:disabled {
+  background-color: var(--vm-ai-color-bg-raised);
+  color: var(--vm-ai-color-text-secondary);
+  cursor: not-allowed;
+}
+
+/* Figma 没有 Focus 变体：焦点环是可访问性补充。
+ * AI 主题缺语义 focus token，故用 VibeMe AI / Primitives 的 white/1000 描边，
+ * 保证在 color/bg/canvas（--vm-ai-color-bg-canvas）上依然看得清。 */
+.vm-vibe-ai-trigger-button:focus-visible {
+  outline: var(--vm-border-width-thick) solid var(--vm-ai-white-1000);
+  outline-offset: var(--vm-ai-spacing-4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-vibe-ai-trigger-button {
+    transition: none;
+  }
+}

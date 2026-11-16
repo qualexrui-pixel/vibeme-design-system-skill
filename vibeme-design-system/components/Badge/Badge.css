@@ -1,0 +1,55 @@
+/* ============================================================================
+ * Badge —— 事实来源：Figma 组件集 `Badge`（node 56061:6417，页面 56054:5521）
+ * 8 个变体 = Type(dot/count) × Tone(brand/error) × Size(sm/md)
+ *
+ *   dot    FIXED：sm 6×6 / md 8×8，pad 0/0/0/0，**没有文本子节点**
+ *   count  HUG：内边距 2 / 6（space/space-0-5、space/space-1-5），
+ *          文字 sm = Caption/Label（10 Medium/14）→ 成高 18；md = Caption/Caption（12 Medium/18）→ 成高 22
+ *          宽度随数字位数增长（Figma 里 "8" 单字时 sm 19、md 20），**不是固定宽**
+ *
+ *   填充   Tone=brand → Brand/Brand        #FFCC90  --vm-brand
+ *          Tone=error → 状态色/Error       #FF3B30  --vm-status-error
+ *   文字   brand → Neutral/Neutral-950      #0E0E0E  --vm-neutral-950
+ *          error → White/White-0            #FFFFFF  --vm-white-0
+ *   圆角   Radious/radius-full 999px                 --vm-radius-full（注意 Figma 变量名是笔误的 Radious）
+ *
+ * Badge 没有 State 轴：这里没有任何 :hover / :active / :disabled 规则，这是刻意的。
+ * ========================================================================== */
+
+.vm-badge {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--vm-radius-full);
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* Type=dot：Figma 两个方向都是 FIXED，所以这里写死直径是刻意的 */
+.vm-badge--dot.vm-badge--sm {
+  width: 6px;
+  height: 6px;
+}
+
+.vm-badge--dot.vm-badge--md {
+  width: 8px;
+  height: 8px;
+}
+
+/* Type=count：HUG，宽度随之内容变化，只固定内边距 */
+.vm-badge--count {
+  padding: var(--vm-space-0-5) var(--vm-space-1-5);
+}
+
+/* Tone=brand：品牌砂色底 + 深色字（数字在 #FFCC90 上必须是深色才可读） */
+.vm-badge--brand {
+  background-color: var(--vm-brand);
+  color: var(--vm-neutral-950);
+}
+
+/* Tone=error：错误红底 + 白字 */
+.vm-badge--error {
+  background-color: var(--vm-status-error);
+  color: var(--vm-white-0);
+}

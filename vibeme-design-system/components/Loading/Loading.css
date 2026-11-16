@@ -1,0 +1,67 @@
+/* ============================================================================
+ * Loading —— 事实来源：Figma 组件集 `Loading`（node 56063:6842，页面 56054:5521）
+ * 3 个变体 = Size(sm 16 / md 24 / lg 32)，颜色与线宽三档完全一致
+ *   底环  White/White-6          rgba(255,255,255,0.12)  --vm-white-6
+ *   圆弧  Brand/Brand            #FFCC90                 --vm-brand
+ *   线宽  border/width/ring      3px（三档不缩放）        --vm-border-width-ring
+ *   线帽  Figma strokeCap = ROUND → stroke-linecap: round
+ * 几何（圆 + 270° 弧）在 TSX 里按尺寸计算，这里只管颜色、线宽与自转。
+ * ========================================================================== */
+
+.vm-loading {
+  display: inline-block;
+  flex: none;
+  overflow: visible; /* 线帽是圆的，给 3px 描边留出 1px 余量，避免边缘被裁 */
+  vertical-align: middle;
+  color: inherit;
+}
+
+/* 三档是 Figma 里写死的固定尺寸（16 / 24 / 32），不随容器缩放 */
+.vm-loading--sm {
+  width: 16px;
+  height: 16px;
+}
+
+.vm-loading--md {
+  width: 24px;
+  height: 24px;
+}
+
+.vm-loading--lg {
+  width: 32px;
+  height: 32px;
+}
+
+.vm-loading__ring,
+.vm-loading__arc {
+  fill: none;
+  stroke-width: var(--vm-border-width-ring);
+  stroke-linecap: round;
+}
+
+.vm-loading__ring {
+  stroke: var(--vm-white-6);
+}
+
+.vm-loading__arc {
+  stroke: var(--vm-brand);
+}
+
+/* 自转：整圈 900ms 匀速顺时针；只转弧所在的 <g>，底环是整圆、转不转都一样 */
+.vm-loading__spin {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: vm-loading-spin 900ms linear infinite;
+}
+
+@keyframes vm-loading-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-loading__spin {
+    animation: none;
+  }
+}

@@ -1,0 +1,86 @@
+/* ============================================================================
+ * VibeAiCapabilityChip —— 事实来源：Figma 组件集 `VibeMe AI / Capability Chip`
+ * （node 56070:14790，页面 56054:5521），3 个变体 = Type(Creative/Precise/Fast)
+ *   填充   color/bg/brand-soft #29174A（Creative，即选中画法） --vm-ai-color-bg-brand-soft
+ *          color/bg/raised     #191B2A（Precise / Fast）      --vm-ai-color-bg-raised
+ *   描边   color/border/default #383C52，1px（三档都一样）    --vm-ai-color-border-default
+ *   图标   ✦ color/accent/pink     #FF57AD（Creative）        --vm-ai-color-accent-pink
+ *          ◎ / ⚡ color/text/secondary #8C91A8（Precise/Fast） --vm-ai-color-text-secondary
+ *   文字   Chip Label color/text/primary #FFFFFF —— 12 Medium / 18
+ *   间距   gap spacing/16，内边距 spacing/12（横向）＋ Figma 的 7px 纵向取整为 spacing/8
+ *   圆角   radius/full 999px                                  --vm-ai-radius-full
+ *   尺寸   106 / 98 / 81 × 36，全部 HUG
+ * Figma 无 hover / pressed / focus / disabled / selected 变体：
+ *   hover 不换色（AI 主题没有 white-4 / white-7 级别的叠加 token）；
+ *   focus 由 :focus-visible 用主题强调色画 ring；disabled 只降不透明度；选中由 --selected 类表达。
+ * ========================================================================== */
+
+.vm-ai-capability-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--vm-ai-spacing-16);
+  padding: var(--vm-ai-spacing-8) var(--vm-ai-spacing-12);
+  border: var(--vm-border-width-thin) solid var(--vm-ai-color-border-default);
+  border-radius: var(--vm-ai-radius-full);
+  background-color: var(--vm-ai-color-bg-raised);
+  color: var(--vm-ai-color-text-primary);
+  font-family: var(--vm-font-family);
+  cursor: pointer;
+  transition:
+    background-color var(--vm-duration-fast) ease-out,
+    border-color var(--vm-duration-fast) ease-out,
+    color var(--vm-duration-fast) ease-out;
+}
+
+/* 选中＝Type=Creative 的画法：底色换 color/bg/brand-soft，描边与文字色不变 */
+.vm-ai-capability-chip--selected {
+  background-color: var(--vm-ai-color-bg-brand-soft);
+}
+
+/* 图标盒：字号取 Figma Chip Icon 的 12–13px 档（用 caption 的 12px），
+   行盒 1.5em = 18px —— 加上 8px×2 内边距与 1px×2 描边，胶囊总高正好是 Figma 的 36px */
+.vm-ai-capability-chip__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 1em;
+  height: 1.5em;
+  font-size: var(--vm-type-caption-caption-size);
+  color: var(--vm-ai-color-text-secondary);
+}
+
+.vm-ai-capability-chip__icon svg {
+  display: block;
+  width: 1em;
+  height: 1em;
+}
+
+/* Creative（选中）的图标是粉的：color/accent/pink */
+.vm-ai-capability-chip--selected .vm-ai-capability-chip__icon {
+  color: var(--vm-ai-color-accent-pink);
+}
+
+.vm-ai-capability-chip__label {
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* 键盘焦点：AI 主题没有 border-selected，用主题强调色画描边 + ring，不用 outline: none 抹掉焦点 */
+.vm-ai-capability-chip:focus-visible {
+  border-color: var(--vm-ai-color-accent-pink);
+  box-shadow: 0 0 0 var(--vm-focus-ring-width) var(--vm-ai-color-accent-pink);
+  outline: none;
+}
+
+/* disabled：只降不透明度，不换底色/描边/文字色 */
+.vm-ai-capability-chip:disabled {
+  opacity: var(--vm-opacity-disabled);
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-ai-capability-chip {
+    transition: none;
+  }
+}

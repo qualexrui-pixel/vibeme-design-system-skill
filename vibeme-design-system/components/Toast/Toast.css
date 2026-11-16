@@ -1,0 +1,112 @@
+/* ============================================================================
+ * Toast —— 事实来源：Figma 组件集 `Toast`（node 56063:6596，页面 56054:5521）
+ * 4 个变体 = Type(info/success/warning/error)，**没有 State 轴**
+ *
+ *   填充   Background/bg-toast     #202020            --vm-bg-toast
+ *   描边   Background/border-default 12% 白 ＋ 1px    --vm-border-default / --vm-border-width-thin
+ *   圆角   Semantic Radius/radius-toast 12px          --vm-radius-toast
+ *   内边距 Semantic Space/padding-toast-y/x = 12/16px --vm-padding-toast-y / --vm-padding-toast-x
+ *   间距   space/space-3 12px（图标｜内容｜关闭）/ space-1 4px（标题｜描述）
+ *   海拔   Elevation/3 0 8 24 rgba(0,0,0,.32)         --vm-elevation-3
+ *   宽度   Figma FIXED 360，高度 HUG（68 来自 12+42+12 ＋ 1px 描边×2）
+ *   标题   Heading/S（Poppins SemiBold 14/20）＋ Text/Text-Primary        .vm-type-heading-s / --vm-text-primary
+ *   描述   Caption/Caption（12 Medium/18）＋ Text/Text-Secondary          .vm-type-caption-caption / --vm-text-secondary
+ *
+ * 状态图标（每个 Type 一个，都是 Filled icon 的实例；矢量取自 Figma 导出）：
+ *   info    circle-info-filled   20×20，图形 17.5，填充 状态色/Info    --vm-status-info
+ *   success circle-check-filled  20×20，图形 17.5，填充 状态色/Success --vm-status-success
+ *   warning circle-alert-filled  20×20，图形 17.5，填充 状态色/Warning --vm-status-warning
+ *   error   circle-cross-filled  20×20，图形 17.5，填充 状态色/Error   --vm-status-error
+ *   × 图标  cross_filled         16×16，图形 10.49，填充 Text/Text-Tertiary --vm-text-tertiary
+ *
+ * ★ 4 个变体的 fills / strokes / radius / padding 逐字段完全相同，差异只在状态图标；
+ *   所以这里**没有任何 :hover / :active 叠加层**（唯一交互体是 × 按钮，只有焦点环）。
+ * ★ 组件集没有 open/closed、没有 disabled：显示与消失由消费方挂载/卸载控制。
+ * ========================================================================== */
+
+.vm-toast {
+  box-sizing: border-box;
+  display: flex;
+  /* Figma auto layout：HORIZONTAL + counterAxisAlignItems=MIN，图标与标题首行对齐 */
+  align-items: flex-start;
+  gap: var(--vm-space-3);
+  width: 360px; /* Figma FIXED；窄屏由下面的 max-width 兜底 */
+  max-width: 100%;
+  padding: var(--vm-padding-toast-y) var(--vm-padding-toast-x);
+  border: var(--vm-border-width-thin) solid var(--vm-border-default);
+  border-radius: var(--vm-radius-toast);
+  background-color: var(--vm-bg-toast);
+  box-shadow: var(--vm-elevation-3);
+  color: var(--vm-text-primary);
+  font-family: var(--vm-font-family);
+}
+
+.vm-toast__icon {
+  flex: 0 0 auto;
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+}
+
+/* Type 只换状态图标的颜色；底色、描边、圆角、内边距四档一致 */
+.vm-toast--info .vm-toast__icon {
+  color: var(--vm-status-info);
+}
+
+.vm-toast--success .vm-toast__icon {
+  color: var(--vm-status-success);
+}
+
+.vm-toast--warning .vm-toast__icon {
+  color: var(--vm-status-warning);
+}
+
+.vm-toast--error .vm-toast__icon {
+  color: var(--vm-status-error);
+}
+
+.vm-toast__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: var(--vm-space-1);
+  min-width: 0;
+}
+
+.vm-toast__title {
+  margin: 0;
+  color: var(--vm-text-primary);
+}
+
+.vm-toast__description {
+  margin: 0;
+  color: var(--vm-text-secondary);
+}
+
+.vm-toast__close {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: none;
+  background: none;
+  /* 图标 VECTOR 的填充绑的是 Text/Text-Tertiary（30% 白） */
+  color: var(--vm-text-tertiary);
+  cursor: pointer;
+  transition: color var(--vm-duration-fast) ease-out;
+}
+
+.vm-toast__close:focus-visible {
+  border-radius: var(--vm-radius-xs);
+  box-shadow: 0 0 0 var(--vm-focus-ring-width) var(--vm-border-selected);
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-toast__close {
+    transition: none;
+  }
+}

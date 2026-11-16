@@ -1,0 +1,91 @@
+/* ============================================================================
+ * Card —— 事实来源：Figma 组件集 `Card`（node 56061:6466，页面 56054:5521）
+ * 6 个变体 = Type(plain/media/selected) × State(default/hover)
+ *   底色   default Background/bg-card       #202020   --vm-bg-card
+ *          hover   Background/Surface-hover #262626   --vm-surface-hover
+ *   描边   default Background/border-default 12% 白 1px --vm-border-default / --vm-border-width-thin
+ *          hover   White/White-4              30% 白     --vm-white-4
+ *          selected Brand/Brand               #FFCC90 2px --vm-brand / --vm-focus-ring-width
+ *   圆角   Semantic Radius/radius-card 12px            --vm-radius-card
+ *   内边距 Semantic Space/padding-card-md 20px（四边）   --vm-padding-card-md
+ *   间距   space/space-3 12px                          --vm-space-3
+ *   海拔   Elevation/1 → 0 2px 4px rgba(0,0,0,.24)     --vm-elevation-1
+ *   媒体框 Type=media 的 Frame 280×140（2:1）           --vm-bg-panel / --vm-radius-md
+ *   文字   标题 Heading/M · 正文 Heading/Body/S/Regular
+ *   ★ hover 是 Card 自己的组合（底色换 Surface-hover + 描边换 White-4），
+ *     既不是 Button 的 --vm-white-7 叠加层，也不是 Input 的「只换描边」。
+ * ========================================================================== */
+
+.vm-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vm-space-3);
+  box-sizing: border-box;
+  width: 320px; /* Figma 参考宽 320；需要自适应时由调用方覆盖 width */
+  padding: var(--vm-padding-card-md);
+  border: var(--vm-border-width-thin) solid var(--vm-border-default);
+  border-radius: var(--vm-radius-card);
+  background-color: var(--vm-bg-card);
+  box-shadow: var(--vm-elevation-1);
+  color: var(--vm-text-primary);
+  font-family: var(--vm-font-family);
+  transition:
+    background-color var(--vm-duration-fast) ease-out,
+    border-color var(--vm-duration-fast) ease-out,
+    color var(--vm-duration-fast) ease-out;
+}
+
+/* State=hover：底色换 Background/Surface-hover，描边换 White/White-4（两者同时变） */
+.vm-card:hover {
+  background-color: var(--vm-surface-hover);
+  border-color: var(--vm-white-4);
+}
+
+/* Type=selected：Brand/Brand 描边；线宽按 Figma 绑定走 focus/ring-width（2px） */
+.vm-card--selected {
+  border-color: var(--vm-brand);
+  border-width: var(--vm-focus-ring-width);
+}
+
+/* selected + hover：描边保持品牌色，只有底色变 Surface-hover */
+.vm-card--selected:hover {
+  border-color: var(--vm-brand);
+}
+
+/* Type=media 的媒体框：280×140（2:1）、bg-panel 底、radius-md 圆角、裁切 */
+.vm-card__media {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  overflow: hidden;
+  border-radius: var(--vm-radius-md);
+  background-color: var(--vm-bg-panel);
+}
+
+.vm-card__media > :is(img, video, svg) {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 标题：Figma 文本样式 Heading/M */
+.vm-card__title {
+  color: var(--vm-text-primary);
+  font-size: var(--vm-type-heading-m-size);
+  font-weight: var(--vm-type-heading-m-weight);
+  line-height: var(--vm-type-heading-m-line-height);
+}
+
+/* 正文：Figma 文本样式 Heading/Body/S/Regular */
+.vm-card__body {
+  color: var(--vm-text-secondary);
+  font-size: var(--vm-type-heading-body-s-regular-size);
+  font-weight: var(--vm-type-heading-body-s-regular-weight);
+  line-height: var(--vm-type-heading-body-s-regular-line-height);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-card {
+    transition: none;
+  }
+}

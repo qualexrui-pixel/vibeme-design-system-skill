@@ -1,0 +1,74 @@
+/* ============================================================================
+ * Descriptions —— 事实来源：Figma 组件集 `Descriptions`（node 56065:7035）
+ * 4 个变体 = Layout(horizontal/vertical) × Columns(2/3)，**没有 State 轴**
+ *   底色   Background/bg-card        #202020             --vm-bg-card
+ *   描边   Background/border-default 12% 白 1px          --vm-border-default / --vm-border-width-thin
+ *   圆角   Semantic Radius/radius-card 12px             --vm-radius-card
+ *   内边距 Semantic Space/padding-card-md 20px（四边）   --vm-padding-card-md
+ *   行距   space/space-4 16px（根 Auto Layout gap）      --vm-space-4
+ *   列距   space/space-6 24px（行 Frame gap）            --vm-space-6
+ *   单元   horizontal：横排 gap 12px（space/space-3）    --vm-space-3
+ *          vertical  ：竖排 gap 4px（space/space-1）     --vm-space-1
+ *   文字   标签 Caption/Caption（12 Medium /18）色 Text/Text-Secondary
+ *          值   Heading/Body/S/Regular（14 Regular /20）色 Text/Text-Primary
+ *   ★ 卡片壳在 4 个变体里逐字段一致（variants.json 的 fills/strokes/radius/pad 完全相同），
+ *     因此这里不为任何 layout / columns 单独换底色或描边。
+ *   ★ 组件集里没有 hover/pressed/focus/disabled 变体 —— 不要给它加填充叠加层。
+ * ========================================================================== */
+
+.vm-descriptions {
+  display: grid;
+  box-sizing: border-box;
+  margin: 0;
+  padding: var(--vm-padding-card-md);
+  border: var(--vm-border-width-thin) solid var(--vm-border-default);
+  border-radius: var(--vm-radius-card);
+  background-color: var(--vm-bg-card);
+  color: var(--vm-text-primary);
+  font-family: var(--vm-font-family);
+  /* 列距 = Figma 行 Frame 的 gap（space/space-6 24px） */
+  column-gap: var(--vm-space-6);
+  /* 行距 = Figma 根 Auto Layout 的 gap（space/space-4 16px） */
+  row-gap: var(--vm-space-4);
+  /* grid-template-columns 由 TSX 按 columns 写入（repeat(N, minmax(0, 1fr))），不在这里写死 */
+}
+
+/* 一个「标签-值」单元：对应 Figma 里的 327×h 内层 Frame（宽度 FILL） */
+.vm-descriptions__cell {
+  display: flex;
+  min-width: 0;
+}
+
+/* Layout=horizontal：标签在左、值在右，纵向居中 */
+.vm-descriptions--horizontal .vm-descriptions__cell {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--vm-space-3);
+}
+
+/* Layout=vertical：标签在上、值在下 */
+.vm-descriptions--vertical .vm-descriptions__cell {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--vm-space-1);
+}
+
+.vm-descriptions__label {
+  margin: 0;
+  color: var(--vm-text-secondary);
+}
+
+/* Figma 在 horizontal 档把标签文本层固定成 80px 宽（vertical 档是 HUG），
+   所以只有横排时给最小宽，保证同一行的值左对齐成一条线 */
+.vm-descriptions--horizontal .vm-descriptions__label {
+  flex: 0 0 auto;
+  min-width: 80px;
+}
+
+/* 重置 <dd> 的浏览器默认缩进（margin-inline-start: 40px），对齐交给 flex gap */
+.vm-descriptions__value {
+  margin: 0;
+  min-width: 0;
+  color: var(--vm-text-primary);
+  overflow-wrap: anywhere;
+}

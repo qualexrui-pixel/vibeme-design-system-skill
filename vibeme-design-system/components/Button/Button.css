@@ -1,0 +1,118 @@
+/* ============================================================================
+ * Button —— 事实来源：Figma 组件集 `Button`（node 56058:5617，页面 56054:5521）
+ * 48 个变体 = Type(primary / secondary / ghost / danger) × Size(sm / md / lg)
+ *             × State(default / hover / pressed / disabled)
+ *
+ *   填充   Brand/Brand               #FFCC90   primary    --vm-brand
+ *          Background/bg-card        #202020   secondary  --vm-bg-card
+ *          状态色/Error              #FF3B30   danger     --vm-status-error
+ *          （ghost 默认无底色）
+ *   叠加   White/White-7 8%（hover）/ White/White-6 12%（pressed）
+ *          → 叠在底色之上，**不替换底色变量**（foundations §1 第 5 条・填充叠加手法）
+ *   描边   Background/border-default 12% 白 1px，只有 secondary 有 --vm-border-default
+ *   文字   Neutral/Neutral-950（primary）/ White/White-0（danger）
+ *          Text/Text-Primary（secondary、ghost）
+ *   圆角   Semantic Radius/radius-button 12px            --vm-radius-button
+ *   高度   sm 32 / md 40 / lg 48
+ *   内边距 横向 12 / 16 / 20（Semantic Space/padding-button-{sm|md|lg}-x），纵向 0（居中对齐）
+ *   禁用   opacity/disabled 38%                          --vm-opacity-disabled
+ * ========================================================================== */
+
+.vm-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: var(--vm-radius-button);
+  background-color: transparent;
+  background-image: none;
+  color: var(--vm-text-primary);
+  font-family: var(--vm-font-family);
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  appearance: none;
+  transition:
+    background-color var(--vm-duration-fast) ease-out,
+    background-image var(--vm-duration-fast) ease-out,
+    border-color var(--vm-duration-fast) ease-out,
+    color var(--vm-duration-fast) ease-out,
+    box-shadow var(--vm-duration-fast) ease-out;
+}
+
+/* ---------------------------------------------------------------- 尺寸档位 */
+/* Figma 三档高度：sm 32 / md 40 / lg 48（全部 FIXED），圆角与纵向内边距不变 */
+.vm-button--sm {
+  height: 32px;
+  padding: 0 var(--vm-padding-button-sm-x);
+}
+
+.vm-button--md {
+  height: 40px;
+  padding: 0 var(--vm-padding-button-md-x);
+}
+
+.vm-button--lg {
+  height: 48px;
+  padding: 0 var(--vm-padding-button-lg-x);
+}
+
+/* ------------------------------------------------------------------ 类型 */
+/* primary：品牌砂色实底 + 深色文字（Figma 绑 Neutral/Neutral-950 #0E0E0E） */
+.vm-button--primary {
+  background-color: var(--vm-brand);
+  /* 纯深色文字与品牌底对比度最高；这套体系里没有「on-brand」语义 token，
+     故沿用 Figma 绑定的原始层 token --vm-neutral-950 */
+  color: var(--vm-neutral-950);
+}
+
+/* secondary：卡片底 + 1px 描边；描边会让外框比 primary 宽 2px，这与 Figma 实测一致
+   （secondary sm 74 宽 vs primary sm 72 宽） */
+.vm-button--secondary {
+  border: var(--vm-border-width-thin) solid var(--vm-border-default);
+  background-color: var(--vm-bg-card);
+  color: var(--vm-text-primary);
+}
+
+/* ghost：无底无描边，只有 hover / pressed 才出现半透明叠加层 */
+.vm-button--ghost {
+  background-color: transparent;
+  color: var(--vm-text-primary);
+}
+
+/* danger：错误色实底；文字用 Figma 绑定的 White/White-0（纯白），不是 92% 的 Text-Primary */
+.vm-button--danger {
+  background-color: var(--vm-status-error);
+  color: var(--vm-white-0);
+}
+
+/* -------------------------------------------------- 交互态：填充叠加（不是换底色） */
+/* 用 background-image 叠一层同色渐变，等价于 Figma 在填充栈顶部追加 White/White-7 */
+.vm-button:hover:not(:disabled) {
+  background-image: linear-gradient(var(--vm-white-7), var(--vm-white-7));
+}
+
+.vm-button:active:not(:disabled) {
+  background-image: linear-gradient(var(--vm-white-6), var(--vm-white-6));
+}
+
+/* 键盘焦点环：Figma 的 Button 没有 focus 变体，这一条是按可访问性底线补的，
+   只加外环、不改底色与描边（背景叠加仍由 :hover 负责） */
+.vm-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 var(--vm-focus-ring-width) var(--vm-border-selected);
+}
+
+/* ------------------------------------------------------------ 应用态：禁用 */
+/* State=disabled 只降不透明度（Figma 绑 opacity/disabled = 38%），底色/描边/文字色都不换 */
+.vm-button:disabled {
+  opacity: var(--vm-opacity-disabled);
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-button {
+    transition: none;
+  }
+}

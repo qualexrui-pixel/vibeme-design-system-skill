@@ -1,0 +1,125 @@
+/* ============================================================================
+ * Footer —— 事实来源：Figma 组件集 `Footer`（node 56066:6407，页面 56054:5521）
+ * 2 个变体 = Type(simple / columns)
+ *   填充   Background/bg-panel           #1A1A1A        --vm-bg-panel
+ *   描边   Background/border-default     12% 白，仅顶边 1px（TOP=1，R/B/L=0）--vm-border-default
+ *   内边距 space/space-10                40（四边相同）  --vm-space-10
+ *   纵向 gap space/space-6               24             --vm-space-6
+ *   参考尺寸 1200×105（simple）/ 1200×252（columns），列内容宽 1120 = 1200 - 40×2
+ *   Type=columns 结构：四等分列（列内 gap space/space-2 = 8）
+ *                     → Divider 实例（Orientation=horizontal, Style=solid，1px border-default）
+ *                     → 底部行（gap space/space-4 = 16，品牌居左 / 版权居右）
+ *   文字   Heading/S（14/600/20）+ Text/Text-Primary      --vm-text-primary
+ *          Caption/Caption（12/500/18）+ Text/Text-Secondary（列内链接）--vm-text-secondary
+ *          Caption/Caption（12/500/18）+ Text/Text-Tertiary（版权行） --vm-text-tertiary
+ *   无 State 轴：本文件里除链接的 :hover / :focus-visible 外不写任何状态样式
+ * ========================================================================== */
+
+.vm-footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vm-space-6);
+  box-sizing: border-box;
+  padding: var(--vm-space-10);
+  /* Figma 只给顶边 1px（strokeTopWeight=1，其余三边 0，strokeAlign=INSIDE） */
+  border-top: var(--vm-border-width-thin) solid var(--vm-border-default);
+  background-color: var(--vm-bg-panel);
+  color: var(--vm-text-primary);
+  font-family: var(--vm-font-family);
+}
+
+/* ---------- Type=columns：四等分列 ---------- */
+
+.vm-footer__columns {
+  display: flex;
+  gap: var(--vm-space-6);
+}
+
+.vm-footer__column {
+  /* Figma 四列都是 FILL（各 262px，合计 1120 = 4×262 + 3×24） */
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--vm-space-2);
+}
+
+.vm-footer__column-title {
+  margin: 0;
+  color: var(--vm-text-primary);
+}
+
+.vm-footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vm-space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vm-footer__link {
+  display: inline-block;
+  color: var(--vm-text-secondary);
+  text-decoration: none;
+  transition: color var(--vm-duration-fast) ease-out;
+}
+
+/* Figma 这个组件集没有 hover/focus 轴：这里只用组件已经绑定的两个文字色做反馈
+   （Text/Text-Secondary → Text/Text-Primary），不引入任何新的色值 */
+.vm-footer__link:hover {
+  color: var(--vm-text-primary);
+}
+
+.vm-footer__link:focus-visible {
+  color: var(--vm-text-primary);
+  outline: var(--vm-border-width-thick) solid var(--vm-border-selected);
+  outline-offset: var(--vm-space-1);
+}
+
+.vm-footer__divider {
+  /* 组件自身已含 1px + border-default；这里只声明它是不可收缩的一行 */
+  flex: none;
+}
+
+/* ---------- 底部行（两种变体都有） ---------- */
+
+.vm-footer__bar {
+  display: flex;
+  align-items: center;
+  /* Figma：底部行 HORIZONTAL gap 16 + 中间 826px 弹性空档，即品牌居左、版权居右 */
+  justify-content: space-between;
+  gap: var(--vm-space-4);
+}
+
+.vm-footer__brand {
+  color: var(--vm-text-primary);
+}
+
+.vm-footer__copyright {
+  color: var(--vm-text-tertiary);
+}
+
+/* 窄容器：Figma 是 1200 固定宽的桌面稿，四列在 720 以下折成两列，避免横向溢出 */
+@media (max-width: 720px) {
+  .vm-footer__columns {
+    flex-wrap: wrap;
+  }
+
+  .vm-footer__column {
+    flex: 1 1 calc(50% - var(--vm-space-6) / 2);
+    min-width: 0;
+  }
+
+  .vm-footer__bar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--vm-space-2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-footer__link {
+    transition: none;
+  }
+}

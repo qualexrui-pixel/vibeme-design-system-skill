@@ -1,0 +1,33 @@
+/* ============================================================================
+ * Progress —— 事实来源：Figma 组件集 `Progress`（node 56063:6832，页面 56054:5521）
+ * 4 个变体 = Value(25/50/75/100)，全部 320×6，圆角 radius-full
+ *   轨道   White/White-6          rgba(255,255,255,0.12)  --vm-white-6
+ *   进度段 Brand/Brand            #FFCC90                 --vm-brand
+ *   圆角   Radious/radius-full    999px                   --vm-radius-full
+ * 进度段宽度 = 轨道宽 × value%（Value=25 实测 80 / 320），由 TSX 内联 width 给出。
+ * ========================================================================== */
+
+.vm-progress {
+  display: block;
+  box-sizing: border-box;
+  width: 100%; /* Figma 参考宽 320px；进度条必须跟随容器，这里不写死 */
+  height: 6px; /* Figma 固定高 6px（4 个变体完全一致） */
+  border-radius: var(--vm-radius-full);
+  background-color: var(--vm-white-6);
+  overflow: hidden;
+  font-family: var(--vm-font-family);
+}
+
+.vm-progress__fill {
+  display: block;
+  height: 100%;
+  border-radius: var(--vm-radius-full);
+  background-color: var(--vm-brand);
+  transition: width var(--vm-duration-fast) ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-progress__fill {
+    transition: none;
+  }
+}

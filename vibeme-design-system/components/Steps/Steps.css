@@ -1,0 +1,129 @@
+/* ============================================================================
+ * Steps —— 事实来源：Figma 组件集 `Steps`（node 56064:6770，页面 56054:5521）
+ * 4 个变体 = Type(horizontal/vertical) × Current(1/2)，默认 Type=horizontal, Current=1（309×24）
+ *
+ * 结构（Figma 逐层）：
+ *   根      HORIZONTAL 或 VERTICAL，gap space/space-2 8px            --vm-space-2
+ *   步骤行  HORIZONTAL gap 8，vAlign CENTER：[圆点 24×24] + [文案]
+ *   连接线  horizontal 32×2 / vertical 2×24，填充 Background/border-default 12% 白，
+ *          圆角 Radious/radius-full 999                             --vm-radius-full
+ *
+ * 圆点的三种形态（由 Current 与下标推出，不是变体轴）：
+ *   已完成  fills Brand/Brand        --vm-brand           ＋ Filled icon circle-check-filled 14×14
+ *           （图标是「实心圆 + 挖空对勾」，填 Neutral/Neutral-950 --vm-neutral-950，
+ *             于是对勾处透出品牌色圆底 —— 和 Figma 渲染完全一致）
+ *   当前    strokes Brand/Brand，border/width/thick 2px   --vm-brand / --vm-border-width-thick
+ *   未开始  strokes Background/border-default 12% 白      --vm-border-default
+ * 序号文字  Caption/Caption（12 Medium/18）              .vm-type-caption-caption
+ *           current → Brand/Brand                        --vm-brand
+ *           upcoming → Text/Text-Tertiary 30% 白         --vm-text-tertiary
+ * 文案      Heading/Body/S/Regular（14 Regular/20）      .vm-type-heading-body-s-regular
+ *           current → Text/Text-Primary 92% 白           --vm-text-primary
+ *           其余    → Text/Text-Secondary 64% 白         --vm-text-secondary
+ *
+ * ★ Steps 没有 State 轴：这里没有任何 :hover / :active / :focus-visible / :disabled 规则，
+ *   也没有 disabled prop。Button/MenuItem/Card 那族的 --vm-white-7 叠加与 Input/Search/Select
+ *   那族的「hover 换 --vm-white-4 描边」在这里都不适用。
+ * ★ 连接线在三种状态下都是 12% 白，已完成步骤后面那段**不会**变成品牌色（见 Current=2 变体）。
+ * ========================================================================== */
+
+.vm-steps {
+  box-sizing: border-box;
+  display: flex;
+  gap: var(--vm-space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--vm-font-family);
+  color: var(--vm-text-secondary);
+}
+
+.vm-steps--horizontal {
+  flex-direction: row;
+  align-items: center;
+}
+
+/* Figma 纵向：hAlign MIN，连接线左边缘 = 圆点左边缘（x=0），不是圆心对齐 */
+.vm-steps--vertical {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* 一步 = [圆点 + 文案]（横向排）+ 尾随连接线；两种 Type 下这一步内部都是横排 */
+.vm-steps__item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--vm-space-2);
+}
+
+/* 纵向：连接线绝对定位在步骤行下方，所以用 padding 预留「8px 间隙 + 24px 线」的高度，最后一步不留 */
+.vm-steps--vertical .vm-steps__item:not(:last-child) {
+  padding-bottom: calc(var(--vm-space-2) + var(--vm-space-6));
+}
+
+/* 圆点：24×24（Figma 固定尺寸），描边始终 2px，所以三种状态尺寸完全一致、不会跳位 */
+.vm-steps__indicator {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: var(--vm-border-width-thick) solid var(--vm-border-default);
+  border-radius: var(--vm-radius-full);
+  color: var(--vm-text-tertiary);
+}
+
+/* 当前步：品牌色描边 + 品牌色序号 */
+.vm-steps__indicator--current {
+  border-color: var(--vm-brand);
+  color: var(--vm-brand);
+}
+
+/* 未开始（.vm-steps__indicator--upcoming）没有额外规则：基类那套 12% 白描边 + 30% 白序号
+   就是 Figma 的未开始形态，所以只保留类名做钩子，不重复声明。 */
+
+/* 已完成：品牌色实心圆（描边同色，视觉上就是一整块品牌色）+ 深色对勾图标 */
+.vm-steps__indicator--complete {
+  border-color: var(--vm-brand);
+  background-color: var(--vm-brand);
+  color: var(--vm-neutral-950);
+}
+
+/* 序号：字号/行高来自 .vm-type-caption-caption，这里只管排版 */
+.vm-steps__number {
+  display: block;
+}
+
+.vm-steps__label {
+  color: var(--vm-text-secondary);
+}
+
+/* 当前步的文案是 92% 白，其余（已完成 / 未开始）都是 64% 白 —— 与 Figma 一致 */
+.vm-steps__item--current .vm-steps__label {
+  color: var(--vm-text-primary);
+}
+
+/* 横向连接线：32×2，圆角 full，垂直居中（父级 align-items: center） */
+.vm-steps--horizontal .vm-steps__item:not(:last-child)::after {
+  content: '';
+  flex: none;
+  width: var(--vm-space-8); /* Figma 连接线宽 32 = space/space-8 */
+  height: var(--vm-border-width-thick);
+  background-color: var(--vm-border-default);
+  border-radius: var(--vm-radius-full);
+}
+
+/* 纵向连接线：2×24，绝对定位在预留区底部，左边缘对齐圆点左边缘（left: 0） */
+.vm-steps--vertical .vm-steps__item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: calc(100% - var(--vm-space-6));
+  width: var(--vm-border-width-thick);
+  height: var(--vm-space-6); /* Figma 连接线高 24 = space/space-6 */
+  background-color: var(--vm-border-default);
+  border-radius: var(--vm-radius-full);
+}

@@ -1,0 +1,164 @@
+/* ============================================================================
+ * VibeMe AI / Prompt Field —— 事实来源：Figma 组件集 `VibeMe AI / Prompt Field`
+ * （node 56070:14761，页面 56054:5521）
+ * 3 个变体 = State(Default/Focus/Disabled)，参考尺寸 420×136（FIXED，宽高都固定）
+ *   ★ 属于 `VibeMe AI` 主题（VibeMe AI / Semantic + VibeMe AI / Dimensions），
+ *     取值一律走 `--vm-ai-*`，不要混用主库的 `--vm-bg-*` / `--vm-text-*`。
+ *   容器   填充   Default/Focus   color/bg/panel   #121420  --vm-ai-color-bg-panel
+ *                  Disabled        color/bg/canvas  #080A11  --vm-ai-color-bg-canvas
+ *          描边   Default/Disabled color/border/default #383C52 1px --vm-ai-color-border-default
+ *                  Focus            color/bg/brand       #8547FF 1px --vm-ai-color-bg-brand
+ *          圆角   radius/16（--vm-ai-radius-16）；内边距 上下 14（未绑变量的原值）/ 左右 spacing/16；
+ *          纵向 gap spacing/12（--vm-ai-spacing-12）
+ *   结构   Prompt（textarea，14 Regular，color/text/primary；Disabled → color/text/secondary）
+ *          Actions（HORIZONTAL，SPACE_BETWEEN，gap 8）
+ *            ├─ Hint（11 Medium，color/text/secondary，内容 `⌘ ↵ to generate`）
+ *            └─ Send（胶囊：radius/full 999、padding 6/10、gap 4、填充 color/bg/brand、
+ *                     Send Label 11 SemiBold + color/text/primary；Disabled → 填充 color/bg/raised
+ *                     + 文字 color/text/secondary）
+ *   State=Disabled 在整个组件里**没有**绑 opacity 变量（三个变体的 opVar 都是 null、opacity=1），
+ *   它靠上面那组「换 token」表达；不要额外再叠 opacity。
+ * ========================================================================== */
+
+.vm-vibe-ai-prompt-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vm-ai-spacing-12);
+  box-sizing: border-box;
+  /* Figma 是 FIXED 420×136：宽度固定（同 Input 的 320 参考宽），高度用 min-height + 可拉伸的 textarea */
+  width: 420px;
+  max-width: 100%;
+  min-height: 136px;
+  /* 上下 14 是 Figma 里未绑定变量的原值（AI 主题的 spacing 档位是 4/8/12/16/20/24，没有 14）；
+     左右 16 = spacing/16，是绑定了变量的那一侧 */
+  padding: 14px var(--vm-ai-spacing-16);
+  border: 1px solid var(--vm-ai-color-border-default);
+  border-radius: var(--vm-ai-radius-16);
+  background-color: var(--vm-ai-color-bg-panel);
+  color: var(--vm-ai-color-text-primary);
+  font-family: var(--vm-font-family);
+  transition:
+    border-color var(--vm-duration-fast) ease-out,
+    background-color var(--vm-duration-fast) ease-out;
+}
+
+/* ---------- Prompt：真实 textarea，去掉自身外观，交给容器画边框 ---------- */
+
+.vm-vibe-ai-prompt-field__input {
+  display: block;
+  flex: 1 1 auto;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 42px; /* Figma：两行 21 = 42 */
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  color: var(--vm-ai-color-text-primary);
+  font-family: inherit;
+  font-size: var(--vm-type-heading-body-s-regular-size);
+  font-weight: var(--vm-type-heading-body-s-regular-weight);
+  line-height: var(--vm-type-heading-body-s-regular-line-height);
+  resize: none;
+}
+
+.vm-vibe-ai-prompt-field__input:focus {
+  outline: none;
+}
+
+/* Figma 的 Prompt 图层就是空态提示文案，绑的是 color/text/primary（不是 secondary），
+ * 所以这里显式写成主文字色；用 opacity 让浏览器变淡会同时拉低真实输入值的对比度。 */
+.vm-vibe-ai-prompt-field__input::placeholder {
+  color: var(--vm-ai-color-text-primary);
+  opacity: 1;
+}
+
+/* ---------- Actions 行 ---------- */
+
+.vm-vibe-ai-prompt-field__actions {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--vm-ai-spacing-8);
+}
+
+/* Figma 里 Hint / Send Label 都是 11px（Medium / SemiBold），
+ * 但文字的 19 个样式里最小的两档是 Caption/Label（10 Medium）与 Caption/Caption（12 Medium），
+ * 没有 11px 一档；这里取最近的 Caption/Label，避免手写 font-size。 */
+.vm-vibe-ai-prompt-field__hint {
+  color: var(--vm-ai-color-text-secondary);
+  font-size: var(--vm-type-caption-label-size);
+  font-weight: var(--vm-type-caption-label-weight);
+  line-height: var(--vm-type-caption-label-line-height);
+}
+
+/* Figma: Send —— 胶囊小按钮（HUG 73×29：padding 6/10 + 单行 17） */
+.vm-vibe-ai-prompt-field__send {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--vm-ai-spacing-4);
+  /* 6 / 10 是 Figma 未绑变量的原值（spacing 档位里没有这两档） */
+  padding: 6px 10px;
+  border: 0;
+  border-radius: var(--vm-ai-radius-full);
+  background-color: var(--vm-ai-color-bg-brand);
+  color: var(--vm-ai-color-text-primary);
+  font-family: inherit;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  transition:
+    background-color var(--vm-duration-fast) ease-out,
+    color var(--vm-duration-fast) ease-out;
+}
+
+.vm-vibe-ai-prompt-field__send-label {
+  display: block;
+  font-size: var(--vm-type-caption-label-size);
+  font-weight: var(--vm-type-caption-label-weight);
+  line-height: var(--vm-type-caption-label-line-height);
+}
+
+/* Figma 没有 Focus 变体：焦点环是可访问性补充（AI 主题缺语义 focus token，用 brand 描边 + 2px 外环） */
+.vm-vibe-ai-prompt-field__send:focus-visible {
+  outline: var(--vm-border-width-thick) solid var(--vm-ai-color-bg-brand-hover);
+  outline-offset: var(--vm-ai-spacing-4);
+}
+
+/* ---------- State=Focus：描边换成 color/bg/brand（Figma 线宽仍是 1px） ---------- */
+
+.vm-vibe-ai-prompt-field:focus-within {
+  border-color: var(--vm-ai-color-bg-brand);
+  /* 可访问性补充：Figma 只有 1px 描边变化，这里再加一圈同色 ring，键盘/鼠标聚焦都更明确 */
+  box-shadow: 0 0 0 var(--vm-border-width-thick) var(--vm-ai-color-bg-brand);
+}
+
+/* ---------- State=Disabled：整组换 token，不叠 opacity ---------- */
+
+.vm-vibe-ai-prompt-field--disabled {
+  background-color: var(--vm-ai-color-bg-canvas);
+}
+
+.vm-vibe-ai-prompt-field--disabled .vm-vibe-ai-prompt-field__input {
+  color: var(--vm-ai-color-text-secondary);
+  cursor: not-allowed;
+}
+
+.vm-vibe-ai-prompt-field--disabled .vm-vibe-ai-prompt-field__input::placeholder {
+  color: var(--vm-ai-color-text-secondary);
+}
+
+.vm-vibe-ai-prompt-field--disabled .vm-vibe-ai-prompt-field__send {
+  background-color: var(--vm-ai-color-bg-raised);
+  color: var(--vm-ai-color-text-secondary);
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-vibe-ai-prompt-field,
+  .vm-vibe-ai-prompt-field__send {
+    transition: none;
+  }
+}

@@ -1,0 +1,53 @@
+/* ============================================================================
+ * Stack —— 事实来源：Figma 组件集 `Stack`（node 56066:6298，页面 56054:5521）
+ * 6 个变体 = Direction(vertical | horizontal) × Gap(sm | md | lg)
+ *   间距   space/space-2  8px   （Gap=sm）   --vm-space-2
+ *          space/space-4  16px  （Gap=md）   --vm-space-4
+ *          space/space-6  24px  （Gap=lg）   --vm-space-6
+ *   排列   vertical   → flex-direction: column ＋ align-items: flex-start（MIN）
+ *          horizontal → flex-direction: row    ＋ align-items: center（CENTER）
+ *
+ * Stack 自身**没有**填充、描边、圆角（导出里 fills/strokes/radius 全为空）；
+ * 结构树里那三个 288×40 的方块是演示占位内容，它们的
+ * White/White-9 + Background/border-default + Radious/radius-md 不属于容器本体。
+ * ========================================================================== */
+
+.vm-stack {
+  display: flex;
+  box-sizing: border-box;
+  /* 默认档 = 默认变体 Direction=vertical, Gap=sm */
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--vm-space-2);
+  font-family: var(--vm-font-family);
+}
+
+/* Direction=horizontal 的实体事实：主轴 HORIZONTAL、counterAxisAlignItems=CENTER */
+.vm-stack--horizontal {
+  flex-direction: row;
+  align-items: center;
+}
+
+/* 竖向时交叉轴 MIN，与 Figma 的 counterAxisAlignItems=MIN 一致；显式写出来便于覆盖阅读 */
+.vm-stack--vertical {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Gap 三档：只换间距变量，其它一律不动 */
+.vm-stack--gap-sm {
+  gap: var(--vm-space-2);
+}
+
+.vm-stack--gap-md {
+  gap: var(--vm-space-4);
+}
+
+.vm-stack--gap-lg {
+  gap: var(--vm-space-6);
+}
+
+/* 子项不要被 flex 压缩到撑破容器（结构性约束，非视觉值） */
+.vm-stack > * {
+  min-width: 0;
+}

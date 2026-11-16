@@ -1,0 +1,164 @@
+/* ============================================================================
+ * Notification —— 事实来源：Figma 组件集 `Notification`（node 56063:6645）
+ * 8 个变体 = Type(info/success/warning/error) × Layout(banner/card)，没有 State 轴
+ *
+ * banner（480×HUG，HORIZONTAL，gap 12 = space/space-3，padding 16 = space/space-4）
+ *   底色   Background/bg-panel        #1A1A1A              --vm-bg-panel
+ *   描边   状态色/{Info|Success|Warning|Error}  2px         --vm-status-*
+ *          （线宽绑 border/width/thick）                     --vm-border-width-thick
+ *   圆角   Semantic Radius/radius-card 12px                 --vm-radius-card
+ *   图标   20×20 Filled icon，填状态色                       --vm-status-*
+ *   标题   Heading/S 14 SemiBold /20，Text/Text-Primary      --vm-text-primary
+ *   描述   Caption/Caption 12 Medium /18，Text/Text-Secondary --vm-text-secondary
+ *   关闭   cross_filled 16×16，Text/Text-Tertiary 30% 白     --vm-text-tertiary
+ *
+ * card（320×FIXED，VERTICAL，gap 12，padding 20 = Semantic Space/padding-card-md）
+ *   底色   Background/bg-card         #202020              --vm-bg-card
+ *   描边   Background/border-default  12% 白，1px            --vm-border-default
+ *   阴影   Elevation/2 0 4 12 rgba(0,0,0,.28)               --vm-elevation-2
+ *   正文   Heading/Body/S/Regular 14 Regular /20，Text-Secondary
+ *   结构上只有「图标 + 一行文字」，没有标题层、也没有关闭图标
+ * ========================================================================== */
+
+.vm-notification {
+  box-sizing: border-box;
+  display: flex;
+  gap: var(--vm-space-3);
+  border-radius: var(--vm-radius-card);
+  font-family: var(--vm-font-family);
+}
+
+/* ---------------------------------------------------------------- banner */
+
+.vm-notification--banner {
+  width: 480px; /* Figma 参考宽（FIXED 480）；窄容器里由 max-width 兜底 */
+  max-width: 100%;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: var(--vm-space-4);
+  border: var(--vm-border-width-thick) solid var(--vm-status-info);
+  background-color: var(--vm-bg-panel);
+}
+
+/* 四个状态：banner 用状态色做 2px 描边，图标同色 */
+.vm-notification--banner.vm-notification--info {
+  border-color: var(--vm-status-info);
+}
+
+.vm-notification--banner.vm-notification--success {
+  border-color: var(--vm-status-success);
+}
+
+.vm-notification--banner.vm-notification--warning {
+  border-color: var(--vm-status-warning);
+}
+
+.vm-notification--banner.vm-notification--error {
+  border-color: var(--vm-status-error);
+}
+
+.vm-notification__icon {
+  display: inline-flex;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  color: var(--vm-status-info);
+}
+
+.vm-notification--success .vm-notification__icon {
+  color: var(--vm-status-success);
+}
+
+.vm-notification--warning .vm-notification__icon {
+  color: var(--vm-status-warning);
+}
+
+.vm-notification--error .vm-notification__icon {
+  color: var(--vm-status-error);
+}
+
+.vm-notification__icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* 标题 + 描述的两行结构：Figma 里是一个 FILL 宽、VERTICAL、gap 4 的 Frame */
+.vm-notification__content {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--vm-space-1);
+}
+
+.vm-notification__title,
+.vm-notification__description,
+.vm-notification__text {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.vm-notification__title {
+  color: var(--vm-text-primary);
+}
+
+.vm-notification__description {
+  color: var(--vm-text-secondary);
+}
+
+/* ------------------------------------------------------------ 关闭按钮 */
+
+.vm-notification__close {
+  /* Figma 里是一个裸的 16×16 图标；这里加 4px 内边距把可点区域撑到 24×24，
+     再用等值负外边距抵消，视觉位置与 Figma 完全一致 */
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  margin: calc(var(--vm-space-1) * -1);
+  padding: var(--vm-space-1);
+  border: 0;
+  border-radius: var(--vm-radius-badge);
+  background-color: transparent;
+  color: var(--vm-text-tertiary);
+  cursor: pointer;
+  transition: color var(--vm-duration-fast) ease-out;
+}
+
+/* Figma 没有给通知条定义 hover 变体；这里按「前景换 token」一族的做法，
+   把图标从 Text/Text-Tertiary（30% 白）提到 Text/Text-Secondary（64% 白），
+   不新增任何实体色，也不叠 --vm-white-7 那一层 */
+.vm-notification__close:hover {
+  color: var(--vm-text-secondary);
+}
+
+.vm-notification__close:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 var(--vm-focus-ring-width) var(--vm-border-selected);
+  color: var(--vm-text-secondary);
+}
+
+/* ------------------------------------------------------------------ card */
+
+.vm-notification--card {
+  width: 320px; /* Figma 参考宽（FIXED 320） */
+  max-width: 100%;
+  flex-direction: column;
+  padding: var(--vm-padding-card-md);
+  border: var(--vm-border-width-thin) solid var(--vm-border-default);
+  background-color: var(--vm-bg-card);
+  box-shadow: var(--vm-elevation-2);
+}
+
+.vm-notification--card .vm-notification__text {
+  color: var(--vm-text-secondary);
+}
+
+/* Figma 的 card 变体高度是写死的示例值（info/warning 128、success/error 108，
+   差别只来自样板文案是一行还是两行），实现里让高度由内容撑开，不锁高 */
+@media (prefers-reduced-motion: reduce) {
+  .vm-notification__close {
+    transition: none;
+  }
+}

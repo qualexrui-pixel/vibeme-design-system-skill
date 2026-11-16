@@ -1,0 +1,122 @@
+/* ============================================================================
+ * Drawer —— 事实来源：Figma 组件集 `Drawer`（node 56063:6563，页面 56054:5521）
+ * 6 个变体 = Size(sm/md/lg) × Side(right/left)，**没有 State 轴**
+ *
+ *   填充   Background/bg-panel       #1A1A1A            --vm-bg-panel
+ *   描边   Background/border-default 12% 白 ＋ 1px      --vm-border-default / --vm-border-width-thin
+ *   圆角   Radious/radius-xl 16px，**只给靠外的一侧**  --vm-radius-xl
+ *   内边距 Semantic Space/padding-modal-y/x = 20/24px   --vm-padding-modal-y / --vm-padding-modal-x
+ *   间距   space/space-5 20px（根）/ space-4 16px（标题行） --vm-space-5 / --vm-space-4
+ *   海拔   Elevation/4 0 16 40 rgba(0,0,0,.4)          --vm-elevation-4
+ *   宽度   Figma FIXED 320 / 420 / 560（组件集自己的值；库里**没有** Drawer 宽度 token，
+ *          不要拿 Modal Size/modal-* 顶替），高度是画布样例 640，代码里撑满视口
+ *   标题   Heading/L（Poppins Bold 18/26）＋ Text/Text-Primary   .vm-type-heading-l / --vm-text-primary
+ *   正文   Heading/Body/M/Regular（16/24）＋ Text/Text-Secondary .vm-type-heading-body-m-regular / --vm-text-secondary
+ *   × 图标 Filled icon / cross_filled 20×20，矢量填充是**未绑变量**的 #FFFFFF → White/White-0 --vm-white-0
+ *
+ * ★ 6 个变体的 fills 都只有一条 --vm-bg-panel，没有任何 White/White-7 叠加层，
+ *   所以这里**刻意没有** :hover / :active 规则；唯一的交互体是右上角的 × 按钮。
+ * ★ 变量表里没有 Scrim/scrim-modal：这是**非模态**侧栏，不写 ::backdrop（有遮罩的是 Modal）。
+ * ========================================================================== */
+
+.vm-drawer {
+  /* dialog 的 UA 规则是 dialog:not([open]) { display: none }；
+     这里把 display 显式写在 [open] 上，免得自定义 display 让收起的抽屉又冒出来 */
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  /* UA 给 dialog 的是 left:0; right:0; margin:auto 的居中布局，这里全部复位，由 --right / --left 决定贴边 */
+  left: auto;
+  right: auto;
+  height: auto;
+  max-width: 100vw;
+  box-sizing: border-box;
+  flex-direction: column;
+  gap: var(--vm-space-5);
+  padding: var(--vm-padding-modal-y) var(--vm-padding-modal-x);
+  margin: 0;
+  border: var(--vm-border-width-thin) solid var(--vm-border-default);
+  background-color: var(--vm-bg-panel);
+  box-shadow: var(--vm-elevation-4);
+  color: var(--vm-text-primary);
+  font-family: var(--vm-font-family);
+  overflow-y: auto;
+}
+
+.vm-drawer[open] {
+  display: flex;
+}
+
+/* 靠外的一侧保留 16px 圆角，另一侧是直角 */
+.vm-drawer--right {
+  right: 0;
+  border-radius: var(--vm-radius-xl) 0 0 var(--vm-radius-xl);
+}
+
+.vm-drawer--left {
+  left: 0;
+  border-radius: 0 var(--vm-radius-xl) var(--vm-radius-xl) 0;
+}
+
+/* 三档只改宽度（Figma FIXED）；内边距、行间距、圆角三档一致 */
+.vm-drawer--sm {
+  width: 320px;
+}
+
+.vm-drawer--md {
+  width: 420px;
+}
+
+.vm-drawer--lg {
+  width: 560px;
+}
+
+.vm-drawer__header {
+  display: flex;
+  align-items: center;
+  gap: var(--vm-space-4);
+}
+
+/* 标题自己占满剩余宽度（Figma 里标题 TEXT 是 FILL，右侧固定 20 图标） */
+.vm-drawer__title {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+  color: var(--vm-text-primary);
+}
+
+.vm-drawer__close {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  background: none;
+  /* 图标 VECTOR 的填充是未绑定变量的 #FFFFFF（即 White/White-0） */
+  color: var(--vm-white-0);
+  cursor: pointer;
+  transition: color var(--vm-duration-fast) ease-out;
+}
+
+.vm-drawer__close:focus-visible {
+  border-radius: var(--vm-radius-xs);
+  box-shadow: 0 0 0 var(--vm-focus-ring-width) var(--vm-border-selected);
+  outline: none;
+}
+
+.vm-drawer__body {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin: 0;
+  color: var(--vm-text-secondary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-drawer__close {
+    transition: none;
+  }
+}

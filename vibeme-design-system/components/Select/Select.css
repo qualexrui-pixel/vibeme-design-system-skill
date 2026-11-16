@@ -1,0 +1,139 @@
+/* ============================================================================
+ * Select —— 事实来源：Figma 组件集 `Select`（node 56059:6318，页面 56054:5521）
+ * 15 个变体 = Size(sm / md / lg) × State(default / hover / open / error / disabled)
+ *
+ *   填充   Background/bg-card        #202020        --vm-bg-card
+ *   描边   Background/border-default 12% 白 1px     --vm-border-default（default / disabled）
+ *          White/White-4             30% 白 1px     --vm-white-4（hover）
+ *          Background/border-selected 50% 白 2px    --vm-border-selected ＋ --vm-focus-ring-width（open）
+ *          状态色/Error              #FF3B30 2px   --vm-status-error ＋ --vm-border-width-thick（error）
+ *          → hover 是**描边换 token**，不是 Button 那种填充叠加
+ *   文字   Text/Text-Secondary #FFFFFF 64%          --vm-text-secondary（Figma 唯一绑定的文字色）
+ *   圆角   Semantic Radius/radius-input 12px        --vm-radius-input
+ *   间距   横向内边距 16px --vm-padding-input-x；文字与图标 gap 8px --vm-space-2
+ *   图标   chevron-down_filled 16×16，Figma 填充为纯白（无变量绑定）→ --vm-white-0
+ *   尺寸   宽 320 FIXED；高 sm 32 / md 40 / lg 48
+ *   禁用   opacity/disabled 38%                     --vm-opacity-disabled
+ * ========================================================================== */
+
+.vm-select {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--vm-space-1);
+  width: 320px; /* Figma 参考宽 320（FIXED）；需要自适应时由调用方覆盖 width */
+  font-family: var(--vm-font-family);
+}
+
+.vm-select__field {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  /* 右内边距 = 16（右留白）+ 16（图标）+ 8（gap）= 40，文字区与 Figma 的 262 一致 */
+  padding: 0 40px 0 var(--vm-padding-input-x);
+  border: var(--vm-border-width-thin) solid var(--vm-border-default);
+  border-radius: var(--vm-radius-input);
+  background-color: var(--vm-bg-card);
+  color: var(--vm-text-secondary);
+  font-family: inherit;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  transition:
+    border-color var(--vm-duration-fast) ease-out,
+    background-color var(--vm-duration-fast) ease-out,
+    color var(--vm-duration-fast) ease-out,
+    box-shadow var(--vm-duration-fast) ease-out;
+}
+
+/* 原生弹层由浏览器绘制，Figma 没有展开列表可参照：这里只保证深色主题下选项文字可读 */
+.vm-select__field option,
+.vm-select__field optgroup {
+  background-color: var(--vm-bg-panel);
+  color: var(--vm-text-primary);
+}
+
+/* 尺寸只改高度（文字样式由 TSX 挂的 .vm-type-* 类负责，三档内边距与圆角一致） */
+.vm-select--sm .vm-select__field {
+  height: 32px;
+}
+
+.vm-select--md .vm-select__field {
+  height: 40px;
+}
+
+.vm-select--lg .vm-select__field {
+  height: 48px;
+}
+
+/* 图标：绝对定位在右侧 16px 处；pointer-events: none 保证点击图标也能展开原生弹层。
+ * chevron-down_filled 的填充色在 Figma 里没有变量绑定（值为纯白），故用 --vm-white-0。 */
+.vm-select__icon {
+  position: absolute;
+  top: 50%;
+  right: var(--vm-padding-input-x);
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin-top: -8px;
+  color: var(--vm-white-0);
+  pointer-events: none;
+}
+
+/* -------------------------------------------------- 交互态：描边换 token（1px → 30% 白） */
+/* 末尾的 :not(:focus-visible) 是必需的：`:hover:not(:disabled)` 权重 (0,3,0)，
+   高于 `:focus-visible` 的 (0,2,0)，不排掉聚焦态就会把 focus 的 50% 白描边压成 30% 白。 */
+.vm-select__field:hover:not(:disabled):not(:focus-visible) {
+  border-color: var(--vm-white-4);
+}
+
+/* 键盘焦点环：Figma 的 Select 只有 open 变体，没有单独的 focus 变体；
+   这一条是照可访问性底线补的，视觉与 Input / Search 的 focus 保持一致 */
+.vm-select__field:focus-visible {
+  border-color: var(--vm-border-selected);
+  border-width: var(--vm-focus-ring-width);
+  box-shadow: 0 0 0 var(--vm-focus-ring-width) var(--vm-border-selected);
+  outline: none;
+}
+
+/* ---------------------------------------------------------- 应用态：展开（open） */
+/* 与 Figma `State=open` 一致：2px（绑 focus/ring-width）+ Background/border-selected */
+.vm-select--open .vm-select__field {
+  border-color: var(--vm-border-selected);
+  border-width: var(--vm-focus-ring-width);
+}
+
+/* ------------------------------------------------------------------ 应用态：错误 */
+/* State=error：2px（绑 border/width/thick）+ 状态色/Error；错误优先于 hover */
+.vm-select--error .vm-select__field {
+  border-color: var(--vm-status-error);
+  border-width: var(--vm-border-width-thick);
+}
+
+/* 同上：错误态的 hover 权重 (0,4,0)，也必须让位给 focus-visible，避免结构上压过焦点描边 */
+.vm-select--error .vm-select__field:hover:not(:disabled):not(:focus-visible) {
+  border-color: var(--vm-status-error);
+}
+
+.vm-select--error .vm-select__field:focus-visible {
+  border-color: var(--vm-status-error);
+  box-shadow: 0 0 0 var(--vm-focus-ring-width) var(--vm-status-error);
+}
+
+/* ------------------------------------------------------------------ 应用态：禁用 */
+/* State=disabled 只降不透明度（Figma 绑 opacity/disabled = 38%），描边与文字色都不换 */
+.vm-select__field:disabled {
+  opacity: var(--vm-opacity-disabled);
+  cursor: not-allowed;
+}
+
+.vm-select__error {
+  margin: 0;
+  color: var(--vm-status-error);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-select__field {
+    transition: none;
+  }
+}

@@ -1,0 +1,132 @@
+/* ============================================================================
+ * Upload —— 事实来源：Figma 组件集 `Upload`（node 56059:6543，页面 56054:5521）
+ * 5 个变体 = State(default/hover/dragover/error/disabled)
+ *   填充   Background/bg-card          #202020                        --vm-bg-card
+ *   描边   Background/border-default  12% 白（default / disabled）     --vm-border-default
+ *          White/White-4             30% 白（hover）                  --vm-white-4
+ *          Brand/Brand               #FFCC90（dragover）              --vm-brand
+ *          状态色/Error              #FF3B30（error）                 --vm-status-error
+ *          线宽 5 档恒为 border/width/thin 1px；Figma dashPattern [6,6]
+ *   圆角   Semantic Radius/radius-card 12px                          --vm-radius-card
+ *   内边距 space/space-5 20px；图标与文案间距 space/space-2 8px
+ *   尺寸   320×160（Figma 两个方向都是 FIXED）
+ *   图标   Line icon / import-line 24×24（内部矢量 18.5×18.5），
+ *          Figma 里填充是写死的 #FFFFFF、没有绑变量 → --vm-white-0
+ *   文案   Heading/Body/S/Regular 14 Regular / 20；default 绑 Text/Text-Secondary
+ * ========================================================================== */
+
+.vm-upload {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vm-space-1);
+  width: 320px; /* Figma 参考宽 320；需要自适应时由调用方覆盖 width */
+  font-family: var(--vm-font-family);
+}
+
+.vm-upload__box {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--vm-space-2);
+  width: 100%;
+  height: 160px;
+  padding: var(--vm-space-5);
+  border: var(--vm-border-width-thin) dashed var(--vm-border-default);
+  border-radius: var(--vm-radius-card);
+  background-color: var(--vm-bg-card);
+  /* State=default 的文案色：Text/Text-Secondary（64% 白） */
+  color: var(--vm-text-secondary);
+  text-align: center;
+  transition:
+    border-color var(--vm-duration-fast) ease-out,
+    color var(--vm-duration-fast) ease-out,
+    opacity var(--vm-duration-fast) ease-out;
+}
+
+/* 真正可交互的控件：铺满整框、完全透明，点击与键盘都走原生 file input */
+.vm-upload__input {
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.vm-upload__input:disabled {
+  cursor: not-allowed;
+}
+
+/* Figma 里这个图标 5 档恒为 #FFFFFF（未绑变量），不要跟着文案换色 */
+.vm-upload__icon {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  color: var(--vm-white-0);
+  pointer-events: none;
+}
+
+.vm-upload__label {
+  color: inherit;
+  pointer-events: none;
+}
+
+/* State=dragover：描边换 Brand/Brand、文案换 Text/Text-Action；线宽不变 */
+.vm-upload--dragover .vm-upload__box {
+  border-color: var(--vm-brand);
+  color: var(--vm-text-action);
+}
+
+/* State=error：描边与文案都换 状态色/Error；Upload 不加粗到 2px */
+.vm-upload--error .vm-upload__box {
+  border-color: var(--vm-status-error);
+  color: var(--vm-status-error);
+}
+
+/* State=hover 的实体事实：只换描边（White/White-4）并提亮文案，底色与叠加层都不动 */
+.vm-upload__box:hover {
+  border-color: var(--vm-white-4);
+  color: var(--vm-text-primary);
+}
+
+/* 键盘焦点：Figma 没有这一档，纯 a11y 补充（50% 白描边 + ring） */
+.vm-upload__box:has(.vm-upload__input:focus-visible) {
+  border-color: var(--vm-border-selected);
+  box-shadow: 0 0 0 var(--vm-focus-ring-width) var(--vm-border-selected);
+  outline: none;
+}
+
+.vm-upload--error .vm-upload__box:has(.vm-upload__input:focus-visible) {
+  border-color: var(--vm-status-error);
+  box-shadow: 0 0 0 var(--vm-focus-ring-width) var(--vm-status-error);
+}
+
+/* State=disabled：只降不透明度（Figma 绑 opacity/disabled = 38%），不另造灰色底 */
+.vm-upload:has(.vm-upload__input:disabled) .vm-upload__box {
+  color: var(--vm-text-disable);
+  opacity: var(--vm-opacity-disabled);
+}
+
+/* 禁用时不跟随 hover 换描边；default / disabled 的描边都是 border-default */
+.vm-upload:not(.vm-upload--error):not(.vm-upload--dragover):has(.vm-upload__input:disabled)
+  .vm-upload__box {
+  border-color: var(--vm-border-default);
+}
+
+.vm-upload__error {
+  margin: 0;
+  color: var(--vm-status-error);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-upload__box {
+    transition: none;
+  }
+}

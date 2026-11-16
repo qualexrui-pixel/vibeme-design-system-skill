@@ -1,0 +1,120 @@
+/* ============================================================================
+ * ListItem —— 事实来源：Figma 组件集 `List`（node 56061:6504，页面 56054:5521）
+ * 4 个变体 = State(default / hover / selected / disabled)
+ *   尺寸   320×74（FIXED 320，高 HUG）
+ *   内边距 Semantic Space/padding-card-sm 16px              --vm-padding-card-sm
+ *   间距   space/space-3 12px（Avatar↔文字↔图标）            --vm-space-3
+ *          文字块内部 space/space-1 4px（标题↔辅助说明）      --vm-space-1
+ *   圆角   Radious/radius-md 8px（四角，radiusVar 四角同值） --vm-radius-md
+ *   default  无填充、无描边（透明行，透出面板底色）
+ *   hover    Background/Surface-hover   #262626              --vm-surface-hover
+ *   selected Background/Surface-selected #2A2A2A             --vm-surface-selected
+ *   disabled 沿用 selected 底色（历史遗留，见文末注释）＋ opacity/disabled 0.38
+ *   文字   标题 Text/Text-Primary 92% 白 Heading/S 14/20      --vm-text-primary
+ *          辅助说明 Text/Text-Secondary 64% 白 Caption 12/18 --vm-text-secondary
+ *   图标   Filled icon / chevron-right_filled 16×16，矢量填充 #FFFFFF（未绑变量）
+ * 内嵌实例：Avatar（Size=md, Type=initial，40×40）×1、chevron-right_filled ×1
+ * ========================================================================== */
+
+.vm-list-item {
+  display: block;
+  list-style: none;
+}
+
+.vm-list-item__action {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: var(--vm-space-3);
+  width: 100%;
+  padding: var(--vm-padding-card-sm);
+  border: 0;
+  border-radius: var(--vm-radius-md);
+  background-color: transparent; /* State=default：无填充 */
+  color: var(--vm-text-primary);
+  font-family: var(--vm-font-family);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color var(--vm-duration-fast) ease-out,
+    color var(--vm-duration-fast) ease-out;
+}
+
+/* State=hover 的实体事实：底色 = Background/Surface-hover（#262626），不叠白色图层 */
+.vm-list-item__action:hover:not(:disabled) {
+  background-color: var(--vm-surface-hover);
+}
+
+/* State=selected 的实体事实：底色 = Background/Surface-selected（#2A2A2A）。
+   写在 :hover 之后 —— 同一特异度下后者胜，选中的行悬停时底色保持稳定 */
+.vm-list-item--selected .vm-list-item__action {
+  background-color: var(--vm-surface-selected);
+}
+
+/* Figma 没有 pressed 变体；按下态复用组件自带的更深一档 surface，不新造颜色 */
+.vm-list-item__action:active:not(:disabled) {
+  background-color: var(--vm-surface-selected);
+}
+
+/* Figma 没有 focus 变体：按 foundations 的焦点规范补 token 化 ring，用 inset 避免被相邻行裁切 */
+.vm-list-item__action:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 var(--vm-focus-ring-width) var(--vm-border-selected);
+}
+
+/* State=disabled：只降不透明度，不换底色/文字色，也不响应 hover */
+.vm-list-item__action:disabled {
+  opacity: var(--vm-opacity-disabled);
+  cursor: not-allowed;
+}
+
+/* Avatar 槽位：只给 Figma 的 Size=md 尺寸，圆形底与描边属于 Avatar 组件 */
+.vm-list-item__avatar {
+  display: inline-flex;
+  flex: none;
+  width: 40px;
+  height: 40px;
+}
+
+/* 文字块：Figma 里是 W=FILL / H=HUG 的纵向 Frame，gap 4px，且 clip:true */
+.vm-list-item__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vm-space-1);
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.vm-list-item__title {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--vm-text-primary);
+}
+
+.vm-list-item__description {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--vm-text-secondary);
+}
+
+.vm-list-item__chevron {
+  display: inline-flex;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  color: var(--vm-white-0); /* Filled icon 矢量在 Figma 里是纯白 #FFFFFF，未绑变量 */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-list-item__action {
+    transition: none;
+  }
+}
+
+/* 历史遗留：Figma 的 State=disabled 变体沿用了 selected 的底色（Background/Surface-selected），
+   上面刻意没有复刻 —— disabled 只降 0.38 不透明度，否则未选中的禁用行会被误读成「已选中」。 */

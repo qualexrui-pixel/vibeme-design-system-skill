@@ -1,0 +1,57 @@
+/* ============================================================================
+ * Statistic —— 事实来源：Figma 组件集 `Statistic`（node 56065:7053）
+ * 3 个变体 = Type(default / up / down)，**没有 State 轴**
+ *   布局   根 Auto Layout VERTICAL gap 4px（space/space-1）        --vm-space-1
+ *          第三行 HORIZONTAL gap 4px（同样是 space/space-1）        --vm-space-1
+ *   标签   Caption/Caption（12 Medium /18）色 Text/Text-Secondary   --vm-text-secondary
+ *   数值   Heading/XXL（24 Bold /36）色 Text/Text-Primary           --vm-text-primary
+ *   涨跌   Type=up   图标 chevron-up_filled ＋ 文案 → 状态色/Success #34C759  --vm-status-success
+ *          Type=down 图标 chevron-down_filled ＋ 文案 → 状态色/Error #FF3B30  --vm-status-error
+ *   尺寸   Type=default 77×58；Type=up / down 77×80（多出 22px 的第三行），宽度 HUG
+ *   ★ 组件集无 hover / pressed / focus / disabled / error 变体 —— 本文件不写任何伪类状态。
+ * ========================================================================== */
+
+.vm-statistic {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vm-space-1); /* 根 Auto Layout gap = space/space-1 4px */
+  margin: 0;
+  font-family: var(--vm-font-family);
+}
+
+.vm-statistic__label {
+  margin: 0;
+  color: var(--vm-text-secondary);
+}
+
+.vm-statistic__value {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vm-space-1); /* 数值 ↔ 变化行 也是 space/space-1 4px */
+  margin: 0;
+  color: var(--vm-text-primary);
+}
+
+/* 第三行：图标 ＋ 变化文案，HORIZONTAL gap 4px、纵向居中（Figma 里是 56×18 / 50×18 的 Frame） */
+.vm-statistic__change {
+  display: flex;
+  align-items: center;
+  gap: var(--vm-space-1);
+  /* 默认档不渲染；up / down 由下面的修饰符给状态色，颜色同时被图标 currentColor 继承 */
+  color: inherit;
+}
+
+.vm-statistic__change-icon {
+  display: block;
+  flex: 0 0 auto;
+}
+
+/* Type=up：图标与文案都是 状态色/Success */
+.vm-statistic--up .vm-statistic__change {
+  color: var(--vm-status-success);
+}
+
+/* Type=down：图标与文案都是 状态色/Error */
+.vm-statistic--down .vm-statistic__change {
+  color: var(--vm-status-error);
+}

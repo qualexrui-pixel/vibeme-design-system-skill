@@ -1,0 +1,124 @@
+/* ============================================================================
+ * Input —— 事实来源：Figma 组件集 `Input`（node 56058:5648，页面 56054:5521）
+ * 15 个变体 = Size(sm/md/lg) × State(default/hover/focus/error/disabled)
+ *   填充   Background/bg-card        #202020              --vm-bg-card
+ *   描边   Background/border-default 12% 白（default/disabled）--vm-border-default
+ *          White/White-4            30% 白（hover）       --vm-white-4
+ *          Background/border-selected 50% 白 ＋ 2px（focus）--vm-border-selected
+ *          状态色/Error             #FF3B30 ＋ 2px（error）--vm-status-error
+ *   圆角   Semantic Radius/radius-input 12px              --vm-radius-input
+ *   内边距 Semantic Space/padding-input-x 16px             --vm-padding-input-x
+ *   高度   sm 32 / md 40 / lg 48（Figma 三档，全部 FIXED 320×h）
+ * ========================================================================== */
+
+.vm-input {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vm-space-1);
+  width: 320px; /* Figma 参考宽 320；需要自适应时由调用方覆盖 width */
+  font-family: var(--vm-font-family);
+}
+
+.vm-input__field {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 var(--vm-padding-input-x);
+  border: var(--vm-border-width-thin) solid var(--vm-border-default);
+  border-radius: var(--vm-radius-input);
+  background-color: var(--vm-bg-card);
+  color: var(--vm-text-primary);
+  font-family: inherit;
+  font-size: var(--vm-type-heading-body-s-regular-size);
+  line-height: var(--vm-type-heading-body-s-regular-line-height);
+  transition:
+    border-color var(--vm-duration-fast) ease-out,
+    background-color var(--vm-duration-fast) ease-out,
+    color var(--vm-duration-fast) ease-out;
+}
+
+/* 尺寸只改高度，内边距与圆角三档一致（与 Figma 完全一致） */
+.vm-input--sm .vm-input__field {
+  height: 32px;
+}
+
+.vm-input--md .vm-input__field {
+  height: 40px;
+  font-size: var(--vm-type-heading-body-m-regular-size);
+  line-height: var(--vm-type-heading-body-m-regular-line-height);
+}
+
+.vm-input--lg .vm-input__field {
+  height: 48px;
+  font-size: var(--vm-type-heading-body-m-regular-size);
+  line-height: var(--vm-type-heading-body-m-regular-line-height);
+}
+
+/* 多行：不锁高，再用 padding-y 拉开首行（Figma 单行是垂直居中，多行等价于居中留白） */
+.vm-input__field:is(textarea) {
+  height: auto;
+  min-height: calc(
+    var(--vm-type-heading-body-m-regular-line-height) * 3 + var(--vm-padding-input-y) * 2
+  );
+  padding-block: var(--vm-padding-input-y);
+  resize: vertical;
+}
+
+.vm-input__field::placeholder {
+  /* Figma：Placeholder 文字色 Text/Text-Secondary（= White/White-2 64%），显式写死为占位色，
+     不要靠 opacity 让主文字变淡 —— 那样占位符与真实值的对比度会一起下降 */
+  color: var(--vm-text-secondary);
+}
+
+/* State=hover 的实体事实：描边由 12% 白换成 White/White-4（30% 白），底色不变。
+   末尾的 :not(:focus-visible) 与 Search / Select / Textarea 统一：hover 规则永远不参与
+   聚焦态竞争，焦点描边只由 focus 规则决定（下面那条的高权重修法因此不再依赖源码顺序）。 */
+.vm-input__field:hover:not(:disabled):not(:focus-visible) {
+  border-color: var(--vm-white-4);
+}
+
+/* State=focus 的实体事实：描边 2px ＋ Background/border-selected（50% 白），再补 focus ring。
+   末尾的 :not(:disabled) 不是装饰：`:hover:not(:disabled)` 的选择器权重是 (0,3,0)，
+   而 `:focus-visible` 只有 (0,2,0)——光靠源码顺序（写在 :hover 之后）压不住它。
+   鼠标停在同一格上再聚焦（点击聚焦、或键盘聚焦时鼠标恰好悬停）时，hover 的 30% 白描边会
+   盖掉 focus 的 50% 白描边。补一个同权重的 :not(:disabled) 后，靠后的 focus 规则才真正生效。 */
+.vm-input__field:focus-visible:not(:disabled) {
+  border-color: var(--vm-border-selected);
+  border-width: var(--vm-border-width-thick);
+  box-shadow: 0 0 0 var(--vm-focus-ring-width) var(--vm-border-selected);
+  outline: none;
+}
+
+/* State=error 的实体事实：描边 2px ＋ 状态色/Error */
+.vm-input--error .vm-input__field {
+  border-color: var(--vm-status-error);
+  border-width: var(--vm-border-width-thick);
+}
+
+/* 同类残留：这条 error hover 的权重 (0,4,0) 结构上高于两条 focus 规则 (0,3,0)，
+   与 Search / Select / Textarea 统一加 :not(:focus-visible)，让焦点事实永远由 focus 规则决定 */
+.vm-input--error .vm-input__field:hover:not(:disabled):not(:focus-visible) {
+  border-color: var(--vm-status-error);
+}
+
+.vm-input--error .vm-input__field:focus-visible {
+  border-color: var(--vm-status-error);
+  box-shadow: 0 0 0 var(--vm-focus-ring-width) var(--vm-status-error);
+}
+
+/* State=disabled：只降不透明度（Figma 绑 opacity/disabled = 38%），不另造灰色 */
+.vm-input__field:disabled {
+  opacity: var(--vm-opacity-disabled);
+  cursor: not-allowed;
+}
+
+.vm-input__error {
+  margin: 0;
+  color: var(--vm-status-error);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-input__field {
+    transition: none;
+  }
+}

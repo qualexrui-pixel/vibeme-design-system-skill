@@ -1,0 +1,153 @@
+/* ============================================================================
+ * Checkbox —— 事实来源：Figma 组件集 `Checkbox`（node 56059:6442，页面 56054:5521）
+ * 12 个变体 = Size(sm/md) × Checked(false/true/indeterminate) × State(default/disabled)
+ *
+ * 变体自身（顶层）没有任何填充/描边/圆角，事实全在子节点上：
+ *   方块（FRAME `Frame`，FIXED）
+ *     尺寸    md 20×20 / sm 16×16
+ *     圆角    Radious/radius-xs      4px                --vm-radius-xs
+ *     描边    White/White-4          30% 白 + 1px       --vm-white-4
+ *             （注意：不是 Background/border-default 的 12% 白）
+ *     未选中  无填充（透明）
+ *     选中    Brand/Brand            #FFCC90           --vm-brand
+ *             ＋无 stroke paint（Checked=true 的 Frame 只有填充，描边宽度绑定 border/width/thick）
+ *     半选    同选中的品牌色填充
+ *   勾/横线（VECTOR，Neutral/Neutral-950 #0E0E0E，2px 描边）  --vm-neutral-950 / --vm-border-width-thick
+ *   标签    Text/Text-Primary       92% 白             --vm-text-primary
+ *           sm 走 Caption/Caption（12 Medium/18）、md 走 Heading/Body/S/Regular（14 Regular/20）
+ *   间距    space/space-1 = 4（sm） / space/space-2 = 8（md）
+ *   禁用    opacity/disabled = 38%，只降不透明度，不换任何颜色 token
+ *
+ * State 轴只有 default / disabled —— Figma 没有 hover / focus / pressed 变体，
+ * 因此这里**不发明 hover 与 pressed 的高亮**，只补键盘 focus 光环（可访问性必需）。
+ * ========================================================================== */
+
+.vm-checkbox {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--vm-space-2); /* md 的 space/space-2 = 8px */
+  position: relative;
+  cursor: pointer;
+  font-family: var(--vm-font-family);
+  color: var(--vm-text-primary);
+  /* 触控目标：视觉高度只有 18–20，靠最小高度把可点区域撑到 32（与 Radio、Input sm 同档） */
+  min-height: var(--vm-space-8);
+}
+
+.vm-checkbox--sm {
+  gap: var(--vm-space-1); /* sm 的 space/space-1 = 4px */
+}
+
+/* 原生 input 保有语义与键盘行为，视觉交给方块；不能用 display:none（会退出可聚焦） */
+.vm-checkbox__input {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 方块：Figma 的 FIXED 1:1 Frame，md 20 / sm 16，圆角 4，描边 1px 30% 白 */
+.vm-checkbox__box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  flex: none;
+  inline-size: 20px; /* Figma md = 20 */
+  block-size: 20px;
+  border: var(--vm-border-width-thin) solid var(--vm-white-4);
+  border-radius: var(--vm-radius-xs); /* Radious/radius-xs = 4px */
+  background-color: transparent;
+  /* 勾与横线都用 currentColor；未选中时把前景设为透明，标记不显示也不影响布局 */
+  color: transparent;
+  transition:
+    background-color var(--vm-duration-fast) ease-out,
+    border-color var(--vm-duration-fast) ease-out,
+    color var(--vm-duration-fast) ease-out;
+}
+
+.vm-checkbox--sm .vm-checkbox__box {
+  inline-size: 16px; /* Figma sm = 16 */
+  block-size: 16px;
+}
+
+/* 勾：Figma 的 Vector 是 9×6.5（约为 16 方块的 56%）；用比例表达，两档尺寸共用一个值。
+   viewBox 18×13 与 9:6.5 同比例；vectorEffect 让描边恒为 2px，等价于 Figma 的 2px 描边 */
+.vm-checkbox__check {
+  display: block;
+  inline-size: 56.25%; /* 9 / 16 */
+  block-size: auto;
+  transform: scale(0);
+  transition: transform var(--vm-duration-fast) ease-out;
+}
+
+/* 半选横线：Figma 的 Checked=indeterminate 只换掉了勾槽位里的图形，
+   外层品牌色填充与描边做法和 Checked=true 完全一致。
+   横线用绝对定位叠在方块中心，避免和勾一起参与 flex 布局把勾挤偏 */
+.vm-checkbox__box::after {
+  content: '';
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  inline-size: 56.25%; /* 与勾同宽：Figma 未单独导出横线宽度，取勾槽位的 9/16 */
+  block-size: var(--vm-border-width-thick);
+  border-radius: var(--vm-radius-full);
+  background-color: currentColor;
+  transform: translate(-50%, -50%) scaleX(0);
+  transition: transform var(--vm-duration-fast) ease-out;
+}
+
+/* Checked=true：品牌色填充，描边去掉（Figma 该变体没有 stroke paint），前景换成 Neutral-950 */
+.vm-checkbox__input:checked + .vm-checkbox__box {
+  background-color: var(--vm-brand);
+  border-color: transparent;
+  color: var(--vm-neutral-950);
+}
+
+.vm-checkbox__input:checked + .vm-checkbox__box .vm-checkbox__check {
+  transform: scale(1);
+}
+
+/* Checked=indeterminate：填充与前景同选中态，只是把勾换成一根横线 */
+.vm-checkbox__input:indeterminate + .vm-checkbox__box {
+  background-color: var(--vm-brand);
+  border-color: transparent;
+  color: var(--vm-neutral-950);
+}
+
+.vm-checkbox__input:indeterminate + .vm-checkbox__box::after {
+  transform: translate(-50%, -50%) scaleX(1);
+}
+
+/* 键盘焦点：Figma 没有 focus 变体，这里用 focus ring 表达，不改描边宽度（避免方块尺寸跳动） */
+.vm-checkbox__input:focus-visible + .vm-checkbox__box {
+  box-shadow: 0 0 0 var(--vm-focus-ring-width) var(--vm-border-selected);
+}
+
+/* 标签文字：字号/行高走 vm-type-* 工具类，这里只做颜色与过渡 */
+.vm-checkbox__label {
+  color: var(--vm-text-primary);
+  transition: color var(--vm-duration-fast) ease-out;
+}
+
+/* State=disabled：只降不透明度（Figma 绑 opacity/disabled = 38%），不另造灰色。
+   只做在根节点一次，避免嵌套元素叠加成 38%×38% */
+.vm-checkbox:has(.vm-checkbox__input:disabled) {
+  opacity: var(--vm-opacity-disabled);
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-checkbox__box,
+  .vm-checkbox__check,
+  .vm-checkbox__box::after,
+  .vm-checkbox__label {
+    transition: none;
+  }
+}

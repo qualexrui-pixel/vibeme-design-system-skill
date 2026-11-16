@@ -1,0 +1,60 @@
+/* ============================================================================
+ * VibeAiGenerationStatus —— 事实来源：Figma 组件集 `VibeMe AI / Generation Status`
+ * （node 56070:14780，页面 56054:5521），3 个变体 = State(Thinking/Generating/Complete)
+ *   填充   color/bg/raised     #191B2A（Thinking / Generating）--vm-ai-color-bg-raised
+ *          color/bg/brand-soft #29174A（Complete）             --vm-ai-color-bg-brand-soft
+ *   图标   ✦ color/accent/pink   #FF57AD                      --vm-ai-color-accent-pink
+ *          ✓ color/status/success #40D694                      --vm-ai-color-status-success
+ *   文字   color/text/secondary #8C91A8 / color/text/primary #FFFFFF  —— 12 Medium / 18
+ *   间距   gap spacing/8，内边距 spacing/8（纵向）＋ spacing/12（横向）
+ *   圆角   radius/full 999px                                  --vm-ai-radius-full
+ *   尺寸   104×37 / 180×37 / 83×37，三档全部 HUG —— 宽度交给内容撑开，不写死
+ * 无 hover / pressed / focus / disabled 事实：这是只读状态指示器，不给伪类与动效。
+ * ========================================================================== */
+
+.vm-ai-generation-status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--vm-ai-spacing-8);
+  padding: var(--vm-ai-spacing-8) var(--vm-ai-spacing-12);
+  border-radius: var(--vm-ai-radius-full);
+  background-color: var(--vm-ai-color-bg-raised);
+  color: var(--vm-ai-color-text-secondary);
+  font-family: var(--vm-font-family);
+}
+
+/* State=Complete 才换底：color/bg/brand-soft，同时文字提到 color/text/primary */
+.vm-ai-generation-status--complete {
+  background-color: var(--vm-ai-color-bg-brand-soft);
+  color: var(--vm-ai-color-text-primary);
+}
+
+/* 图标盒：字号跟随 Figma 的 14px 字形（AI Sparkle / Status Icon），
+   行盒高 1.5em = 21px，与 Figma 图标行高一致 —— 加上 8px×2 的内边距正好是 37px 胶囊高 */
+.vm-ai-generation-status__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 1em;
+  height: 1.5em;
+  font-size: var(--vm-type-heading-body-s-semibold-size);
+  color: var(--vm-ai-color-accent-pink);
+}
+
+.vm-ai-generation-status__icon svg {
+  display: block;
+  width: 1em;
+  height: 1em;
+}
+
+/* State=Complete 的图标是另一个字形（✓），颜色也换成状态绿，不是同一个图形换色 */
+.vm-ai-generation-status--complete .vm-ai-generation-status__icon {
+  color: var(--vm-ai-color-status-success);
+}
+
+/* 文字：12 Medium / 18（.vm-type-caption-caption 与 Figma 的 Status Label 完全一致） */
+.vm-ai-generation-status__label {
+  margin: 0;
+  white-space: nowrap;
+}

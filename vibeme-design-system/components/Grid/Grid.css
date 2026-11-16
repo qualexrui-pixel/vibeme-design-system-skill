@@ -1,0 +1,29 @@
+/* ============================================================================
+ * Grid —— 事实来源：Figma 组件集 `Grid`（node 56066:6344，页面 56054:5521）
+ * 3 个变体 = Columns(2 | 3 | 4)
+ *   间距   space/space-4  16px        --vm-space-4
+ *          （根节点 VERTICAL gap 16；每一行 HORIZONTAL gap 16 —— 行、列同一档）
+ *   列宽   Figma：Columns=2 → 352×2 ＋ 16 ／ Columns=4 → 168×4 ＋ 48，都是等分
+ *   结构   根 VERTICAL gap 16 → 行 HORIZONTAL gap 16 → 单元格 FILL（等分宽）× FIXED 高
+ *
+ * 等价 CSS：单层 grid ＋ repeat(n, minmax(0, 1fr)) ＋ gap 16；
+ * 列数由 TSX 通过内联 `grid-template-columns` 注入（真数值，不是三档枚举）。
+ *
+ * Grid 自身**没有**填充、描边、圆角（导出里根节点 fills/strokes/radius 全为空）；
+ * 结构树里那些 80 高的格子是演示内容，不属于容器。
+ * ========================================================================== */
+
+.vm-grid {
+  display: grid;
+  box-sizing: border-box;
+  /* 行距与列距同源：Figma 两处都绑 space/space-4 */
+  gap: var(--vm-space-4);
+  /* 兜底列数，与默认变体 Columns=2 一致；TSX 会用内联样式覆盖这一行 */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  font-family: var(--vm-font-family);
+}
+
+/* 装饰性兜底：极窄容器下不要让等分列被内容顶破（结构性约束，非视觉值） */
+.vm-grid > * {
+  min-width: 0;
+}

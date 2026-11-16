@@ -1,0 +1,3844 @@
+{
+  "$schema": "vibeme.figma-variables/v1",
+  "fileKey": "ZO4WH3sbVCj7lZIFMpiwV9",
+  "exportedAt": "2026-11-16",
+  "collections": [
+    {
+      "id": "VariableCollectionId:44854:33189",
+      "name": "Collection",
+      "defaultModeId": "44854:0",
+      "modes": [
+        {
+          "modeId": "44854:0",
+          "name": "Mode 1"
+        }
+      ],
+      "remote": false,
+      "variables": []
+    },
+    {
+      "id": "VariableCollectionId:49299:53254",
+      "name": "Color Panel",
+      "defaultModeId": "49299:0",
+      "modes": [
+        {
+          "modeId": "49299:0",
+          "name": "Mode 1"
+        }
+      ],
+      "remote": false,
+      "variables": [
+        {
+          "id": "VariableID:49299:53255",
+          "name": "Olive_50",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "49299:0": {
+              "value": {
+                "hex": "#F6F9F2",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:49299:53256",
+          "name": "Olive_100",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "49299:0": {
+              "value": {
+                "hex": "#EDF3E7",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:49299:53257",
+          "name": "Olive_200",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "49299:0": {
+              "value": {
+                "hex": "#DCE8D0",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:49299:53258",
+          "name": "Olive_300",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "49299:0": {
+              "value": {
+                "hex": "#C4D6B3",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:49299:53261",
+          "name": "Olive_400",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "49299:0": {
+              "value": {
+                "hex": "#9AB07A",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:49299:53275",
+          "name": "Olive_950",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "49299:0": {
+              "value": {
+                "hex": "#12180E",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:49299:53260",
+          "name": "Clay_Red_100",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "49299:0": {
+              "value": {
+                "hex": "#FBEAEA",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:49299:53259",
+          "name": "Clay_Red_400",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "49299:0": {
+              "value": {
+                "hex": "#D99A9A",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:49299:53276",
+          "name": "Clay_Red_950",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "49299:0": {
+              "value": {
+                "hex": "#1A0D0C",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:49299:53262",
+          "name": "Soft_Blue_100",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "49299:0": {
+              "value": {
+                "hex": "#EAF1FA",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:49299:53263",
+          "name": "Soft_Blue_400",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "49299:0": {
+              "value": {
+                "hex": "#88A4C8",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:49299:53277",
+          "name": "Soft_Blue_950",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "49299:0": {
+              "value": {
+                "hex": "#0E1520",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:49299:53264",
+          "name": "Purple_100",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "49299:0": {
+              "value": {
+                "hex": "#F1E8FF",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:49299:53265",
+          "name": "Purple_400",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "49299:0": {
+              "value": {
+                "hex": "#AA82F0",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:49299:53278",
+          "name": "Purple_950",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "49299:0": {
+              "value": {
+                "hex": "#160E24",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:49299:53266",
+          "name": "Pink_100",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "49299:0": {
+              "value": {
+                "hex": "#FFE8F0",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:49299:53267",
+          "name": "Pink_400",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "49299:0": {
+              "value": {
+                "hex": "#EB7FA5",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:49299:53279",
+          "name": "Pink_950",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "49299:0": {
+              "value": {
+                "hex": "#220D14",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:49299:53268",
+          "name": "Cyan_100",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "49299:0": {
+              "value": {
+                "hex": "#DDF5F3",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:49299:53269",
+          "name": "Cyan_400",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "49299:0": {
+              "value": {
+                "hex": "#63C7C1",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:49299:53280",
+          "name": "Cyan_950",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "49299:0": {
+              "value": {
+                "hex": "#0B2221",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "VariableCollectionId:2:1172",
+      "name": "Variable collection",
+      "defaultModeId": "2:0",
+      "modes": [
+        {
+          "modeId": "2:0",
+          "name": "Mode 1"
+        }
+      ],
+      "remote": false,
+      "variables": [
+        {
+          "id": "VariableID:2:1173",
+          "name": "Color",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#000000",
+                "alpha": 0.2
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:28825",
+          "name": "Text/Text-Primary",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#FFFFFF",
+                "alpha": 0.92
+              },
+              "alias": "White/White-1",
+              "aliasId": "VariableID:44854:28801",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:28826",
+          "name": "Text/Text-Secondary",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#FFFFFF",
+                "alpha": 0.64
+              },
+              "alias": "White/White-2",
+              "aliasId": "VariableID:44854:28802",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:28827",
+          "name": "Text/Text-Tertiary",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#FFFFFF",
+                "alpha": 0.3
+              },
+              "alias": "White/White-4",
+              "aliasId": "VariableID:44854:28806",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:28828",
+          "name": "Text/Text-Disable",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#FFFFFF",
+                "alpha": 0.24
+              },
+              "alias": "White/White-5",
+              "aliasId": "VariableID:44854:28807",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:37165",
+          "name": "Text/Text-Action",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#FFCC90",
+                "alpha": 1
+              },
+              "alias": "Brand/Brand",
+              "aliasId": "VariableID:1054:4906",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:903:6193",
+          "name": "Text/辅助色",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#7F7F7F",
+                "alpha": 1
+              },
+              "alias": "Neutral/Neutral-400",
+              "aliasId": "VariableID:44854:33202",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:3549:13824",
+          "name": "Text/副标题、正文",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#B4B4B4",
+                "alpha": 1
+              },
+              "alias": "Neutral/Neutral-250",
+              "aliasId": "VariableID:44854:33204",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:33206",
+          "name": "Background/bg-app",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#0E0E0E",
+                "alpha": 1
+              },
+              "alias": "Neutral/Neutral-950",
+              "aliasId": "VariableID:44854:33191",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:903:6289",
+          "name": "button",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#FFFFFF",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:911:6351",
+          "name": "按钮",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#1C1C1E",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:911:6369",
+          "name": "分割线",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#38383B",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44941:1016",
+          "name": "Background/bg-page",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#121212",
+                "alpha": 1
+              },
+              "alias": "Neutral/Neutral-900",
+              "aliasId": "VariableID:44854:33192",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:33207",
+          "name": "Background/bg-panel",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#1A1A1A",
+                "alpha": 1
+              },
+              "alias": "Neutral/Neutral-800",
+              "aliasId": "VariableID:44854:33194",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44941:1017",
+          "name": "Background/bg-card",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#202020",
+                "alpha": 1
+              },
+              "alias": "Neutral/Neutral-750",
+              "aliasId": "VariableID:44854:33195",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:33208",
+          "name": "Background/bg-toast",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#202020",
+                "alpha": 1
+              },
+              "alias": "Neutral/Neutral-750",
+              "aliasId": "VariableID:44854:33195",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:913:10848",
+          "name": "Color 3",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#AA00FF",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:33209",
+          "name": "Background/border-default",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#FFFFFF",
+                "alpha": 0.12
+              },
+              "alias": "White/White-6",
+              "aliasId": "VariableID:44854:28808",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:33210",
+          "name": "Background/border-selected",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#FFFFFF",
+                "alpha": 0.5
+              },
+              "alias": "White/White-3",
+              "aliasId": "VariableID:44854:28805",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:913:10849",
+          "name": "Color 4",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#D685FF",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44966:1908",
+          "name": "Background/Surface-hover",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#262626",
+                "alpha": 1
+              },
+              "alias": "Neutral/Neutral-700",
+              "aliasId": "VariableID:44854:33196",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44966:1909",
+          "name": "Background/Surface-selected",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#2A2A2A",
+                "alpha": 1
+              },
+              "alias": "Neutral/Neutral-650",
+              "aliasId": "VariableID:44854:33197",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44966:1910",
+          "name": "Background/Surface-pressed",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#303030",
+                "alpha": 1
+              },
+              "alias": "Neutral/Neutral-600",
+              "aliasId": "VariableID:44854:33198",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:1092:7664",
+          "name": "绿色",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#51EA44",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:1054:4906",
+          "name": "Brand/Brand",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#FFCC90",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45178:409",
+          "name": "Brand/Brand-Hover",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#FFC07A",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45180:410",
+          "name": "Brand/Brand-Disable",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#875229",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45180:407",
+          "name": "Brand/Brand-900",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#3A2112",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45178:410",
+          "name": "Brand/Brand-950",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#2B1F12",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45180:408",
+          "name": "Brand/Brand_100",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#FFF1DF",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45196:12192",
+          "name": "Scrim/scrim-modal",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#000000",
+                "alpha": 0.56
+              },
+              "alias": "Black/Black-3",
+              "aliasId": "VariableID:45196:12191",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:4031:17498",
+          "name": "Text/灰/Black",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#000000",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:1397:12773",
+          "name": "Text/灰/Gray1",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#0E0E0E",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:1397:12774",
+          "name": "Text/灰/深灰",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#1A1A1A",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:1397:12775",
+          "name": "Text/灰/中灰",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#4D4D4D",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:1397:12776",
+          "name": "Text/灰/浅灰",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#B3B3B3",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:1397:12777",
+          "name": "Text/灰/边框灰",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#E0E0E0",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:23199:60719",
+          "name": "Text/灰/666",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#666666",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:1397:12779",
+          "name": "主色/Main Orange",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#FFCC90",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:1397:12780",
+          "name": "状态色/Error",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#FF3B30",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:1397:12781",
+          "name": "状态色/Success",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#34C759",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:3546:12144",
+          "name": "标注色-1",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#FFCC00",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:11179:22632",
+          "name": "100%",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 0,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:11179:22645",
+          "name": "100",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 20,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:22503:45927",
+          "name": "标注用色",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#FF5D5D",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:8165",
+          "name": "Semantic Space/padding-button-sm-x",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 12,
+              "alias": "space/space-3",
+              "aliasId": "VariableID:45299:8157",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:8166",
+          "name": "Semantic Space/padding-button-sm-y",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 8,
+              "alias": "space/space-2",
+              "aliasId": "VariableID:45299:8154",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:8167",
+          "name": "Semantic Space/padding-button-md-x",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 16,
+              "alias": "space/space-4",
+              "aliasId": "VariableID:45299:8158",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:8168",
+          "name": "Semantic Space/padding-button-md-y",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 10,
+              "alias": "space/space-2-5",
+              "aliasId": "VariableID:45299:8156",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:8169",
+          "name": "Semantic Space/padding-button-lg-x",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 20,
+              "alias": "space/space-5",
+              "aliasId": "VariableID:45299:8159",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:8170",
+          "name": "Semantic Space/padding-button-lg-y",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 12,
+              "alias": "space/space-3",
+              "aliasId": "VariableID:45299:8157",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:8171",
+          "name": "Semantic Space/padding-input-x",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 16,
+              "alias": "space/space-4",
+              "aliasId": "VariableID:45299:8158",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:8172",
+          "name": "Semantic Space/padding-input-y",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 12,
+              "alias": "space/space-3",
+              "aliasId": "VariableID:45299:8157",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:8173",
+          "name": "Semantic Space/padding-card-sm",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 16,
+              "alias": "space/space-4",
+              "aliasId": "VariableID:45299:8158",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:8174",
+          "name": "Semantic Space/padding-card-md",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 20,
+              "alias": "space/space-5",
+              "aliasId": "VariableID:45299:8159",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:8175",
+          "name": "Semantic Space/padding-card-lg",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 24,
+              "alias": "space/space-6",
+              "aliasId": "VariableID:45299:8160",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:11434",
+          "name": "Semantic Space/padding-modal-x",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 24,
+              "alias": "space/space-6",
+              "aliasId": "VariableID:45299:8160",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:11435",
+          "name": "Semantic Space/padding-modal-y",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 20,
+              "alias": "space/space-5",
+              "aliasId": "VariableID:45299:8159",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:11436",
+          "name": "Semantic Space/padding-badge-x",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 10,
+              "alias": "space/space-2-5",
+              "aliasId": "VariableID:45299:8156",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:11437",
+          "name": "Semantic Space/padding-badge-y",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 4,
+              "alias": "space/space-1",
+              "aliasId": "VariableID:45299:8153",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:11438",
+          "name": "Semantic Space/padding-toast-x",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 16,
+              "alias": "space/space-4",
+              "aliasId": "VariableID:45299:8158",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:11439",
+          "name": "Semantic Space/padding-toast-y",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 12,
+              "alias": "space/space-3",
+              "aliasId": "VariableID:45299:8157",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:11440",
+          "name": "Semantic Space/padding-popover",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 16,
+              "alias": "space/space-4",
+              "aliasId": "VariableID:45299:8158",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45260:1433",
+          "name": "Semantic Radius/radius-button",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 12,
+              "alias": "Radious/radius-lg",
+              "aliasId": "VariableID:45260:1425",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45196:10767",
+          "name": "Modal Size/modal-sm",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 400,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45196:10768",
+          "name": "Modal Size/modal-md",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 520,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45196:10769",
+          "name": "Modal Size/modal-lg",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 720,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45196:10771",
+          "name": "Modal Size/modal-xl",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 880,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45196:10773",
+          "name": "Modal Size/modal-2xl",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 1120,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45260:1438",
+          "name": "Semantic Radius/radius-input",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 12,
+              "alias": "Radious/radius-lg",
+              "aliasId": "VariableID:45260:1425",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45260:1434",
+          "name": "Semantic Radius/radius-card",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 12,
+              "alias": "Radious/radius-lg",
+              "aliasId": "VariableID:45260:1425",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45260:1435",
+          "name": "Semantic Radius/radius-avatar",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 999,
+              "alias": "Radious/radius-full",
+              "aliasId": "VariableID:45260:1429",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45260:1436",
+          "name": "Semantic Radius/radius-badge",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 4,
+              "alias": "Radious/radius-xs",
+              "aliasId": "VariableID:45260:1422",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45260:1437",
+          "name": "Semantic Radius/radius-toast",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 12,
+              "alias": "Radious/radius-lg",
+              "aliasId": "VariableID:45260:1425",
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45196:12190",
+          "name": "Black/Black",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#000000",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45196:12191",
+          "name": "Black/Black-3",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#000000",
+                "alpha": 0.56
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:33191",
+          "name": "Neutral/Neutral-950",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#0E0E0E",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:33192",
+          "name": "Neutral/Neutral-900",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#121212",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:33193",
+          "name": "Neutral/Neutral-850",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#161616",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:33194",
+          "name": "Neutral/Neutral-800",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#1A1A1A",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:33195",
+          "name": "Neutral/Neutral-750",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#202020",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:33196",
+          "name": "Neutral/Neutral-700",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#262626",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:33197",
+          "name": "Neutral/Neutral-650",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#2A2A2A",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:33198",
+          "name": "Neutral/Neutral-600",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#303030",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:33199",
+          "name": "Neutral/Neutral-550",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#383838",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:33200",
+          "name": "Neutral/Neutral-500",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#4D4D4D",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:33202",
+          "name": "Neutral/Neutral-400",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#7F7F7F",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:33203",
+          "name": "Neutral/Neutral-300",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#A3A3A3",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:33204",
+          "name": "Neutral/Neutral-250",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#B4B4B4",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:33205",
+          "name": "Neutral/Neutral-100",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#E0E0E0",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:1397:12778",
+          "name": "White/White-0",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#FFFFFF",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:28801",
+          "name": "White/White-1",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#FFFFFF",
+                "alpha": 0.92
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:28802",
+          "name": "White/White-2",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#FFFFFF",
+                "alpha": 0.64
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:28805",
+          "name": "White/White-3",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#FFFFFF",
+                "alpha": 0.5
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:28806",
+          "name": "White/White-4",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#FFFFFF",
+                "alpha": 0.3
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:28807",
+          "name": "White/White-5",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#FFFFFF",
+                "alpha": 0.24
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:28808",
+          "name": "White/White-6",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#FFFFFF",
+                "alpha": 0.12
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44486:2939",
+          "name": "White/White-7",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#FFFFFF",
+                "alpha": 0.08
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:28803",
+          "name": "White/White-8",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#FFFFFF",
+                "alpha": 0.04
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:44854:28804",
+          "name": "White/White-9",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#FFFFFF",
+                "alpha": 0.02
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45245:18576",
+          "name": "Radious/radius-none",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 0,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:8152",
+          "name": "space/space-0",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 0,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:8153",
+          "name": "space/space-1",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 4,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:8155",
+          "name": "space/space-1-5",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 6,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:8154",
+          "name": "space/space-2",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 8,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:8156",
+          "name": "space/space-2-5",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 10,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:8157",
+          "name": "space/space-3",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 12,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:8158",
+          "name": "space/space-4",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 16,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:8159",
+          "name": "space/space-5",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 20,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:8160",
+          "name": "space/space-6",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 24,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:8161",
+          "name": "space/space-8",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 32,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:8162",
+          "name": "space/space-10",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 40,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:8163",
+          "name": "space/space-12",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 48,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45299:8164",
+          "name": "space/space-16",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 64,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45260:1422",
+          "name": "Radious/radius-xs",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 4,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45260:1423",
+          "name": "Radious/radius-sm",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 6,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45260:1424",
+          "name": "Radious/radius-md",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 8,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45260:1425",
+          "name": "Radious/radius-lg",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 12,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45260:1426",
+          "name": "Radious/radius-xl",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 16,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45260:1427",
+          "name": "Radious/radius-2xl",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 24,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45260:1428",
+          "name": "Radious/radius-3xl",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 32,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:45260:1429",
+          "name": "Radious/radius-full",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": 999,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:55439:15580",
+          "name": "后台主色",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "2:0": {
+              "value": {
+                "hex": "#CEFF00",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "VariableCollectionId:56027:6191",
+      "name": "VibeMe AI / Dimensions",
+      "defaultModeId": "56027:2",
+      "modes": [
+        {
+          "modeId": "56027:2",
+          "name": "Value"
+        }
+      ],
+      "remote": false,
+      "variables": [
+        {
+          "id": "VariableID:56027:6216",
+          "name": "spacing/4",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "GAP"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56027:2": {
+              "value": 4,
+              "alias": null,
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-space-4)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6217",
+          "name": "spacing/8",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "GAP"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56027:2": {
+              "value": 8,
+              "alias": null,
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-space-8)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6218",
+          "name": "spacing/12",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "GAP"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56027:2": {
+              "value": 12,
+              "alias": null,
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-space-12)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6219",
+          "name": "spacing/16",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "GAP"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56027:2": {
+              "value": 16,
+              "alias": null,
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-space-16)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6220",
+          "name": "spacing/20",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "GAP"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56027:2": {
+              "value": 20,
+              "alias": null,
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-space-20)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6221",
+          "name": "spacing/24",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "GAP"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56027:2": {
+              "value": 24,
+              "alias": null,
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-space-24)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6222",
+          "name": "radius/8",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56027:2": {
+              "value": 8,
+              "alias": null,
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-radius-8)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6223",
+          "name": "radius/12",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56027:2": {
+              "value": 12,
+              "alias": null,
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-radius-12)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6224",
+          "name": "radius/16",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56027:2": {
+              "value": 16,
+              "alias": null,
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-radius-16)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6225",
+          "name": "radius/full",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "CORNER_RADIUS"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56027:2": {
+              "value": 999,
+              "alias": null,
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-radius-full)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "VariableCollectionId:56027:6189",
+      "name": "VibeMe AI / Primitives",
+      "defaultModeId": "56027:0",
+      "modes": [
+        {
+          "modeId": "56027:0",
+          "name": "Value"
+        }
+      ],
+      "remote": false,
+      "variables": [
+        {
+          "id": "VariableID:56027:6192",
+          "name": "neutral/950",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [],
+          "remote": false,
+          "valuesByMode": {
+            "56027:0": {
+              "value": {
+                "hex": "#080A11",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-neutral-950)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6193",
+          "name": "neutral/900",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [],
+          "remote": false,
+          "valuesByMode": {
+            "56027:0": {
+              "value": {
+                "hex": "#121420",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-neutral-900)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6194",
+          "name": "neutral/850",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [],
+          "remote": false,
+          "valuesByMode": {
+            "56027:0": {
+              "value": {
+                "hex": "#191B2A",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-neutral-850)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6195",
+          "name": "neutral/700",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [],
+          "remote": false,
+          "valuesByMode": {
+            "56027:0": {
+              "value": {
+                "hex": "#383C52",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-neutral-700)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6196",
+          "name": "neutral/400",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [],
+          "remote": false,
+          "valuesByMode": {
+            "56027:0": {
+              "value": {
+                "hex": "#8C91A8",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-neutral-400)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6197",
+          "name": "white/1000",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [],
+          "remote": false,
+          "valuesByMode": {
+            "56027:0": {
+              "value": {
+                "hex": "#FFFFFF",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-white)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6198",
+          "name": "violet/500",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [],
+          "remote": false,
+          "valuesByMode": {
+            "56027:0": {
+              "value": {
+                "hex": "#8547FF",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-violet-500)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6199",
+          "name": "violet/400",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [],
+          "remote": false,
+          "valuesByMode": {
+            "56027:0": {
+              "value": {
+                "hex": "#A373FF",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-violet-400)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6200",
+          "name": "violet/950",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [],
+          "remote": false,
+          "valuesByMode": {
+            "56027:0": {
+              "value": {
+                "hex": "#29174A",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-violet-950)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6201",
+          "name": "pink/400",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [],
+          "remote": false,
+          "valuesByMode": {
+            "56027:0": {
+              "value": {
+                "hex": "#FF57AD",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-pink-400)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6202",
+          "name": "green/400",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [],
+          "remote": false,
+          "valuesByMode": {
+            "56027:0": {
+              "value": {
+                "hex": "#40D694",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-green-400)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6203",
+          "name": "red/400",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [],
+          "remote": false,
+          "valuesByMode": {
+            "56027:0": {
+              "value": {
+                "hex": "#FF5766",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-red-400)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "VariableCollectionId:56027:6190",
+      "name": "VibeMe AI / Semantic",
+      "defaultModeId": "56027:1",
+      "modes": [
+        {
+          "modeId": "56027:1",
+          "name": "Dark"
+        }
+      ],
+      "remote": false,
+      "variables": [
+        {
+          "id": "VariableID:56027:6204",
+          "name": "color/bg/canvas",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56027:1": {
+              "value": {
+                "hex": "#080A11",
+                "alpha": 1
+              },
+              "alias": "neutral/950",
+              "aliasId": "VariableID:56027:6192",
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-ai-bg-canvas)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6205",
+          "name": "color/bg/panel",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56027:1": {
+              "value": {
+                "hex": "#121420",
+                "alpha": 1
+              },
+              "alias": "neutral/900",
+              "aliasId": "VariableID:56027:6193",
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-ai-bg-panel)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6206",
+          "name": "color/bg/raised",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56027:1": {
+              "value": {
+                "hex": "#191B2A",
+                "alpha": 1
+              },
+              "alias": "neutral/850",
+              "aliasId": "VariableID:56027:6194",
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-ai-bg-raised)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6207",
+          "name": "color/bg/brand",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56027:1": {
+              "value": {
+                "hex": "#8547FF",
+                "alpha": 1
+              },
+              "alias": "violet/500",
+              "aliasId": "VariableID:56027:6198",
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-ai-bg-brand)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6208",
+          "name": "color/bg/brand-hover",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56027:1": {
+              "value": {
+                "hex": "#A373FF",
+                "alpha": 1
+              },
+              "alias": "violet/400",
+              "aliasId": "VariableID:56027:6199",
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-ai-bg-brand-hover)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6209",
+          "name": "color/bg/brand-soft",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56027:1": {
+              "value": {
+                "hex": "#29174A",
+                "alpha": 1
+              },
+              "alias": "violet/950",
+              "aliasId": "VariableID:56027:6200",
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-ai-bg-brand-soft)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6210",
+          "name": "color/text/primary",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56027:1": {
+              "value": {
+                "hex": "#FFFFFF",
+                "alpha": 1
+              },
+              "alias": "white/1000",
+              "aliasId": "VariableID:56027:6197",
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-ai-text-primary)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6211",
+          "name": "color/text/secondary",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "TEXT_FILL"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56027:1": {
+              "value": {
+                "hex": "#8C91A8",
+                "alpha": 1
+              },
+              "alias": "neutral/400",
+              "aliasId": "VariableID:56027:6196",
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-ai-text-secondary)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6212",
+          "name": "color/border/default",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "STROKE_COLOR"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56027:1": {
+              "value": {
+                "hex": "#383C52",
+                "alpha": 1
+              },
+              "alias": "neutral/700",
+              "aliasId": "VariableID:56027:6195",
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-ai-border-default)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6213",
+          "name": "color/status/success",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "SHAPE_FILL",
+            "TEXT_FILL"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56027:1": {
+              "value": {
+                "hex": "#40D694",
+                "alpha": 1
+              },
+              "alias": "green/400",
+              "aliasId": "VariableID:56027:6202",
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-ai-status-success)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6214",
+          "name": "color/status/error",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "SHAPE_FILL",
+            "TEXT_FILL"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56027:1": {
+              "value": {
+                "hex": "#FF5766",
+                "alpha": 1
+              },
+              "alias": "red/400",
+              "aliasId": "VariableID:56027:6203",
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-ai-status-error)"
+          }
+        },
+        {
+          "id": "VariableID:56027:6215",
+          "name": "color/accent/pink",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "SHAPE_FILL",
+            "TEXT_FILL"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56027:1": {
+              "value": {
+                "hex": "#FF57AD",
+                "alpha": 1
+              },
+              "alias": "pink/400",
+              "aliasId": "VariableID:56027:6201",
+              "percentHint": false
+            }
+          },
+          "codeSyntax": {
+            "WEB": "var(--vibeme-ai-accent-pink)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "VariableCollectionId:56054:5522",
+      "name": "总组件库 / Foundations",
+      "defaultModeId": "56054:0",
+      "modes": [
+        {
+          "modeId": "56054:0",
+          "name": "Value"
+        }
+      ],
+      "remote": false,
+      "variables": [
+        {
+          "id": "VariableID:56054:5523",
+          "name": "border/width/thin",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56054:0": {
+              "value": 1,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:56054:5524",
+          "name": "border/width/thick",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56054:0": {
+              "value": 2,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:56054:5525",
+          "name": "opacity/disabled",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56054:0": {
+              "value": 38,
+              "alias": null,
+              "percentHint": true
+            }
+          }
+        },
+        {
+          "id": "VariableID:56054:5526",
+          "name": "opacity/muted",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56054:0": {
+              "value": 60,
+              "alias": null,
+              "percentHint": true
+            }
+          }
+        },
+        {
+          "id": "VariableID:56054:5527",
+          "name": "opacity/full",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56054:0": {
+              "value": 100,
+              "alias": null,
+              "percentHint": true
+            }
+          }
+        },
+        {
+          "id": "VariableID:56054:5528",
+          "name": "duration/fast",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56054:0": {
+              "value": 100,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:56054:5529",
+          "name": "duration/normal",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56054:0": {
+              "value": 200,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:56054:5530",
+          "name": "duration/slow",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56054:0": {
+              "value": 300,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:56054:5531",
+          "name": "focus/ring-width",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56054:0": {
+              "value": 2,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:56054:5532",
+          "name": "状态色/Warning",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56054:0": {
+              "value": {
+                "hex": "#FFCC00",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:56054:5533",
+          "name": "状态色/Info",
+          "resolvedType": "COLOR",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56054:0": {
+              "value": {
+                "hex": "#2797FF",
+                "alpha": 1
+              },
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:56061:6731",
+          "name": "space/space-0-5",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56054:0": {
+              "value": 2,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        },
+        {
+          "id": "VariableID:56063:7123",
+          "name": "border/width/ring",
+          "resolvedType": "FLOAT",
+          "description": "",
+          "scopes": [
+            "ALL_SCOPES"
+          ],
+          "remote": false,
+          "valuesByMode": {
+            "56054:0": {
+              "value": 3,
+              "alias": null,
+              "percentHint": false
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "boundVariableIdsNotLocal": []
+}

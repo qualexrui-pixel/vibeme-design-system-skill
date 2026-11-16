@@ -1,0 +1,117 @@
+/* ============================================================================
+ * Radio —— 事实来源：Figma 组件集 `Radio`（node 56059:6471，页面 56054:5521）
+ * 8 个变体 = Size(sm/md) × Selected(false/true) × State(default/disabled)
+ *
+ * 顶层容器（变体自身）没有填充/圆角，事实都挂在子节点上：
+ *   外圈（Frame，FIXED 1:1，圆角 Semantic Radius/radius-avatar = Radious/radius-full 999）
+ *     未选中 描边 White/White-4             30% 白   --vm-white-4
+ *     已选中 描边 Brand/Brand               #FFCC90  --vm-brand
+ *     描边宽度 border/width/thick           2px      --vm-border-width-thick
+ *   内点（Frame，仅在 Selected=true 存在）
+ *          填充 Brand/Brand               #FFCC90  --vm-brand
+ *          直径 md 8 / sm 6（= 0.4 × 外圈直径，与 Figma 一致）
+ *   标签 Text/Text-Primary                 92% 白   --vm-text-primary
+ *          sm 用 Caption/Caption（12 Medium/18）、md 用 Heading/Body/S/Regular（14 Regular/20）
+ *   间距 space/space-1 = 4（sm） / space/space-2 = 8（md）
+ *   禁用   opacity/disabled = 38%，只降不透明度，不换任何颜色 token
+ * ========================================================================== */
+
+.vm-radio {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--vm-space-2); /* md 的 space/space-2 = 8px */
+  position: relative;
+  cursor: pointer;
+  font-family: var(--vm-font-family);
+  color: var(--vm-text-primary);
+  /* 触控目标：视觉高度只有 18–20，靠最小高度把可点区域撑到 32（与 Input sm 同档） */
+  min-height: var(--vm-space-8);
+}
+
+.vm-radio--sm {
+  gap: var(--vm-space-1); /* sm 的 space/space-1 = 4px */
+}
+
+/* 原生 input 保有语义与键盘行为，视觉交给外圈；不能用 display:none（会退出可聚焦） */
+.vm-radio__input {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 外圈：Figma 的 FIXED 1:1 Frame，描边 2px，圆角 999（整圆） */
+.vm-radio__mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  flex: none;
+  inline-size: 20px; /* Figma md = 20 */
+  aspect-ratio: 1; /* Figma 的 FIXED 1:1，用比例避免第二处固定尺寸 */
+  border: var(--vm-border-width-thick) solid var(--vm-white-4);
+  border-radius: var(--vm-radius-avatar); /* Semantic Radius/radius-avatar → 999px */
+  background-color: transparent;
+  transition:
+    border-color var(--vm-duration-fast) ease-out,
+    background-color var(--vm-duration-fast) ease-out,
+    color var(--vm-duration-fast) ease-out;
+}
+
+.vm-radio--sm .vm-radio__mark {
+  inline-size: 16px; /* Figma sm = 16 */
+}
+
+/* 内点：Figma 里 Selected=true 才出现的子 Frame，md 8 / sm 6，纯品牌色 */
+.vm-radio__mark::after {
+  content: '';
+  display: block;
+  inline-size: 40%; /* md = 8/20，与 Figma 的 8px 一致 */
+  aspect-ratio: 1;
+  border-radius: var(--vm-radius-avatar);
+  background-color: currentColor;
+  transform: scale(0);
+  transition: transform var(--vm-duration-fast) ease-out;
+}
+
+/* Selected=true：外圈描边换 Brand/Brand，并画出内点 */
+.vm-radio__input:checked + .vm-radio__mark {
+  border-color: var(--vm-brand);
+  color: var(--vm-brand);
+}
+
+.vm-radio__input:checked + .vm-radio__mark::after {
+  transform: scale(1);
+}
+
+/* 键盘焦点：复用 Input 一族的手法是「描边换 token」，但 Radio 的描边本身就是状态色，
+   所以这里用 focus ring（2px，--vm-focus-ring-width）表达，不干掉 outline */
+.vm-radio__input:focus-visible + .vm-radio__mark {
+  box-shadow: 0 0 0 var(--vm-focus-ring-width) var(--vm-border-selected);
+}
+
+/* 标签文字：字号/行高走 vm-type-* 工具类，这里只做颜色与过渡 */
+.vm-radio__label {
+  color: var(--vm-text-primary);
+  transition: color var(--vm-duration-fast) ease-out;
+}
+
+/* State=disabled：只降不透明度（Figma 绑 opacity/disabled = 38%），不另造灰色。
+   只做在根节点一次，避免叠加出现 38%×38% */
+.vm-radio:has(.vm-radio__input:disabled) {
+  opacity: var(--vm-opacity-disabled);
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-radio__mark,
+  .vm-radio__mark::after,
+  .vm-radio__label {
+    transition: none;
+  }
+}

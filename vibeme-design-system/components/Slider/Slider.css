@@ -1,0 +1,146 @@
+/* ============================================================================
+ * Slider —— 事实来源：Figma 组件集 `Slider`（node 56059:6522，页面 56054:5521）
+ * 9 个变体 = State(default/hover/disabled) × Value(0/50/100)
+ *
+ * Figma 的默认变体是一个 320×16 的容器，里面叠了三个子 Frame（没有 Auto Layout，靠绝对位置堆叠）：
+ *   轨道  Frame 320×4      填充 White/White-6  12% 白       --vm-white-6
+ *                          圆角 Radious/radius-full 999     --vm-radius-full
+ *   进度  Frame 宽 = Value%（Value=50 时 160）×4
+ *                          填充 Brand/Brand  #FFCC90         --vm-brand
+ *                          hover 变体换成 Brand/Brand-Hover #FFC07A  --vm-brand-hover
+ *                          （Value=0 时该层不存在；Value=100 时宽 320）
+ *   拇指  Frame 16×16      填充 White/White-0  #FFFFFF        --vm-white-0
+ *                          描边 Scrim/scrim-modal rgba(0,0,0,.56) + 1px  --vm-scrim-modal / --vm-border-width-thin
+ *                          圆角 Radious/radius-full 999      --vm-radius-full
+ *   禁用  State=disabled 只在根节点加 opacity/disabled = 38%    --vm-opacity-disabled
+ *         （进度条仍是 Brand/Brand，拇指仍是 White/White-0，都不换色）
+ *
+ * hover 手法：**换前景 token**（进度条 Brand → Brand-Hover），不是叠加 --vm-white-7。
+ * 这与 Input / Search / Select 同族（换描边/前景），与 Button 一族（叠加填充）不同，不要互相套用。
+ * Figma 没有 focus 变体：键盘聚焦时的 focus ring 是本实现补的可访问性表达。
+ * ========================================================================== */
+
+.vm-slider {
+  --slider-progress: 0%;
+  --slider-progress-color: var(--vm-brand);
+
+  position: relative;
+  display: block;
+  inline-size: 320px; /* Figma 参考宽 320；需要自适应时由调用方覆盖 width */
+  block-size: 16px; /* Figma 根部高 16，轨道在其中垂直居中 */
+  cursor: pointer;
+}
+
+/* 轨道：Figma 的 320×4 Frame，12% 白（不是 30% 的 White/White-4），满圆角 */
+.vm-slider__track {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline: 0;
+  block-size: 4px;
+  transform: translateY(-50%);
+  border-radius: var(--vm-radius-full);
+  background-color: var(--vm-white-6);
+}
+
+/* 进度：宽度 = 当前值百分比（由组件写 --slider-progress），颜色默认 Brand/Brand */
+.vm-slider__fill {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 0;
+  inline-size: var(--slider-progress);
+  block-size: 4px;
+  transform: translateY(-50%);
+  border-radius: var(--vm-radius-full);
+  background-color: var(--slider-progress-color);
+  transition: background-color var(--vm-duration-fast) ease-out;
+}
+
+/* State=hover 的实体事实：只有进度条换 Brand/Brand-Hover，轨道与拇指不变。
+   用 :has() 排除禁用态：禁用时鼠标悬停不应出现 hover 视觉 */
+.vm-slider:has(.vm-slider__input:not(:disabled)):hover {
+  --slider-progress-color: var(--vm-brand-hover);
+}
+
+/* 原生 range 透明地铺满整条轨道：键盘、ARIA、表单语义都留着，视觉交给轨道/进度/thumb 伪元素 */
+.vm-slider__input {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: inherit;
+}
+
+.vm-slider__input:focus-visible {
+  outline: none;
+}
+
+/* ---------- WebKit / Blink：轨道透明，拇指按 Figma 的 16×16 白圆 + 56% 黑描边 ---------- */
+.vm-slider__input::-webkit-slider-runnable-track {
+  block-size: 100%;
+  border: 0;
+  background-color: transparent;
+}
+
+.vm-slider__input::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  inline-size: 16px;
+  block-size: 16px;
+  margin: 0;
+  border: var(--vm-border-width-thin) solid var(--vm-scrim-modal);
+  border-radius: var(--vm-radius-full);
+  background-color: var(--vm-white-0);
+}
+
+/* Figma 没有 focus 变体：键盘聚焦时补 2px 50% 白光环（可访问性必需，不是新增设计状态） */
+.vm-slider__input:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 var(--vm-focus-ring-width) var(--vm-border-selected);
+}
+
+/* ---------- Firefox：轨道与进度都交给上面的 span，拇指单独画 ---------- */
+.vm-slider__input::-moz-range-track {
+  block-size: 100%;
+  border: 0;
+  background-color: transparent;
+}
+
+.vm-slider__input::-moz-range-progress {
+  block-size: 100%;
+  border: 0;
+  background-color: transparent;
+}
+
+.vm-slider__input::-moz-range-thumb {
+  inline-size: 16px;
+  block-size: 16px;
+  border: var(--vm-border-width-thin) solid var(--vm-scrim-modal);
+  border-radius: var(--vm-radius-full);
+  background-color: var(--vm-white-0);
+}
+
+.vm-slider__input::-moz-focus-outer {
+  border: 0;
+}
+
+.vm-slider__input:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 var(--vm-focus-ring-width) var(--vm-border-selected);
+}
+
+/* State=disabled：只降不透明度（Figma 绑 opacity/disabled = 38%），轨道/进度/拇指都不换色。
+   只做在根节点一次，避免叠加出现 38%×38% */
+.vm-slider:has(.vm-slider__input:disabled) {
+  opacity: var(--vm-opacity-disabled);
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-slider__fill {
+    transition: none;
+  }
+}

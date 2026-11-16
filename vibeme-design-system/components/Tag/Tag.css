@@ -1,0 +1,109 @@
+/* ============================================================================
+ * Tag —— 事实来源：Figma 组件集 `Tag`（node 56061:6404，页面 56054:5521）
+ * 24 个变体 = Tone(neutral/brand/success/warning/error/info) × Size(sm/md) × Style(soft/solid)
+ *
+ * 底色 / 文字色（逐变体的 Figma 绑定，不是推导值）：
+ *   soft   neutral  Background/bg-card      --vm-bg-card      ／ Text/Text-Secondary --vm-text-secondary
+ *          brand    Brand/Brand-950         --vm-brand-950     ／ Brand/Brand         --vm-brand
+ *          success  Background/bg-card      --vm-bg-card      ／ 状态色/Success       --vm-status-success
+ *          warning  Background/bg-card      --vm-bg-card      ／ 状态色/Warning       --vm-status-warning
+ *          error    Background/bg-card      --vm-bg-card      ／ 状态色/Error         --vm-status-error
+ *          info     Background/bg-card      --vm-bg-card      ／ 状态色/Info          --vm-status-info
+ *   solid  neutral  Neutral/Neutral-600     --vm-neutral-600  ／ White/White-0        --vm-white-0
+ *          brand    Brand/Brand             --vm-brand        ／ Neutral/Neutral-950 --vm-neutral-950
+ *          success  状态色/Success           --vm-status-success／ Neutral/Neutral-950 --vm-neutral-950
+ *          warning  状态色/Warning           --vm-status-warning／ Neutral/Neutral-950 --vm-neutral-950
+ *          error    状态色/Error             --vm-status-error ／ White/White-0        --vm-white-0
+ *          info     状态色/Info              --vm-status-info  ／ Neutral/Neutral-950 --vm-neutral-950
+ *
+ * 描边   24 个变体全是 border/width/thin 1px ＋ Background/border-default（12% 白）
+ * 圆角   Semantic Radius/radius-badge 4px                --vm-radius-badge
+ * 尺寸   sm 高 24（10/14 ＋ 4/8 内边距）；md 高 28（12/18 ＋ 4/10 内边距），宽 HUG
+ * 内边距 sm = space/space-1(4) / space/space-2(8)；md = padding-badge-y(4) / padding-badge-x(10)
+ * 间距   图标与文字 gap 4 = space/space-1 --vm-space-1
+ *
+ * Tag 没有 State 轴：这里没有任何 :hover / :active / :disabled 规则，这是刻意的。
+ * ========================================================================== */
+
+.vm-tag {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--vm-space-1);
+  border: var(--vm-border-width-thin) solid var(--vm-border-default);
+  border-radius: var(--vm-radius-badge);
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* Size 两档只改内边距；字号来自根节点上的 .vm-type-caption-label / .vm-type-caption-caption */
+.vm-tag--sm {
+  padding: var(--vm-space-1) var(--vm-space-2);
+}
+
+.vm-tag--md {
+  padding: var(--vm-padding-badge-y) var(--vm-padding-badge-x);
+}
+
+/* Style=soft：中性底 + 语义色文字；只有 brand 的底是带色调的 Brand/Brand-950 */
+.vm-tag--soft.vm-tag--neutral {
+  background-color: var(--vm-bg-card);
+  color: var(--vm-text-secondary);
+}
+
+.vm-tag--soft.vm-tag--brand {
+  background-color: var(--vm-brand-950);
+  color: var(--vm-brand);
+}
+
+.vm-tag--soft.vm-tag--success {
+  background-color: var(--vm-bg-card);
+  color: var(--vm-status-success);
+}
+
+.vm-tag--soft.vm-tag--warning {
+  background-color: var(--vm-bg-card);
+  color: var(--vm-status-warning);
+}
+
+.vm-tag--soft.vm-tag--error {
+  background-color: var(--vm-bg-card);
+  color: var(--vm-status-error);
+}
+
+.vm-tag--soft.vm-tag--info {
+  background-color: var(--vm-bg-card);
+  color: var(--vm-status-info);
+}
+
+/* Style=solid：实心底；只有 neutral 与 error 用白字，其余用 Neutral/Neutral-950 深字 */
+.vm-tag--solid.vm-tag--neutral {
+  background-color: var(--vm-neutral-600);
+  color: var(--vm-white-0);
+}
+
+.vm-tag--solid.vm-tag--brand {
+  background-color: var(--vm-brand);
+  color: var(--vm-neutral-950);
+}
+
+.vm-tag--solid.vm-tag--success {
+  background-color: var(--vm-status-success);
+  color: var(--vm-neutral-950);
+}
+
+.vm-tag--solid.vm-tag--warning {
+  background-color: var(--vm-status-warning);
+  color: var(--vm-neutral-950);
+}
+
+.vm-tag--solid.vm-tag--error {
+  background-color: var(--vm-status-error);
+  color: var(--vm-white-0);
+}
+
+.vm-tag--solid.vm-tag--info {
+  background-color: var(--vm-status-info);
+  color: var(--vm-neutral-950);
+}

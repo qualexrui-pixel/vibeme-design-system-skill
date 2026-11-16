@@ -1,0 +1,112 @@
+/* ============================================================================
+ * Search —— 事实来源：Figma 组件集 `Search`（node 56059:6373，页面 56054:5521）
+ * 12 个变体 = Size(sm / md / lg) × State(default / hover / focus / disabled)
+ *
+ *   填充   Background/bg-card        #202020        --vm-bg-card
+ *   描边   Background/border-default 12% 白 1px     --vm-border-default（default / disabled）
+ *          White/White-4             30% 白 1px     --vm-white-4（hover）
+ *          Background/border-selected 50% 白 2px    --vm-border-selected ＋ --vm-focus-ring-width（focus）
+ *          → hover / focus 都是**描边换 token**，不是 Button 那种填充叠加
+ *   文字   Text/Text-Secondary #FFFFFF 64%          --vm-text-secondary（Figma 绑给 placeholder）
+ *   圆角   Semantic Radius/radius-input 12px        --vm-radius-input
+ *   间距   横向内边距 16px --vm-padding-input-x；图标与文字 gap 8px --vm-space-2
+ *   图标   search-line 16×16（矢量 12.1666×12.1666），Figma 填充纯白无变量绑定 → --vm-white-0
+ *   尺寸   宽 320 FIXED；高 sm 32 / md 40 / lg 48
+ *   禁用   opacity/disabled 38%                     --vm-opacity-disabled
+ * ========================================================================== */
+
+.vm-search {
+  position: relative;
+  display: block;
+  width: 320px; /* Figma 参考宽 320（FIXED）；需要自适应时由调用方覆盖 width */
+  font-family: var(--vm-font-family);
+}
+
+.vm-search__field {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  /* 左内边距 = 16（左留白）+ 16（图标）+ 8（gap）= 40，文字区与 Figma 的 262 一致 */
+  padding: 0 var(--vm-padding-input-x) 0 40px;
+  border: var(--vm-border-width-thin) solid var(--vm-border-default);
+  border-radius: var(--vm-radius-input);
+  background-color: var(--vm-bg-card);
+  color: var(--vm-text-primary);
+  font-family: inherit;
+  transition:
+    border-color var(--vm-duration-fast) ease-out,
+    background-color var(--vm-duration-fast) ease-out,
+    color var(--vm-duration-fast) ease-out,
+    box-shadow var(--vm-duration-fast) ease-out;
+}
+
+/* 尺寸只改高度（文字样式由 TSX 挂的 .vm-type-* 类负责，三档内边距与圆角一致） */
+.vm-search--sm .vm-search__field {
+  height: 32px;
+}
+
+.vm-search--md .vm-search__field {
+  height: 40px;
+}
+
+.vm-search--lg .vm-search__field {
+  height: 48px;
+}
+
+/* Figma 只画了 placeholder 一种文字（绑 Text/Text-Secondary），
+ * 所以 ::placeholder 用 --vm-text-secondary；真实输入值按 Input 的既有约定用主文字色。
+ * 不要靠 opacity 让主文字变淡 —— 那样输入值与提示的对比度会一起下降 */
+.vm-search__field::placeholder {
+  color: var(--vm-text-secondary);
+}
+
+/* <input type="search"> 在 WebKit 里会自带一个清除按钮，Figma 没有这个部件，去掉它。
+ * 结构性声明，不涉及任何颜色/间距取值 */
+.vm-search__field::-webkit-search-cancel-button,
+.vm-search__field::-webkit-search-decoration {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* 图标：绝对定位在左侧 16px 处；pointer-events: none 保证点击图标也能聚焦输入框。
+ * search-line 的填充在 Figma 里没有变量绑定（值为纯白），故用 --vm-white-0 */
+.vm-search__icon {
+  position: absolute;
+  top: 50%;
+  left: var(--vm-padding-input-x);
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin-top: -8px;
+  color: var(--vm-white-0);
+  pointer-events: none;
+}
+
+/* -------------------------------------------------- 交互态：描边换 token（1px → 30% 白） */
+/* 末尾的 :not(:focus-visible) 是必需的：`:hover:not(:disabled)` 权重 (0,3,0)，
+   高于 `:focus-visible` 的 (0,2,0)，不排掉聚焦态就会把 focus 的 50% 白描边压成 30% 白。 */
+.vm-search__field:hover:not(:disabled):not(:focus-visible) {
+  border-color: var(--vm-white-4);
+}
+
+/* State=focus：2px（绑 focus/ring-width）+ Background/border-selected；
+ * 外环是可访问性补充，Figma 只画了 2px 描边，没有 ring 图层 */
+.vm-search__field:focus-visible {
+  border-color: var(--vm-border-selected);
+  border-width: var(--vm-focus-ring-width);
+  box-shadow: 0 0 0 var(--vm-focus-ring-width) var(--vm-border-selected);
+  outline: none;
+}
+
+/* ------------------------------------------------------------------ 应用态：禁用 */
+/* State=disabled 只降不透明度（Figma 绑 opacity/disabled = 38%），描边与文字色都不换 */
+.vm-search__field:disabled {
+  opacity: var(--vm-opacity-disabled);
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-search__field {
+    transition: none;
+  }
+}

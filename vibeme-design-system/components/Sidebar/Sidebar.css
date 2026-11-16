@@ -1,0 +1,170 @@
+/* ============================================================================
+ * Sidebar —— 事实来源：Figma 组件集 `Sidebar`（node 56064:6840，页面 56054:5521）
+ * 2 个变体 = State(expanded 240×320 / collapsed 64×320)
+ *
+ * 容器（两个变体一致）
+ *   填充   Background/bg-panel       #1A1A1A             --vm-bg-panel
+ *   描边   Background/border-default 12% 白 1px           --vm-border-default / --vm-border-width-thin
+ *   圆角   Semantic Radius/radius-card 12px              --vm-radius-card
+ *   内边距 space/space-4 16px（四边）                      --vm-space-4
+ *   间距   space/space-1 4px（标题↔行、行↔行）             --vm-space-1
+ *   宽度   expanded 240 / collapsed 64（都 FIXED）
+ *
+ * 标题
+ *   expanded  TEXT「VibeMe」Text/Text-Primary 92% 白，Heading/M（16 SemiBold /24）
+ *   collapsed FRAME 32×32（圆角 radius-sm 6px）＋ TEXT「V」Brand/Brand #FFCC90
+ *
+ * 导航行
+ *   expanded  208×36，HORIZONTAL gap 8 pad 8/8/8/8，圆角 Radious/radius-sm 6px
+ *   collapsed 32×32，HORIZONTAL CENTER/CENTER pad 8（文字层被移除，只剩图标）
+ *   选中   Background/Surface-selected #2A2A2A ＋ 图标与文字 Brand/Brand
+ *   未选中 无填充 ＋ 图标与文字 Text/Text-Secondary（64% 白）
+ *   文字   Heading/Body/S/Regular（Poppins Regular 14/20）
+ *   图标   Line icon 16×16（folder-line / search-line / user-line）
+ * ========================================================================== */
+
+.vm-sidebar {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--vm-space-1);
+  width: 240px; /* Figma 的 State=expanded 是 FIXED 240 */
+  min-height: 320px; /* Figma 参考高 320；侧栏通常撑满视口，高度交给外层容器 */
+  padding: var(--vm-space-4);
+  border: var(--vm-border-width-thin) solid var(--vm-border-default);
+  border-radius: var(--vm-radius-card);
+  background-color: var(--vm-bg-panel);
+  color: var(--vm-text-primary);
+  font-family: var(--vm-font-family);
+}
+
+/* State=collapsed：宽度收到 64，标题换成一个 32×32 的品牌色首字母方块 */
+.vm-sidebar--collapsed {
+  width: 64px;
+}
+
+.vm-sidebar__header {
+  display: flex;
+  align-items: center;
+}
+
+.vm-sidebar__title {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--vm-text-primary);
+}
+
+/* Figma: collapsed 变体里的 FRAME 32×32，圆角 6px，内容是品牌色「V」 */
+.vm-sidebar__monogram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--vm-radius-sm);
+  color: var(--vm-brand);
+}
+
+.vm-sidebar__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vm-space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* 行容器：Figma 的两个变体里行都是 FIXED 宽（展开 208 / 折叠 32），这里用容器宽自适应 */
+.vm-sidebar__item-wrap {
+  display: block;
+  list-style: none;
+}
+
+.vm-sidebar__item {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: var(--vm-space-2);
+  width: 100%;
+  min-height: 36px; /* 展开态：8 + 20 + 8 = 36 */
+  padding: var(--vm-space-2);
+  border: 0;
+  border-radius: var(--vm-radius-sm);
+  background-color: transparent; /* 未选中行在 Figma 里没有 fills */
+  color: var(--vm-text-secondary); /* 未选中：图标与文字都是 Text/Text-Secondary（64% 白） */
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color var(--vm-duration-fast) ease-out,
+    color var(--vm-duration-fast) ease-out;
+}
+
+/* Figma 的 Sidebar 只有 expanded / collapsed 两个变体，行没有 hover 变体。
+ * 这里按同族行组件（MenuItem / ListItem）补一条：底色 = Background/Surface-hover（#262626），
+ * 文字色不动 —— 属于「填充换 token」手法，不叠 --vm-white-7。
+ * `:where(:not(:disabled))` 把特异度压在 (0,2,0)，后面的 --selected 才压得过它，
+ * 禁用行也不响应 hover；不要改回 `:not(:disabled)`（会变成 (0,3,0) 反压选中态）。 */
+.vm-sidebar__item:hover:where(:not(:disabled)) {
+  background-color: var(--vm-surface-hover);
+}
+
+/* Figma 没有 pressed 变体：按下时用现成的更深一档表面色，不新造颜色。写在 selected 之前 */
+.vm-sidebar__item:active:where(:not(:disabled)) {
+  background-color: var(--vm-surface-pressed);
+}
+
+/* 选中行的实体事实：填充 Background/Surface-selected（#2A2A2A）＋ 图标与文字 Brand/Brand。
+   写在 :hover / :active 之后 —— 同特异度下后者胜，选中的行悬停/按下时保持选中观感。 */
+.vm-sidebar__item-wrap--selected .vm-sidebar__item {
+  background-color: var(--vm-surface-selected);
+  color: var(--vm-brand);
+}
+
+/* Figma 没有 focus 变体：按无障碍底线补 token 化 ring，inset 避免被相邻行裁切 */
+.vm-sidebar__item:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 var(--vm-focus-ring-width) var(--vm-border-selected);
+}
+
+.vm-sidebar__item:disabled {
+  opacity: var(--vm-opacity-disabled);
+  cursor: not-allowed;
+}
+
+.vm-sidebar__icon {
+  display: inline-flex;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  color: inherit;
+}
+
+.vm-sidebar__label {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: inherit;
+}
+
+/* State=collapsed 的行：32×32，内容居中，文字层按 Figma 移除（不是隐藏成 0 宽） */
+.vm-sidebar--collapsed .vm-sidebar__item {
+  justify-content: center;
+  min-height: 32px;
+  height: 32px;
+}
+
+.vm-sidebar--collapsed .vm-sidebar__label {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-sidebar__item {
+    transition: none;
+  }
+}

@@ -1,0 +1,166 @@
+/* ============================================================================
+ * Modal —— 事实来源：Figma 组件集 `Modal`（node 56063:6526，页面 56054:5521）
+ * 6 个变体 = Size(sm/md/lg) × Type(basic/confirm)，**没有 State 轴**
+ *   填充   Background/bg-panel       #1A1A1A            --vm-bg-panel
+ *   描边   Background/border-default 12% 白 ＋ 1px      --vm-border-default
+ *   圆角   Semantic Radius/radius-card 12px            --vm-radius-card
+ *   内边距 Semantic Space/padding-modal-y/x 20/24px    --vm-padding-modal-y / --vm-padding-modal-x
+ *   间距   space/space-5 20px（根）/ space-4 16px（标题行）/ space-3 12px（按钮行）
+ *   宽度   Modal Size/modal-sm|md|lg = 400 / 520 / 720 --vm-modal-sm|md|lg
+ *   海拔   Elevation/4 0 16 40 rgba(0,0,0,.4)          --vm-elevation-4
+ *   遮罩   Scrim/scrim-modal rgba(0,0,0,.56)           --vm-scrim-modal
+ *   底部按钮是 Button 组件集的实例（secondary / primary / danger，Size=md 固定高 40）：
+ *     hover = 底色 + White/White-7（--vm-white-7），pressed = 底色 + White/White-6（--vm-white-6）
+ * ========================================================================== */
+
+.vm-modal {
+  /* dialog 的 UA 规则是 dialog:not([open]) { display: none }；
+     这里把 display 显式写在 [open] 上，免得自定义 display 让关闭的弹窗又冒出来 */
+  display: none;
+  box-sizing: border-box;
+  flex-direction: column;
+  gap: var(--vm-space-5);
+  padding: var(--vm-padding-modal-y) var(--vm-padding-modal-x);
+  border: var(--vm-border-width-thin) solid var(--vm-border-default);
+  border-radius: var(--vm-radius-card);
+  background-color: var(--vm-bg-panel);
+  box-shadow: var(--vm-elevation-4);
+  color: var(--vm-text-primary);
+  font-family: var(--vm-font-family);
+}
+
+.vm-modal[open] {
+  display: flex;
+}
+
+/* 三档只改宽度；Figma 是 FIXED 宽度，这里额外给窄屏留一个兜底上限 */
+.vm-modal--sm {
+  width: var(--vm-modal-sm);
+}
+
+.vm-modal--md {
+  width: var(--vm-modal-md);
+}
+
+.vm-modal--lg {
+  width: var(--vm-modal-lg);
+}
+
+.vm-modal {
+  max-width: calc(100vw - var(--vm-space-8));
+}
+
+/* showModal() 之后才有 backdrop；颜色是 Scrim/scrim-modal，不要另调黑 */
+.vm-modal::backdrop {
+  background-color: var(--vm-scrim-modal);
+}
+
+.vm-modal__header {
+  display: flex;
+  align-items: center;
+  gap: var(--vm-space-4);
+}
+
+/* 标题自己占满剩余宽度（Figma 里标题 TEXT 是 FILL，右侧固定 20 图标） */
+.vm-modal__title {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+  color: var(--vm-text-primary);
+}
+
+.vm-modal__close {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  background: none;
+  /* 图标 VECTOR 的填充是未绑定变量的 #FFFFFF（即 White/White-0） */
+  color: var(--vm-white-0);
+  cursor: pointer;
+  transition: color var(--vm-duration-fast) ease-out;
+}
+
+.vm-modal__close:focus-visible {
+  border-radius: var(--vm-radius-xs);
+  box-shadow: 0 0 0 var(--vm-focus-ring-width) var(--vm-border-selected);
+  outline: none;
+}
+
+.vm-modal__body {
+  margin: 0;
+  color: var(--vm-text-secondary);
+}
+
+.vm-modal__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--vm-space-3);
+}
+
+/* 底部按钮：Figma 里是 Button 组件集 Size=md 的实例，固定高 40、圆角 radius-button */
+.vm-modal__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 40px;
+  padding: 0 var(--vm-padding-button-md-x);
+  border: none;
+  border-radius: var(--vm-radius-button);
+  background-image: none;
+  color: var(--vm-text-primary);
+  font-family: inherit;
+  cursor: pointer;
+  transition:
+    background-color var(--vm-duration-fast) ease-out,
+    border-color var(--vm-duration-fast) ease-out,
+    color var(--vm-duration-fast) ease-out;
+}
+
+.vm-modal__action--secondary {
+  border: var(--vm-border-width-thin) solid var(--vm-border-default);
+  background-color: var(--vm-bg-card);
+  color: var(--vm-text-primary);
+}
+
+.vm-modal__action--primary {
+  background-color: var(--vm-brand);
+  color: var(--vm-neutral-950);
+}
+
+.vm-modal__action--danger {
+  background-color: var(--vm-status-error);
+  color: var(--vm-white-0);
+}
+
+/* Button 一族的 hover 手法：底色**不变**，在上面叠一层 8% 白（White/White-7） */
+.vm-modal__action:hover:not(:disabled) {
+  background-image: linear-gradient(var(--vm-white-7), var(--vm-white-7));
+}
+
+/* pressed = 叠 White/White-6（12% 白） */
+.vm-modal__action:active:not(:disabled) {
+  background-image: linear-gradient(var(--vm-white-6), var(--vm-white-6));
+}
+
+.vm-modal__action:focus-visible {
+  box-shadow: 0 0 0 var(--vm-focus-ring-width) var(--vm-border-selected);
+  outline: none;
+}
+
+.vm-modal__action:disabled {
+  opacity: var(--vm-opacity-disabled);
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-modal__close,
+  .vm-modal__action {
+    transition: none;
+  }
+}

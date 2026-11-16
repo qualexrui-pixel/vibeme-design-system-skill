@@ -1,0 +1,97 @@
+/* ============================================================================
+ * Breadcrumb —— 事实来源：Figma 组件集 `Breadcrumb`（node 56064:6664，页面 56054:5521）
+ * 2 个变体 = Type(3levels / collapsed)，两者都是纯文字行：
+ *   Type=3levels   186×20  首页 / 分类名称 / 当前页面
+ *   Type=collapsed 139×20  首页 / … / 当前页面
+ * 两个变体的**填充栈、描边、圆角都是空的**，所以它属于「前景换 token」一族，不是填充叠加一族。
+ *
+ *   祖先层级 文字  Text/Text-Secondary 64% 白  --vm-text-secondary
+ *   分隔符   文字  Text/Text-Tertiary  30% 白  --vm-text-tertiary
+ *   当前页   文字  Text/Text-Primary   92% 白  --vm-text-primary
+ *   间距     space/space-2 8px                 --vm-space-2（变体 auto layout gap）
+ *   行高     20px = Heading/Body/S/Regular 的行高，即变体高 20px 的来源
+ * ========================================================================== */
+
+.vm-breadcrumb {
+  font-family: var(--vm-font-family);
+  color: var(--vm-text-secondary);
+}
+
+.vm-breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--vm-space-2); /* Figma auto layout gap = space/space-2 */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vm-breadcrumb__item {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ---- 祖先层级（可点）：默认 Text/Text-Secondary ---- */
+.vm-breadcrumb__link {
+  color: var(--vm-text-secondary);
+  text-decoration: none;
+  border-radius: var(--vm-radius-xs);
+  transition: color var(--vm-duration-fast) ease-out;
+}
+
+/* 交互态只用伪类；Figma 没有 hover 变体，手法与 Tabs Type=line 一致：只换前景，不叠加底色 */
+.vm-breadcrumb__link:hover {
+  color: var(--vm-text-primary);
+}
+
+/* Figma 没有 focus 变体，这里按无障碍底线补可见焦点环（没有底色，ring 是唯一足够的指示） */
+.vm-breadcrumb__link:focus-visible,
+.vm-breadcrumb__ellipsis:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 var(--vm-focus-ring-width) var(--vm-border-selected);
+}
+
+/* ---- 不可跳转但仍非当前的中间层级 ---- */
+.vm-breadcrumb__text {
+  color: var(--vm-text-secondary);
+}
+
+/* ---- 当前页：Text/Text-Primary，且不可点 ---- */
+.vm-breadcrumb__current {
+  color: var(--vm-text-primary);
+}
+
+/* ---- 分隔符 `/` 与省略号 `…`：纯装饰，Text/Text-Tertiary ---- */
+.vm-breadcrumb__separator {
+  display: inline-flex;
+  align-items: center;
+  color: var(--vm-text-tertiary);
+  user-select: none;
+}
+
+/* 省略号做成按钮时视觉上仍是纯文字：无底色、无描边、无圆角 */
+.vm-breadcrumb__ellipsis {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--vm-radius-xs);
+  background-color: transparent;
+  color: var(--vm-text-tertiary);
+  font-family: inherit;
+  cursor: pointer;
+  transition: color var(--vm-duration-fast) ease-out;
+}
+
+.vm-breadcrumb__ellipsis:hover {
+  color: var(--vm-text-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-breadcrumb__link,
+  .vm-breadcrumb__ellipsis {
+    transition: none;
+  }
+}

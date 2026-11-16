@@ -1,0 +1,394 @@
+/* ==========================================================================
+ *  VibeMe 设计系统 · Design Tokens
+ *  本文件由 tools/gen-tokens.py 自动生成，请勿手改；改 tools/token-map.json 后重新生成。
+ *  真源：Figma ZO4WH3sbVCj7lZIFMpiwV9（页面 56054:5521「全局」总组件库）
+ *  规模：169 个 token · 19 个文字样式 · 4 组海拔阴影
+ *  深色单一模式（文件里的变量都只有一个 mode，没有 light/dark 切换）
+ * ========================================================================== */
+:root {
+  /* 字体：Poppins 为主，中文回退系统字体 */
+  --vm-font-family: "Poppins", "PingFang SC", "Microsoft YaHei", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* ── 品牌色 Brand ───────────────────────────────────────── */
+  --vm-brand: #FFCC90; /* Brand/Brand */
+  --vm-brand-hover: #FFC07A; /* Brand/Brand-Hover */
+  --vm-brand-disable: #875229; /* Brand/Brand-Disable */
+  --vm-brand-900: #3A2112; /* Brand/Brand-900 */
+  --vm-brand-950: #2B1F12; /* Brand/Brand-950 */
+  --vm-brand-100: #FFF1DF; /* Brand/Brand_100 */
+
+  /* ── 文字 Text ───────────────────────────────────────── */
+  --vm-text-primary: rgba(255, 255, 255, 0.92); /* Text/Text-Primary  → White/White-1 */
+  --vm-text-secondary: rgba(255, 255, 255, 0.64); /* Text/Text-Secondary  → White/White-2 */
+  --vm-text-tertiary: rgba(255, 255, 255, 0.3); /* Text/Text-Tertiary  → White/White-4 */
+  --vm-text-disable: rgba(255, 255, 255, 0.24); /* Text/Text-Disable  → White/White-5 */
+  --vm-text-action: #FFCC90; /* Text/Text-Action  → Brand/Brand */
+
+  /* ── 背景与表面 Surface ───────────────────────────────────────── */
+  --vm-bg-app: #0E0E0E; /* Background/bg-app  → Neutral/Neutral-950 */
+  --vm-bg-page: #121212; /* Background/bg-page  → Neutral/Neutral-900 */
+  --vm-bg-panel: #1A1A1A; /* Background/bg-panel  → Neutral/Neutral-800 */
+  --vm-bg-card: #202020; /* Background/bg-card  → Neutral/Neutral-750 */
+  --vm-bg-toast: #202020; /* Background/bg-toast  → Neutral/Neutral-750 */
+  --vm-border-default: rgba(255, 255, 255, 0.12); /* Background/border-default  → White/White-6 */
+  --vm-border-selected: rgba(255, 255, 255, 0.5); /* Background/border-selected  → White/White-3 */
+  --vm-surface-hover: #262626; /* Background/Surface-hover  → Neutral/Neutral-700 */
+  --vm-surface-selected: #2A2A2A; /* Background/Surface-selected  → Neutral/Neutral-650 */
+  --vm-surface-pressed: #303030; /* Background/Surface-pressed  → Neutral/Neutral-600 */
+  --vm-scrim-modal: rgba(0, 0, 0, 0.56); /* Scrim/scrim-modal  → Black/Black-3 */
+
+  /* ── 描边与聚焦 Border / Focus ───────────────────────────────────────── */
+  --vm-border-width-thin: 1px; /* border/width/thin */
+  --vm-border-width-thick: 2px; /* border/width/thick */
+  --vm-focus-ring-width: 2px; /* focus/ring-width */
+  --vm-border-width-ring: 3px; /* border/width/ring */
+
+  /* ── 中性色阶 Neutral ───────────────────────────────────────── */
+  --vm-black: #000000; /* Black/Black */
+  --vm-black-3: rgba(0, 0, 0, 0.56); /* Black/Black-3 */
+  --vm-neutral-950: #0E0E0E; /* Neutral/Neutral-950 */
+  --vm-neutral-900: #121212; /* Neutral/Neutral-900 */
+  --vm-neutral-850: #161616; /* Neutral/Neutral-850 */
+  --vm-neutral-800: #1A1A1A; /* Neutral/Neutral-800 */
+  --vm-neutral-750: #202020; /* Neutral/Neutral-750 */
+  --vm-neutral-700: #262626; /* Neutral/Neutral-700 */
+  --vm-neutral-650: #2A2A2A; /* Neutral/Neutral-650 */
+  --vm-neutral-600: #303030; /* Neutral/Neutral-600 */
+  --vm-neutral-550: #383838; /* Neutral/Neutral-550 */
+  --vm-neutral-500: #4D4D4D; /* Neutral/Neutral-500 */
+  --vm-neutral-400: #7F7F7F; /* Neutral/Neutral-400 */
+  --vm-neutral-300: #A3A3A3; /* Neutral/Neutral-300 */
+  --vm-neutral-250: #B4B4B4; /* Neutral/Neutral-250 */
+  --vm-neutral-100: #E0E0E0; /* Neutral/Neutral-100 */
+  --vm-white-0: #FFFFFF; /* White/White-0 */
+  --vm-white-1: rgba(255, 255, 255, 0.92); /* White/White-1 */
+  --vm-white-2: rgba(255, 255, 255, 0.64); /* White/White-2 */
+  --vm-white-3: rgba(255, 255, 255, 0.5); /* White/White-3 */
+  --vm-white-4: rgba(255, 255, 255, 0.3); /* White/White-4 */
+  --vm-white-5: rgba(255, 255, 255, 0.24); /* White/White-5 */
+  --vm-white-6: rgba(255, 255, 255, 0.12); /* White/White-6 */
+  --vm-white-7: rgba(255, 255, 255, 0.08); /* White/White-7 */
+  --vm-white-8: rgba(255, 255, 255, 0.04); /* White/White-8 */
+  --vm-white-9: rgba(255, 255, 255, 0.02); /* White/White-9 */
+
+  /* ── 状态色 Status ───────────────────────────────────────── */
+  --vm-status-error: #FF3B30; /* 状态色/Error */
+  --vm-status-success: #34C759; /* 状态色/Success */
+  --vm-status-warning: #FFCC00; /* 状态色/Warning */
+  --vm-status-info: #2797FF; /* 状态色/Info */
+
+  /* ── 间距与内边距 Space ───────────────────────────────────────── */
+  --vm-padding-button-sm-x: 12px; /* Semantic Space/padding-button-sm-x  → space/space-3 */
+  --vm-padding-button-sm-y: 8px; /* Semantic Space/padding-button-sm-y  → space/space-2 */
+  --vm-padding-button-md-x: 16px; /* Semantic Space/padding-button-md-x  → space/space-4 */
+  --vm-padding-button-md-y: 10px; /* Semantic Space/padding-button-md-y  → space/space-2-5 */
+  --vm-padding-button-lg-x: 20px; /* Semantic Space/padding-button-lg-x  → space/space-5 */
+  --vm-padding-button-lg-y: 12px; /* Semantic Space/padding-button-lg-y  → space/space-3 */
+  --vm-padding-input-x: 16px; /* Semantic Space/padding-input-x  → space/space-4 */
+  --vm-padding-input-y: 12px; /* Semantic Space/padding-input-y  → space/space-3 */
+  --vm-padding-card-sm: 16px; /* Semantic Space/padding-card-sm  → space/space-4 */
+  --vm-padding-card-md: 20px; /* Semantic Space/padding-card-md  → space/space-5 */
+  --vm-padding-card-lg: 24px; /* Semantic Space/padding-card-lg  → space/space-6 */
+  --vm-padding-modal-x: 24px; /* Semantic Space/padding-modal-x  → space/space-6 */
+  --vm-padding-modal-y: 20px; /* Semantic Space/padding-modal-y  → space/space-5 */
+  --vm-padding-badge-x: 10px; /* Semantic Space/padding-badge-x  → space/space-2-5 */
+  --vm-padding-badge-y: 4px; /* Semantic Space/padding-badge-y  → space/space-1 */
+  --vm-padding-toast-x: 16px; /* Semantic Space/padding-toast-x  → space/space-4 */
+  --vm-padding-toast-y: 12px; /* Semantic Space/padding-toast-y  → space/space-3 */
+  --vm-padding-popover: 16px; /* Semantic Space/padding-popover  → space/space-4 */
+  --vm-space-0: 0px; /* space/space-0 */
+  --vm-space-1: 4px; /* space/space-1 */
+  --vm-space-1-5: 6px; /* space/space-1-5 */
+  --vm-space-2: 8px; /* space/space-2 */
+  --vm-space-2-5: 10px; /* space/space-2-5 */
+  --vm-space-3: 12px; /* space/space-3 */
+  --vm-space-4: 16px; /* space/space-4 */
+  --vm-space-5: 20px; /* space/space-5 */
+  --vm-space-6: 24px; /* space/space-6 */
+  --vm-space-8: 32px; /* space/space-8 */
+  --vm-space-10: 40px; /* space/space-10 */
+  --vm-space-12: 48px; /* space/space-12 */
+  --vm-space-16: 64px; /* space/space-16 */
+  --vm-space-0-5: 2px; /* space/space-0-5 */
+
+  /* ── 圆角 Radius ───────────────────────────────────────── */
+  --vm-radius-button: 12px; /* Semantic Radius/radius-button  → Radious/radius-lg */
+  --vm-radius-input: 12px; /* Semantic Radius/radius-input  → Radious/radius-lg */
+  --vm-radius-card: 12px; /* Semantic Radius/radius-card  → Radious/radius-lg */
+  --vm-radius-avatar: 999px; /* Semantic Radius/radius-avatar  → Radious/radius-full */
+  --vm-radius-badge: 4px; /* Semantic Radius/radius-badge  → Radious/radius-xs */
+  --vm-radius-toast: 12px; /* Semantic Radius/radius-toast  → Radious/radius-lg */
+  --vm-radius-none: 0px; /* Radious/radius-none */
+  --vm-radius-xs: 4px; /* Radious/radius-xs */
+  --vm-radius-sm: 6px; /* Radious/radius-sm */
+  --vm-radius-md: 8px; /* Radious/radius-md */
+  --vm-radius-lg: 12px; /* Radious/radius-lg */
+  --vm-radius-xl: 16px; /* Radious/radius-xl */
+  --vm-radius-2xl: 24px; /* Radious/radius-2xl */
+  --vm-radius-3xl: 32px; /* Radious/radius-3xl */
+  --vm-radius-full: 999px; /* Radious/radius-full */
+
+  /* ── 组件尺寸 Component Size ───────────────────────────────────────── */
+  --vm-modal-sm: 400px; /* Modal Size/modal-sm */
+  --vm-modal-md: 520px; /* Modal Size/modal-md */
+  --vm-modal-lg: 720px; /* Modal Size/modal-lg */
+  --vm-modal-xl: 880px; /* Modal Size/modal-xl */
+  --vm-modal-2xl: 1120px; /* Modal Size/modal-2xl */
+
+  /* ── 不透明度 Opacity ───────────────────────────────────────── */
+  --vm-opacity-disabled: 0.38; /* opacity/disabled */
+  --vm-opacity-muted: 0.6; /* opacity/muted */
+  --vm-opacity-full: 1; /* opacity/full */
+
+  /* ── 动效 Motion ───────────────────────────────────────── */
+  --vm-duration-fast: 100ms; /* duration/fast */
+  --vm-duration-normal: 200ms; /* duration/normal */
+  --vm-duration-slow: 300ms; /* duration/slow */
+
+  /* ── 扩展色板 Color Panel（主库未使用，备用） ───────────────────────────────────────── */
+  --vm-olive-50: #F6F9F2; /* Olive_50 */
+  --vm-olive-100: #EDF3E7; /* Olive_100 */
+  --vm-olive-200: #DCE8D0; /* Olive_200 */
+  --vm-olive-300: #C4D6B3; /* Olive_300 */
+  --vm-olive-400: #9AB07A; /* Olive_400 */
+  --vm-olive-950: #12180E; /* Olive_950 */
+  --vm-clay-red-100: #FBEAEA; /* Clay_Red_100 */
+  --vm-clay-red-400: #D99A9A; /* Clay_Red_400 */
+  --vm-clay-red-950: #1A0D0C; /* Clay_Red_950 */
+  --vm-soft-blue-100: #EAF1FA; /* Soft_Blue_100 */
+  --vm-soft-blue-400: #88A4C8; /* Soft_Blue_400 */
+  --vm-soft-blue-950: #0E1520; /* Soft_Blue_950 */
+  --vm-purple-100: #F1E8FF; /* Purple_100 */
+  --vm-purple-400: #AA82F0; /* Purple_400 */
+  --vm-purple-950: #160E24; /* Purple_950 */
+  --vm-pink-100: #FFE8F0; /* Pink_100 */
+  --vm-pink-400: #EB7FA5; /* Pink_400 */
+  --vm-pink-950: #220D14; /* Pink_950 */
+  --vm-cyan-100: #DDF5F3; /* Cyan_100 */
+  --vm-cyan-400: #63C7C1; /* Cyan_400 */
+  --vm-cyan-950: #0B2221; /* Cyan_950 */
+
+  /* ── VibeMe AI 主题（另一套 token，不要与主库混用） ───────────────────────────────────────── */
+  --vm-ai-spacing-4: 4px; /* spacing/4 */
+  --vm-ai-spacing-8: 8px; /* spacing/8 */
+  --vm-ai-spacing-12: 12px; /* spacing/12 */
+  --vm-ai-spacing-16: 16px; /* spacing/16 */
+  --vm-ai-spacing-20: 20px; /* spacing/20 */
+  --vm-ai-spacing-24: 24px; /* spacing/24 */
+  --vm-ai-radius-8: 8px; /* radius/8 */
+  --vm-ai-radius-12: 12px; /* radius/12 */
+  --vm-ai-radius-16: 16px; /* radius/16 */
+  --vm-ai-radius-full: 999px; /* radius/full */
+  --vm-ai-neutral-950: #080A11; /* neutral/950 */
+  --vm-ai-neutral-900: #121420; /* neutral/900 */
+  --vm-ai-neutral-850: #191B2A; /* neutral/850 */
+  --vm-ai-neutral-700: #383C52; /* neutral/700 */
+  --vm-ai-neutral-400: #8C91A8; /* neutral/400 */
+  --vm-ai-white-1000: #FFFFFF; /* white/1000 */
+  --vm-ai-violet-500: #8547FF; /* violet/500 */
+  --vm-ai-violet-400: #A373FF; /* violet/400 */
+  --vm-ai-violet-950: #29174A; /* violet/950 */
+  --vm-ai-pink-400: #FF57AD; /* pink/400 */
+  --vm-ai-green-400: #40D694; /* green/400 */
+  --vm-ai-red-400: #FF5766; /* red/400 */
+  --vm-ai-color-bg-canvas: #080A11; /* color/bg/canvas  → neutral/950 */
+  --vm-ai-color-bg-panel: #121420; /* color/bg/panel  → neutral/900 */
+  --vm-ai-color-bg-raised: #191B2A; /* color/bg/raised  → neutral/850 */
+  --vm-ai-color-bg-brand: #8547FF; /* color/bg/brand  → violet/500 */
+  --vm-ai-color-bg-brand-hover: #A373FF; /* color/bg/brand-hover  → violet/400 */
+  --vm-ai-color-bg-brand-soft: #29174A; /* color/bg/brand-soft  → violet/950 */
+  --vm-ai-color-text-primary: #FFFFFF; /* color/text/primary  → white/1000 */
+  --vm-ai-color-text-secondary: #8C91A8; /* color/text/secondary  → neutral/400 */
+  --vm-ai-color-border-default: #383C52; /* color/border/default  → neutral/700 */
+  --vm-ai-color-status-success: #40D694; /* color/status/success  → green/400 */
+  --vm-ai-color-status-error: #FF5766; /* color/status/error  → red/400 */
+  --vm-ai-color-accent-pink: #FF57AD; /* color/accent/pink  → pink/400 */
+
+  /* ── 海拔阴影 Elevation（Figma Effect Styles）───────────── */
+  --vm-elevation-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.24); /* Elevation/1 */
+  --vm-elevation-2: 0px 4px 12px 0px rgba(0, 0, 0, 0.28); /* Elevation/2 */
+  --vm-elevation-3: 0px 8px 24px 0px rgba(0, 0, 0, 0.32); /* Elevation/3 */
+  --vm-elevation-4: 0px 16px 40px 0px rgba(0, 0, 0, 0.4); /* Elevation/4 */
+
+  /* ── 文字样式数值（配合 .vm-type-* 工具类使用）────────────── */
+  --vm-type-display-4xl-size: 64px; --vm-type-display-4xl-weight: 700; --vm-type-display-4xl-line-height: 72px; --vm-type-display-4xl-letter-spacing: 0em; /* Display/4XL */
+  --vm-type-heading-xxl-size: 24px; --vm-type-heading-xxl-weight: 700; --vm-type-heading-xxl-line-height: 36px; --vm-type-heading-xxl-letter-spacing: 0em; /* Heading/XXL */
+  --vm-type-heading-xl-size: 20px; --vm-type-heading-xl-weight: 700; --vm-type-heading-xl-line-height: 30px; --vm-type-heading-xl-letter-spacing: 0em; /* Heading/XL */
+  --vm-type-heading-l-size: 18px; --vm-type-heading-l-weight: 700; --vm-type-heading-l-line-height: 26px; --vm-type-heading-l-letter-spacing: 0em; /* Heading/L */
+  --vm-type-heading-m-size: 16px; --vm-type-heading-m-weight: 600; --vm-type-heading-m-line-height: 24px; --vm-type-heading-m-letter-spacing: 0em; /* Heading/M */
+  --vm-type-heading-s-size: 14px; --vm-type-heading-s-weight: 600; --vm-type-heading-s-line-height: 20px; --vm-type-heading-s-letter-spacing: 0em; /* Heading/S */
+  --vm-type-caption-caption-size: 12px; --vm-type-caption-caption-weight: 500; --vm-type-caption-caption-line-height: 18px; --vm-type-caption-caption-letter-spacing: 0em; /* Caption/Caption */
+  --vm-type-caption-label-size: 10px; --vm-type-caption-label-weight: 500; --vm-type-caption-label-line-height: 14px; --vm-type-caption-label-letter-spacing: 0em; /* Caption/Label */
+  --vm-type-heading-body-l-regular-size: 18px; --vm-type-heading-body-l-regular-weight: 400; --vm-type-heading-body-l-regular-line-height: 28px; --vm-type-heading-body-l-regular-letter-spacing: 0em; /* Heading/Body/L/Regular */
+  --vm-type-heading-body-l-medium-size: 18px; --vm-type-heading-body-l-medium-weight: 400; --vm-type-heading-body-l-medium-line-height: 28px; --vm-type-heading-body-l-medium-letter-spacing: 0em; /* Heading/Body/L/Medium */
+  --vm-type-heading-body-l-semibold-size: 18px; --vm-type-heading-body-l-semibold-weight: 600; --vm-type-heading-body-l-semibold-line-height: 28px; --vm-type-heading-body-l-semibold-letter-spacing: 0em; /* Heading/Body/L/SemiBold */
+  --vm-type-heading-body-m-regular-size: 16px; --vm-type-heading-body-m-regular-weight: 400; --vm-type-heading-body-m-regular-line-height: 24px; --vm-type-heading-body-m-regular-letter-spacing: 0em; /* Heading/Body/M/Regular */
+  --vm-type-heading-body-m-medium-size: 16px; --vm-type-heading-body-m-medium-weight: 400; --vm-type-heading-body-m-medium-line-height: 24px; --vm-type-heading-body-m-medium-letter-spacing: 0em; /* Heading/Body/M/Medium */
+  --vm-type-heading-body-m-semibold-size: 16px; --vm-type-heading-body-m-semibold-weight: 600; --vm-type-heading-body-m-semibold-line-height: 24px; --vm-type-heading-body-m-semibold-letter-spacing: 0em; /* Heading/Body/M/SemiBold */
+  --vm-type-heading-body-s-regular-size: 14px; --vm-type-heading-body-s-regular-weight: 400; --vm-type-heading-body-s-regular-line-height: 20px; --vm-type-heading-body-s-regular-letter-spacing: 0em; /* Heading/Body/S/Regular */
+  --vm-type-heading-body-s-medium-size: 14px; --vm-type-heading-body-s-medium-weight: 500; --vm-type-heading-body-s-medium-line-height: 20px; --vm-type-heading-body-s-medium-letter-spacing: 0em; /* Heading/Body/S/Medium */
+  --vm-type-heading-body-s-semibold-size: 14px; --vm-type-heading-body-s-semibold-weight: 400; --vm-type-heading-body-s-semibold-line-height: 20px; --vm-type-heading-body-s-semibold-letter-spacing: 0em; /* Heading/Body/S/SemiBold */
+  --vm-type-heading-xs-size: 12px; --vm-type-heading-xs-weight: 600; --vm-type-heading-xs-line-height: 18px; --vm-type-heading-xs-letter-spacing: 0em; /* Heading/XS */
+  --vm-type-display-3xl-size: 48px; --vm-type-display-3xl-weight: 400; --vm-type-display-3xl-line-height: 56px; --vm-type-display-3xl-letter-spacing: 0em; /* Display/3XL */
+}
+
+/* ==========================================================================
+ *  文字样式工具类（对应 Figma 19 个 Text Styles）
+ *  用法：<span class="vm-type-heading-body-m-regular">正文</span>
+ *  或在自己的 CSS 里 @extend 这三行属性；不要手写 font-size/line-height。
+ * ========================================================================== */
+
+.vm-type-display-4xl {
+  font-family: var(--vm-font-family);
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 72px;
+  letter-spacing: 0em;
+}
+
+.vm-type-heading-xxl {
+  font-family: var(--vm-font-family);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: 0em;
+}
+
+.vm-type-heading-xl {
+  font-family: var(--vm-font-family);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  letter-spacing: 0em;
+}
+
+.vm-type-heading-l {
+  font-family: var(--vm-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: 0em;
+}
+
+.vm-type-heading-m {
+  font-family: var(--vm-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0em;
+}
+
+.vm-type-heading-s {
+  font-family: var(--vm-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0em;
+}
+
+.vm-type-caption-caption {
+  font-family: var(--vm-font-family);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0em;
+}
+
+.vm-type-caption-label {
+  font-family: var(--vm-font-family);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: 0em;
+}
+
+.vm-type-heading-body-l-regular {
+  font-family: var(--vm-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0em;
+}
+
+.vm-type-heading-body-l-medium {
+  font-family: var(--vm-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0em;
+}
+/* ⚠ Heading/Body/L/Medium：样式名写着 Medium（500），实际字体是 Regular（400） */
+
+.vm-type-heading-body-l-semibold {
+  font-family: var(--vm-font-family);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0em;
+}
+
+.vm-type-heading-body-m-regular {
+  font-family: var(--vm-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+}
+
+.vm-type-heading-body-m-medium {
+  font-family: var(--vm-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+}
+/* ⚠ Heading/Body/M/Medium：样式名写着 Medium（500），实际字体是 Regular（400） */
+
+.vm-type-heading-body-m-semibold {
+  font-family: var(--vm-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0em;
+}
+
+.vm-type-heading-body-s-regular {
+  font-family: var(--vm-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0em;
+}
+
+.vm-type-heading-body-s-medium {
+  font-family: var(--vm-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+}
+
+.vm-type-heading-body-s-semibold {
+  font-family: var(--vm-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0em;
+}
+/* ⚠ Heading/Body/S/SemiBold：样式名写着 SemiBold（600），实际字体是 Regular（400） */
+
+.vm-type-heading-xs {
+  font-family: var(--vm-font-family);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 0em;
+}
+
+.vm-type-display-3xl {
+  font-family: var(--vm-font-family);
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 56px;
+  letter-spacing: 0em;
+}

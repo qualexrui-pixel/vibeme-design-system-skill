@@ -1,0 +1,107 @@
+/* ============================================================================
+ * Textarea —— 事实来源：Figma 组件集 `Textarea`（node 56059:6287，页面 56054:5521）
+ * 10 个变体 = Size(md/lg) × State(default/hover/focus/error/disabled)
+ *   填充   Background/bg-card          #202020            --vm-bg-card
+ *   描边   Background/border-default   12% 白（default/disabled）  --vm-border-default
+ *          White/White-4              30% 白（hover）              --vm-white-4
+ *          Background/border-selected 50% 白 ＋ 2px（focus）      --vm-border-selected
+ *          状态色/Error               #FF3B30 ＋ 2px（error）     --vm-status-error
+ *   圆角   Semantic Radius/radius-input 12px（两档一致）        --vm-radius-input
+ *   内边距 上/下 12（Figma 绑 space/space-3）/ 左/右 16（Semantic Space/padding-input-x）
+ *          → 实现按 foundations §4「组件内边距走 --vm-padding-*」取语义等值
+ *            --vm-padding-input-y / --vm-padding-input-x（同为 12 / 16）
+ *   尺寸   md 320×88 / lg 320×120（两档都是 FIXED），auto layout gap 8 = --vm-space-2
+ *   文字   Heading/Body/M/Regular（16 / 24），占位色 Text/Text-Secondary
+ * ========================================================================== */
+
+.vm-textarea {
+  display: flex;
+  flex-direction: column;
+  /* Figma 的 VERTICAL auto layout gap 8（space/space-2）：字段与错误说明之间的距离 */
+  gap: var(--vm-space-2);
+  width: 320px; /* Figma 参考宽 320；需要自适应时由调用方覆盖 width */
+  font-family: var(--vm-font-family);
+}
+
+.vm-textarea__field {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--vm-padding-input-y) var(--vm-padding-input-x);
+  border: var(--vm-border-width-thin) solid var(--vm-border-default);
+  border-radius: var(--vm-radius-input);
+  background-color: var(--vm-bg-card);
+  color: var(--vm-text-primary);
+  font-family: inherit;
+  font-size: var(--vm-type-heading-body-m-regular-size);
+  line-height: var(--vm-type-heading-body-m-regular-line-height);
+  /* Figma 说「高度固定、内容自动换行」；这里给同尺寸的起始高度，并允许纵向拖拽（Figma 没有 resize 手柄） */
+  resize: vertical;
+  transition:
+    border-color var(--vm-duration-fast) ease-out,
+    background-color var(--vm-duration-fast) ease-out,
+    color var(--vm-duration-fast) ease-out;
+}
+
+/* 两档只差高度：md 88 / lg 120，内边距 12/16 与圆角 12 都不变（与 Figma 完全一致） */
+.vm-textarea--md .vm-textarea__field {
+  min-height: 88px;
+}
+
+.vm-textarea--lg .vm-textarea__field {
+  min-height: 120px;
+}
+
+.vm-textarea__field::placeholder {
+  /* Figma：占位文本绑 Text/Text-Secondary（64% 白）。显式给 ::placeholder 上色，
+     不要用 opacity 让主文字变淡 —— 那会连已输入文字的对比度一起降下去 */
+  color: var(--vm-text-secondary);
+}
+
+/* State=hover 的事实：只把描边由 12% 白换成 White/White-4（30% 白），底色不叠任何图层。
+   末尾的 :not(:focus-visible) 是必需的：`:hover:not(:disabled)` 权重 (0,3,0)，
+   高于 `:focus-visible` 的 (0,2,0)，不排掉聚焦态就会把 focus 的 50% 白描边压成 30% 白。 */
+.vm-textarea__field:hover:not(:disabled):not(:focus-visible) {
+  border-color: var(--vm-white-4);
+}
+
+/* State=focus 的事实：描边 2px ＋ Background/border-selected（50% 白），再补 focus ring */
+.vm-textarea__field:focus-visible {
+  border-color: var(--vm-border-selected);
+  border-width: var(--vm-border-width-thick);
+  box-shadow: 0 0 0 var(--vm-focus-ring-width) var(--vm-border-selected);
+  outline: none;
+}
+
+/* State=error 的事实：描边 2px ＋ 状态色/Error（hover / focus 时不回退成灰色） */
+.vm-textarea--error .vm-textarea__field {
+  border-color: var(--vm-status-error);
+  border-width: var(--vm-border-width-thick);
+}
+
+/* 同上：错误态的 hover 权重 (0,4,0)，也必须让位给 focus-visible，避免结构上压过焦点描边 */
+.vm-textarea--error .vm-textarea__field:hover:not(:disabled):not(:focus-visible) {
+  border-color: var(--vm-status-error);
+}
+
+.vm-textarea--error .vm-textarea__field:focus-visible {
+  border-color: var(--vm-status-error);
+  box-shadow: 0 0 0 var(--vm-focus-ring-width) var(--vm-status-error);
+}
+
+/* State=disabled：只降不透明度（Figma 绑 opacity/disabled = 38%），不另造灰色 */
+.vm-textarea__field:disabled {
+  opacity: var(--vm-opacity-disabled);
+  cursor: not-allowed;
+}
+
+.vm-textarea__error {
+  margin: 0;
+  color: var(--vm-status-error);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-textarea__field {
+    transition: none;
+  }
+}

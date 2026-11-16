@@ -1,0 +1,53 @@
+/* ============================================================================
+ * Empty —— 事实来源：Figma 组件集 `Empty`（node 56061:6529，页面 56054:5521）
+ * 3 个变体 = Type(empty / search / error)，三档**颜色完全一致**
+ *   布局   VERTICAL，gap 12（space/space-3）              --vm-space-3
+ *          内边距 40（space/space-10）四边同值             --vm-space-10
+ *          hAlign / vAlign 均 CENTER，尺寸 FIXED 360×220
+ *   图标   Line icon 48×48 实例，矢量填充 #FFFFFF（未绑变量）--vm-white-0
+ *          empty → folder-line（38.2084×37）
+ *          search → search-line（36.4998×36.4998）
+ *          error → alert-line（35×41.5）
+ *   标题   Text/Text-Primary 92% 白，Heading/M 16 SemiBold/24 --vm-text-primary
+ *   说明   Text/Text-Secondary 64% 白，Heading/Body/S/Regular 14 Regular/20
+ *                                                          --vm-text-secondary
+ *   ★ error 档**没有**用状态色/Error：图标、标题、说明与 empty/search 同色，
+ *     三档的差别只在图标与文案（见 empty.tree.json / empty.tree.error.json）。
+ * ========================================================================== */
+
+.vm-empty {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--vm-space-3);
+  width: 360px; /* Figma FIXED 参考宽；需要自适应时由调用方覆盖 width */
+  min-height: 220px; /* Figma FIXED 高 */
+  padding: var(--vm-space-10);
+  font-family: var(--vm-font-family);
+  text-align: center;
+}
+
+/* 48×48 的图标槽位：矢量按 Figma 的原始尺寸居中，不放大 */
+.vm-empty__icon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  color: var(--vm-white-0);
+}
+
+.vm-empty__title {
+  margin: 0;
+  color: var(--vm-text-primary);
+}
+
+/* 说明文字在 Figma 里是居中的定宽文本块（238px），换行后仍然居中 */
+.vm-empty__description {
+  margin: 0;
+  max-width: 100%;
+  color: var(--vm-text-secondary);
+}

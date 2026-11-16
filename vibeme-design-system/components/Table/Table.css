@@ -1,0 +1,74 @@
+/* ============================================================================
+ * Table —— 事实来源：Figma 组件集 `Table`（node 56065:6970，页面 56054:5521）
+ * 3 个变体 = State(default / empty / loading)
+ *   容器   720 宽（FIXED）VERTICAL gap 0 pad 0/0/0/0，clip: true
+ *          填充 Background/bg-card   #202020              --vm-bg-card
+ *          描边 四边 1px border/width/thin + Background/border-default --vm-border-default
+ *          圆角 Semantic Radius/radius-card 12px（四角同值）--vm-radius-card
+ *   default 表头 frame 720×42（Background/bg-panel --vm-bg-panel，无描边）
+ *           ＋ 3 个数据行 frame 720×49（只有下边线，见 TableRow）
+ *   empty   表头 ＋ Empty 实例 720×220（main=Type=empty：pad 40=space-10、gap 12=space-3、
+ *           Line icon 48×48 folder-line、标题 Heading/M 16 SemiBold、说明 14 Regular）
+ *   loading 表头 ＋ 3 个骨架行 720×52（pad 20/16 = space-5 / space-4，垂直居中，
+ *           内嵌 Skeleton 实例 Type=line, Size=md 200×12，填充 White/White-7）
+ *   列宽   60/240/160/140/120 是示例，交给调用方的 <colgroup>，组件不写死
+ * ★ 三档高度 191 / 264 / 200 是内容的结果，不写 height。
+ * ========================================================================== */
+
+.vm-table {
+  box-sizing: border-box;
+  width: 720px; /* Figma 参考宽 720（FIXED）；需要自适应时由调用方覆盖 width */
+  overflow: hidden; /* Figma clip: true —— 圆角要裁掉表头与数据行的底色/分隔线 */
+  border: var(--vm-border-width-thin) solid var(--vm-border-default);
+  border-radius: var(--vm-radius-card);
+  background-color: var(--vm-bg-card);
+  color: var(--vm-text-primary);
+  font-family: var(--vm-font-family);
+}
+
+/* 表格本体。border-collapse: collapse 是必须的：TableRow 的分隔线是 tr 的 border-bottom，
+   separate 模式下行边框不渲染（圆角已由外层容器裁切，不需要 separate） */
+.vm-table__grid {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+/* Table 内部的表头行没有下边框（Figma 的 Table 表头 frame 720×42 无描边），
+   与独立组件 TableRow 的 Type=header（43、带 1px 下边框）刻意不同：
+   去掉后 42 + 49×3 + 上下 1px 容器描边 = Figma 的总高 191 */
+.vm-table .vm-table-row--header {
+  border-bottom: 0;
+}
+
+/* empty 占位：Figma 里是内嵌的 Empty 实例，自带 --vm-space-10 内边距与 220px 最小高，
+   这里只负责摆放，**不要**再加内边距，否则会变成双层留白 */
+.vm-table__empty {
+  display: block;
+}
+
+/* loading：Figma 是 3 个 720×52 的骨架行，行本身无底色、无描边，只有内边距 20/16 与垂直居中 */
+.vm-table__loading {
+  display: block;
+}
+
+.vm-table__loading-row {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  /* 行高不写死：Figma 的 52px = 内边距 20 + Skeleton line/md 的 12 + 内边距 20，自然撑出来 */
+  padding: var(--vm-space-5) var(--vm-space-4);
+}
+
+/* 「内容加载中」的视觉隐藏提示：骨架块自身 aria-hidden，播报由这里负责 */
+.vm-table__loading-hint {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}

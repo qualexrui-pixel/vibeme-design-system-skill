@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+._*
+
+# 编辑器 / 工具
+.idea/
+.vscode/
+*.swp
+
+# Node
+node_modules/
+*.log
+
+# Python
+__pycache__/
+*.pyc
+
+# 临时产物（agent 探测、抓取中间结果等）
+.probe-*
+*.tmp
+/tmp/
