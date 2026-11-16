@@ -65,6 +65,13 @@
 └─ `TEXT` Placeholder 284×24 填充 `Text/Text-Secondary` #FFFFFF 64% `--vm-text-secondary` 文字样式 `Heading/Body/M/Regular`（16 Regular /24） 内容 'Placeholder'
 ```
 
+### Size=md, State=default
+
+```text
+`COMPONENT` Size=md, State=default 320×40 HORIZONTAL gap 0 pad 0/16/0/16 填充 `Background/bg-card` #202020 `--vm-bg-card` 描边 `Background/border-default` #FFFFFF 12% `--vm-border-default` 圆角 12
+└─ `TEXT` Placeholder 286×24 填充 `Text/Text-Secondary` #FFFFFF 64% `--vm-text-secondary` 文字样式 `Heading/Body/M/Regular`（16 Regular /24） 内容 'Placeholder'
+```
+
 
 ## 设计 token
 
@@ -84,6 +91,8 @@
 | `状态色/Error` | `--vm-status-error` | `#FF3B30` |
 
 <!-- GEN:END -->
+
+
 
 
 ## 交互与状态

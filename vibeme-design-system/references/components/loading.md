@@ -53,6 +53,14 @@
 └─ `VECTOR` Vector 29×29 描边 `Brand/Brand` #FFCC90 `--vm-brand`
 ```
 
+### Size=md
+
+```text
+`COMPONENT` Size=md 24×24
+└─ `FRAME` Frame 24×24 描边 `White/White-6` #FFFFFF 12% `--vm-white-6` 圆角 999
+└─ `VECTOR` Vector 21×21 描边 `Brand/Brand` #FFCC90 `--vm-brand`
+```
+
 
 ## 设计 token
 
@@ -64,6 +72,8 @@
 | `border/width/ring` | `--vm-border-width-ring` | `3px` |
 
 <!-- GEN:END -->
+
+
 
 
 ## 交互与状态

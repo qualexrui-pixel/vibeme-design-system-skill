@@ -75,6 +75,22 @@
     └─ `TEXT` Button 28×20 填充 `White/White-0` #FFFFFF `--vm-white-0` 文字样式 `Heading/S`（14 SemiBold /20） 内容 '删除'
 ```
 
+### Size=md, Type=basic
+
+```text
+`COMPONENT` Size=md, Type=basic 520×172 VERTICAL gap 20 pad 20/24/20/24 填充 `Background/bg-panel` #1A1A1A `--vm-bg-panel` 描边 `Background/border-default` #FFFFFF 12% `--vm-border-default` 圆角 12
+└─ `FRAME` Frame 470×26 HORIZONTAL gap 16 pad 0/0/0/0
+  └─ `TEXT` 弹窗标题 434×26 填充 `Text/Text-Primary` #FFFFFF 92% `--vm-text-primary` 文字样式 `Heading/L`（18 Bold /26） 内容 '弹窗标题'
+  └─ `INSTANCE` Filled icon 20×20 实例=Property 1=cross_filled
+    └─ `VECTOR` icon 13.11×13.11 填充 #FFFFFF
+└─ `TEXT` 这里是弹窗正文内容，用于承载说明信息或表单。 470×24 填充 `Text/Text-Secondary` #FFFFFF 64% `--vm-text-secondary` 文字样式 `Heading/Body/M/Regular`（16 Regular /24） 内容 '这里是弹窗正文内容，用于承载说明信息或表单。'
+└─ `FRAME` Frame 470×40 HORIZONTAL gap 12 pad 0/0/0/0
+  └─ `INSTANCE` Button 62×40 HORIZONTAL gap 0 pad 0/16/0/16 填充 `Background/bg-card` #202020 `--vm-bg-card` 描边 `Background/border-default` #FFFFFF 12% `--vm-border-default` 圆角 12 实例=Type=secondary, Size=md, State=default
+    └─ `TEXT` Button 28×20 填充 `Text/Text-Primary` #FFFFFF 92% `--vm-text-primary` 文字样式 `Heading/S`（14 SemiBold /20） 内容 '取消'
+  └─ `INSTANCE` Button 60×40 HORIZONTAL gap 0 pad 0/16/0/16 填充 `Brand/Brand` #FFCC90 `--vm-brand` 圆角 12 实例=Type=primary, Size=md, State=default
+    └─ `TEXT` Button 28×20 填充 `Neutral/Neutral-950` #0E0E0E `--vm-neutral-950` 文字样式 `Heading/S`（14 SemiBold /20） 内容 '确认'
+```
+
 
 ## 设计 token
 
@@ -103,6 +119,8 @@
 | `状态色/Error` | `--vm-status-error` | `#FF3B30` |
 
 <!-- GEN:END -->
+
+
 
 
 ## 交互与状态

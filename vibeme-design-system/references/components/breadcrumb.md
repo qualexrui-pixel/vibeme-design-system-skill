@@ -71,6 +71,7 @@
 <!-- GEN:END -->
 
 
+
 ## 交互与状态
 
 Figma 的 `Breadcrumb` **没有 `State` 轴**，也没有 focus / hover 变体，只有 `Type=3levels | collapsed`。

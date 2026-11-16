@@ -99,6 +99,13 @@
 └─ `TEXT` Button 48×20 填充 `Text/Text-Primary` #FFFFFF 92% `--vm-text-primary` 文字样式 `Heading/S`（14 SemiBold /20） 内容 'Button'
 ```
 
+### Type=primary, Size=lg, State=default
+
+```text
+`COMPONENT` Type=primary, Size=lg, State=default 95×48 HORIZONTAL gap 0 pad 0/20/0/20 填充 `Brand/Brand` #FFCC90 `--vm-brand` 圆角 12
+└─ `TEXT` Button 55×24 填充 `Neutral/Neutral-950` #0E0E0E `--vm-neutral-950` 文字样式 `Heading/M`（16 SemiBold /24） 内容 'Button'
+```
+
 
 ## 设计 token
 
@@ -120,6 +127,8 @@
 | `状态色/Error` | `--vm-status-error` | `#FF3B30` |
 
 <!-- GEN:END -->
+
+
 
 
 

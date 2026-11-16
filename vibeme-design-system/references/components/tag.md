@@ -101,6 +101,7 @@
 <!-- GEN:END -->
 
 
+
 ## 交互与状态
 
 **Tag 没有 `State` 轴**：Figma 的 24 个变体全部由 `Tone` × `Size` × `Style` 组成，没有 hover / pressed /

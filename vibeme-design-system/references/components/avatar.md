@@ -56,6 +56,27 @@
   └─ `VECTOR` icon 8.72×9.35 填充 #FFFFFF
 ```
 
+### Size=lg, Type=initial
+
+```text
+`COMPONENT` Size=lg, Type=initial 48×48 HORIZONTAL gap 0 pad 0/0/0/0 填充 `Neutral/Neutral-700` #262626 `--vm-neutral-700` 描边 `Background/border-default` #FFFFFF 12% `--vm-border-default` 圆角 999
+└─ `TEXT` A 12×24 填充 `Neutral/Neutral-100` #E0E0E0 `--vm-neutral-100` 文字样式 `Heading/M`（16 SemiBold /24） 内容 'A'
+```
+
+### Size=md, Type=initial
+
+```text
+`COMPONENT` Size=md, Type=initial 40×40 HORIZONTAL gap 0 pad 0/0/0/0 填充 `Neutral/Neutral-700` #262626 `--vm-neutral-700` 描边 `Background/border-default` #FFFFFF 12% `--vm-border-default` 圆角 999
+└─ `TEXT` A 11×20 填充 `Neutral/Neutral-100` #E0E0E0 `--vm-neutral-100` 文字样式 `Heading/S`（14 SemiBold /20） 内容 'A'
+```
+
+### Size=sm, Type=initial
+
+```text
+`COMPONENT` Size=sm, Type=initial 32×32 HORIZONTAL gap 0 pad 0/0/0/0 填充 `Neutral/Neutral-700` #262626 `--vm-neutral-700` 描边 `Background/border-default` #FFFFFF 12% `--vm-border-default` 圆角 999
+└─ `TEXT` A 9×18 填充 `Neutral/Neutral-100` #E0E0E0 `--vm-neutral-100` 文字样式 `Caption/Caption`（12 Medium /18） 内容 'A'
+```
+
 ### Size=xl, Type=initial
 
 ```text
@@ -75,6 +96,8 @@
 | `border/width/thin` | `--vm-border-width-thin` | `1px` |
 
 <!-- GEN:END -->
+
+
 
 
 ## 交互与状态

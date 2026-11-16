@@ -6,6 +6,24 @@
 - **次版本**：新增组件、新增 token、新增文档章节。
 - **修订号**：修正事实错误、补漏、措辞与预览图更新。
 
+## [1.0.1] - 2026-11-16
+
+### 修正
+
+- 补齐 **7 个组件「未采样尺寸档」的 Figma 证据**（新增 10 棵结构树）：`button(lg)`、`input(md)`、
+  `avatar(sm/md/lg)`、`switch(sm)`、`modal(md)`、`drawer(md/lg)`、`loading(md)`。
+  起因：抽查发现实现里按尺寸档写了字号，但部分档位没有对应的 Figma 导出证据 —— 这属于「无证据断言」。
+  逐档核对结果：**原有断言全部正确，实现代码无需改动** ——
+  button `lg` = `Heading/M`(16 SemiBold/24)、input `md` = `Heading/Body/M/Regular`(16 Regular/24)、
+  avatar `sm/md/lg` = `Caption/Caption`/`Heading/S`/`Heading/M`、modal 与 drawer 各档文字样式一致；
+  switch 与 loading 的这些档位本身**没有 TEXT 节点**（不适用）。受影响的 7 份组件文档事实段已重算。
+- 修正 `data/components-index.json` 里失效的工具名引用（原写 `tools/export-figma.mjs`）。
+
+### 验证
+
+重新跑全套：`validate.py` 48 组件 0 错 0 警 · `gen-tokens.py --check` 一致 · `tsc` 0 error ·
+SSR 冒烟 49/49 渲染成功。
+
 ## [1.0.0] - 2026-11-16
 
 首次发布。

@@ -82,6 +82,7 @@
 <!-- GEN:END -->
 
 
+
 ## 交互与状态
 
 **Stack 没有交互态，也没有应用态。** Figma 的 6 个变体 = `Direction`(2) × `Gap`(3)，压根没有 `State` 轴，

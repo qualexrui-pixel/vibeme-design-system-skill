@@ -99,6 +99,7 @@
 <!-- GEN:END -->
 
 
+
 ## 交互与状态
 
 **Footer 没有 `State` 轴**：组件集只有 `Type`(simple / columns) 一条属性，所以它既没有

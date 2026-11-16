@@ -65,6 +65,7 @@
 <!-- GEN:END -->
 
 
+
 ## 交互与状态
 
 `TableCell` 在 Figma 里**只有 `Type` 一根轴，没有任何 `State` 变体**（没有 hover / pressed / focus / disabled）。

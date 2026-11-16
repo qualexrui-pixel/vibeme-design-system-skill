@@ -62,6 +62,7 @@
 <!-- GEN:END -->
 
 
+
 ## 交互与状态
 
 Divider 在 Figma 里只有 `Orientation` × `Style` 两条轴、4 个变体，**没有 `State` 轴**：没有 hover、pressed、focus、disabled 变体，`variablesUsed` 里也只有 `Background/border-default` 与 `border/width/thin` 两个变量。因此代码里 `.vm-divider` 上**不写任何伪类**、不提供任何交互 prop，也不做「可拖动分隔条」那种增强——那属于另一种组件（Split Pane / Resizer），不要塞进 Divider。

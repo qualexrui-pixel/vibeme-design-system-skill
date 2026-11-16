@@ -62,6 +62,7 @@
 <!-- GEN:END -->
 
 
+
 ## 交互与状态
 
 这是一颗**可点的能力切换胶囊**（Figma 描述原文：`Use to switch AI modes without changing the primary task.`），

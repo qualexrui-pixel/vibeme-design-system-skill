@@ -68,6 +68,7 @@
 <!-- GEN:END -->
 
 
+
 ## 交互与状态
 
 卡片本身**不可点**（没有 hover / pressed 变体），状态由受控 prop `state` 驱动；Figma 描述原文是

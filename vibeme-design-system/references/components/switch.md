@@ -58,6 +58,13 @@
 └─ `FRAME` Frame 16×16 HORIZONTAL gap 0 pad 0/0/0/0 填充 `Neutral/Neutral-950` #0E0E0E `--vm-neutral-950` 圆角 999
 ```
 
+### Size=sm, Checked=false, State=default
+
+```text
+`COMPONENT` Size=sm, Checked=false, State=default 36×20 HORIZONTAL gap 0 pad 4/4/4/4 填充 `Neutral/Neutral-550` #383838 `--vm-neutral-550` 圆角 999
+└─ `FRAME` Frame 12×12 HORIZONTAL gap 0 pad 0/0/0/0 填充 `White/White-0` #FFFFFF `--vm-white-0` 圆角 999
+```
+
 
 ## 设计 token
 
@@ -72,6 +79,8 @@
 | `space/space-1` | `--vm-space-1` | `4px` |
 
 <!-- GEN:END -->
+
+
 
 
 

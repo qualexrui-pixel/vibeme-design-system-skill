@@ -72,6 +72,7 @@
 <!-- GEN:END -->
 
 
+
 ## 交互与状态
 
 Empty **没有任何交互态**：Figma 只有一根 `Type` 轴（`empty` / `search` / `error`），既不是 `State`，也没有 hover / focus / disabled 档，

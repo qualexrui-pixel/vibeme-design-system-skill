@@ -54,6 +54,28 @@
 └─ `TEXT` 抽屉正文内容，可承载表单、列表或详情信息。 270×48 填充 `Text/Text-Secondary` #FFFFFF 64% `--vm-text-secondary` 文字样式 `Heading/Body/M/Regular`（16 Regular /24） 内容 '抽屉正文内容，可承载表单、列表或详情信息。'
 ```
 
+### Size=lg, Side=right
+
+```text
+`COMPONENT` Size=lg, Side=right 560×640 VERTICAL gap 20 pad 20/24/20/24 填充 `Background/bg-panel` #1A1A1A `--vm-bg-panel` 描边 `Background/border-default` #FFFFFF 12% `--vm-border-default` 圆角 16/0/0/16
+└─ `FRAME` Frame 510×26 HORIZONTAL gap 16 pad 0/0/0/0
+  └─ `TEXT` 抽屉标题 474×26 填充 `Text/Text-Primary` #FFFFFF 92% `--vm-text-primary` 文字样式 `Heading/L`（18 Bold /26） 内容 '抽屉标题'
+  └─ `INSTANCE` Filled icon 20×20 实例=Property 1=cross_filled
+    └─ `VECTOR` icon 13.11×13.11 填充 #FFFFFF
+└─ `TEXT` 抽屉正文内容，可承载表单、列表或详情信息。 510×24 填充 `Text/Text-Secondary` #FFFFFF 64% `--vm-text-secondary` 文字样式 `Heading/Body/M/Regular`（16 Regular /24） 内容 '抽屉正文内容，可承载表单、列表或详情信息。'
+```
+
+### Size=md, Side=right
+
+```text
+`COMPONENT` Size=md, Side=right 420×640 VERTICAL gap 20 pad 20/24/20/24 填充 `Background/bg-panel` #1A1A1A `--vm-bg-panel` 描边 `Background/border-default` #FFFFFF 12% `--vm-border-default` 圆角 16/0/0/16
+└─ `FRAME` Frame 370×26 HORIZONTAL gap 16 pad 0/0/0/0
+  └─ `TEXT` 抽屉标题 334×26 填充 `Text/Text-Primary` #FFFFFF 92% `--vm-text-primary` 文字样式 `Heading/L`（18 Bold /26） 内容 '抽屉标题'
+  └─ `INSTANCE` Filled icon 20×20 实例=Property 1=cross_filled
+    └─ `VECTOR` icon 13.11×13.11 填充 #FFFFFF
+└─ `TEXT` 抽屉正文内容，可承载表单、列表或详情信息。 370×24 填充 `Text/Text-Secondary` #FFFFFF 64% `--vm-text-secondary` 文字样式 `Heading/Body/M/Regular`（16 Regular /24） 内容 '抽屉正文内容，可承载表单、列表或详情信息。'
+```
+
 
 ## 设计 token
 
@@ -71,6 +93,8 @@
 | `space/space-5` | `--vm-space-5` | `20px` |
 
 <!-- GEN:END -->
+
+
 
 
 ## 交互与状态
